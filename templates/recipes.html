@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Palate</title>
+</head>
+<body>
+    {% for recipe in recipes %}
+        {{ recipe.recipe_name }}<br>
+        {{ recipe.cuisine_type }}<br>
+        {{ recipe.image }}<br>
+        {{ recipe.video }}<br>
+        {{ recipe.servings }}<br>
+        {{ recipe.is_vegetarian }}<br>
+        {{ recipe.prep_time }}<br>
+        {{ recipe.cooking_time }}<br>
+        {{ recipe.ingredients }}<br>
+        {{ recipe.method }}<br>
+        {{ recipe.allergens }}<br>
+    {% endfor %}
+</body>
+</html>
