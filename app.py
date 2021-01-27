@@ -55,6 +55,8 @@ def register():
         # After clicking register, user will now be in session:
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
+        return redirect(url_for("recipes", username=session["user"]))
+
     return render_template("register.html")
 
 
@@ -71,6 +73,8 @@ def login():
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Hello, {}".format(request.form.get("username")))
+                    return redirect(url_for(
+                        "recipes", username=session["user"]))
             else:
                 # If the invalid password is incorrect then alert user.
                 # For security reasons message displays either username
@@ -85,6 +89,14 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    # Remove user from the browser session cookies:
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
