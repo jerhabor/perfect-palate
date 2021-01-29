@@ -5,3 +5,16 @@
 .flash-message {
     line-height: 3;
 }
+
+/* .food-image {
+    height: 50vh;
+    overflow: hidden;
+} */
+
+.food-image img {
+    width: 100%;
+}
+
+.full-recipe-header {
+    margin-top: 20px;
+}
