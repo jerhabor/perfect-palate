@@ -1,29 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for recipe in recipes %}
-        {{ recipe.recipe_name }}<br>
-        {{ recipe.cuisine_type }}<br>
-        {{ recipe.description }}<br>
-        {{ recipe.image }}<br>
-        {{ recipe.servings }}<br>
-        {{ recipe.is_vegetarian }}<br>
-        Total Time: {{ recipe.prep_time + recipe.cooking_time }} minutes<br>
-    {% endfor %}
-
     <ul class="collapsible">
+        {% for recipe in recipes %}
         <li>
-            <div class="collapsible-header white-text green darken-3 text-shadow"><i class="fas fa-caret-down"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header white-text green darken-3 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ recipe.recipe_name }}</strong>
+                {% if recipe.is_vegetarian %}
+                    <i class="fas fa-seedling green-text text-lighten-2 tooltipped"
+                    data-position="right" data-tooltip="Suitable for Vegetarians"></i>
+                {% endif %}
+            </div>
+            <div class="row collapsible-body">
+                <div class="col s9">
+                    <strong><p>Cuisine: {{ recipe.cuisine_type }}</p></strong>
+                    <p>{{ recipe.description }}</p>
+                    <p>Total Time: {{ recipe.prep_time + recipe.cooking_time }} minutes</p>
+                    <a role="button" class="btn" href="/recipes/{{ recipe.recipe_name }}">Full Recipe</a>
+                </div>
+                <div class="col s3 food-image">
+                    <img src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
+                </div>
+            </div>
         </li>
-        <li>
-            <div class="collapsible-header white-text green darken-3 text-shadow"><i class="fas fa-caret-down"></i>Second</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header white-text green darken-3 text-shadow"><i class="fas fa-caret-down"></i>Third</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
+        {% endfor %}
     </ul>
 
 {% endblock %}
