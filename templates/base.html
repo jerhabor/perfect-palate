@@ -21,7 +21,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('recipes') }}">Home</a></li>
                     {% if session.user %}
-                        <li><a href="#">New Recipe</a></li>
+                        <li><a href="{{ url_for('new_recipe') }}">New Recipe</a></li>
                         <li><a href="#">Manage Recipes</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else %}
@@ -36,7 +36,7 @@
             <li><h4 class="center-align green-text text-darken-2">Perfect Palate</h4></li>
             <li><a href="{{ url_for('recipes') }}">Home</a></li>
             {% if session.user %}
-                <li><a href="#">New Recipe</a></li>
+                <li><a href="{{ url_for('new_recipe') }}">New Recipe</a></li>
                 <li><a href="#">Manage Recipes</a></li>
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
             {% else %}
