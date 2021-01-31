@@ -4,14 +4,16 @@
     <h3 class="green-text text-darken-2 center-align">Add a New Recipe</h3>
 
     <div class="row">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('new_recipe') }}">
             <div class="row">
+                <!-- Name of the Recipe -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-utensils green-text text-darken-2 prefix"></i>
                     <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" 
                         type="text" class="validate" required>
                     <label for="recipe_name">Name of Food</label>
                 </div>
+                <!-- Type of Cuisine -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-globe-africa green-text text-darken-2 prefix"></i>
                     <input id="cuisine_type" name="cuisine_type" minlength="5" maxlength="50" 
@@ -20,6 +22,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Description of meal -->
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
                     <textarea id="description" name="description" class="materialize-textarea" 
@@ -28,11 +31,13 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Link to Image -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-image green-text text-darken-2 prefix"></i>
                     <input id="image" name="image" type="text" class="validate" required>
                     <label for="image">Paste link to Image</label>
                 </div>
+                <!-- Link to Video -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-video green-text text-darken-2 prefix"></i>
                     <input id="video" name="video" type="text" class="validate">
@@ -40,12 +45,14 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Servings -->
                 <div class="input-field col s6 m3 offset-m1">
                     <i class="fas fa-clock green-text text-darken-2 prefix"></i>
                     <input id="servings" name="servings" type="number" min="1" max="5" 
                         class="validate" required>
                     <label for="servings">Servings</label>
                 </div>
+                <!-- Is Vegetarian checkbox -->
                 <div class="input-field col s6 m3 offset-m4">
                     <p>
                         <label for="is_vegetarian">
@@ -57,22 +64,33 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Preparation Time -->
                 <div class="input-field col s6 m3 offset-m1">
                     <i class="fas fa-clock green-text text-darken-2 prefix"></i>
                     <input id="prep_time" type="number" class="validate" required>
                     <label for="prep_time">Preparation Time</label>
                 </div>
+                <!-- Cooking Time -->
                 <div class="input-field col s6 m3 offset-m4">
                     <i class="fas fa-bacon green-text text-darken-2 prefix"></i>
                     <input id="cooking_time" type="number" class="validate" required>
                     <label for="cooking_time">Cooking Time</label>
                 </div>
             </div>
-
+            <!-- Recipe Ingredients -->
             <h3 class="green-text text-darken-2 center-align">Ingredients</h3>
             <br><br>
+            <!-- Recipe Method -->
             <h3 class="green-text text-darken-2 center-align">Method</h3>
-
+            <br><br>
+            <!-- Submit Button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large green darken-2 text-shadow">
+                        Add New Recipe
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
 
