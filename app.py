@@ -112,7 +112,7 @@ def logout():
 @app.route("/new_recipe", methods=["GET", "POST"])
 def new_recipe():
     if request.method == "POST":
-        is_vegetarian = True if request.form.get(
+        is_vegetarian = "Yes" if request.form.get(
             "is_vegetarian") is True else False
         recipe = {
             "cuisine_type": request.form.get("cuisine_type"),
