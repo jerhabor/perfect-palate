@@ -7,15 +7,15 @@
         </div>
         <div class="col s8">
             <h2>{{ info.recipe_name }}
-            {% if info.is_vegetarian %}
+            {% if info.is_vegetarian == "Yes" %}
                 <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
                 data-tooltip="Suitable for Vegetarians"></i>
             {% endif %}
             </h2>
             <h6><strong>Cuisine: {{ info.cuisine_type }}</strong></h6>
             <p>Servings: {{ info.servings }}</p>
-            <p>Preparation Time: {{ info.prep_time }}</p>
-            <p>Cooking Time: {{ info.cooking_time }}</p>
+            <p>Preparation Time: {{ info.prep_time }} minutes</p>
+            <p>Cooking Time: {{ info.cooking_time }} minutes</p>
             <p>
                 List of Allergens:
                 {% for allergen in info.allergens %}

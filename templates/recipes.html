@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <h3 class="green-text text-darken-2 center-align">Recipes</h3>
+
     <ul class="collapsible">
         {% for recipe in recipes %}
         <li>
             <div class="collapsible-header white-text green darken-3 text-shadow">
                 <i class="fas fa-caret-down"></i>
                 <strong>{{ recipe.recipe_name }}</strong>
-                {% if recipe.is_vegetarian %}
+                {% if recipe.is_vegetarian == "Yes" %}
                     <i class="fas fa-seedling green-text text-lighten-2 tooltipped"
                     data-position="right" data-tooltip="Suitable for Vegetarians"></i>
                 {% endif %}
@@ -17,6 +19,7 @@
                     <strong><p>Cuisine: {{ recipe.cuisine_type }}</p></strong>
                     <p>{{ recipe.description }}</p>
                     <p>Total Time: {{ recipe.prep_time + recipe.cooking_time }} minutes</p>
+                    <p><em>Recipe by: {{ recipe.recipe_by }}</em></p>
                     <a role="button" class="btn" href="/recipes/{{ recipe.recipe_name }}">Full Recipe</a>
                 </div>
                 <div class="col s3 food-image">
