@@ -113,7 +113,7 @@ def logout():
 def new_recipe():
     if request.method == "POST":
         is_vegetarian = "Yes" if request.form.get(
-            "is_vegetarian") is True else False
+            "is_vegetarian") == "Yes" else "No"
         recipe = {
             "cuisine_type": request.form.get("cuisine_type"),
             "recipe_name": request.form.get("recipe_name"),
@@ -122,6 +122,7 @@ def new_recipe():
             "is_vegetarian": is_vegetarian,
             "prep_time": request.form.get("prep_time", type=int),
             "cooking_time": request.form.get("cooking_time", type=int),
+            "method": request.form.getlist("method"),
             "image": request.form.get("image"),
             "video": request.form.get("video"),
             "recipe_by": session["user"]
