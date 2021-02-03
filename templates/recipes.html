@@ -10,21 +10,27 @@
                     <img class="activator" src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">
-                        <div class="col s10"><p class="truncate">{{ recipe.recipe_name }} hello hello</p></div>
-                        <div class="col s2"><i class="fas fa-ellipsis-v right"></i></div>
-                    </span>
+                    <div class="center activator grey-text text-darken-4">
+                        <div class="card-title "></div>
+                        <h6>{{ recipe.recipe_name }} hello hello hello hello
+                            {% if recipe.is_vegetarian == "Yes" %}
+                                <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
+                                    data-tooltip="Suitable for Vegetarians"></i>
+                            {% endif %}
+                        </h6>
+                        <p><i class="fas fa-angle-up center"></i></p>
+                    </div>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">
                         <i class="fas fa-times right"></i></span>
-                        <h5>{{ recipe.recipe_name }} hello hello
+                        <h5>{{ recipe.recipe_name }}
+                            {% if recipe.is_vegetarian == "Yes" %}
+                                <i class="fas fa-leaf green-text text-lighten-2 tooltipped" data-position="right"
+                                    data-tooltip="Suitable for Vegetarians"></i>
+                            {% endif %}
                         </h5>
                     <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong>
-                        {% if recipe.is_vegetarian == "Yes" %}
-                            <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
-                                data-tooltip="Suitable for Vegetarians"></i>
-                        {% endif %}
                     </p>
                     <p>{{ recipe.description }}</p>
                     <p><i class="fas fa-clock"></i> {{ recipe.prep_time + recipe.cooking_time }} minutes</p>

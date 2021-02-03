@@ -9,14 +9,14 @@
                 <!-- Name of the Recipe -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-book-open green-text text-darken-2 prefix"></i>
-                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="30" 
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" 
                         type="text" class="validate" required>
                     <label for="recipe_name">Name of Food</label>
                 </div>
                 <!-- Type of Cuisine -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-globe-africa green-text text-darken-2 prefix"></i>
-                    <input id="cuisine_type" name="cuisine_type" minlength="5" maxlength="50" 
+                    <input id="cuisine_type" name="cuisine_type" minlength="5" maxlength="30" 
                         type="text" class="validate" required>
                     <label for="cuisine_type">Type of Cuisine</label>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
                     <textarea id="description" name="description" class="validate materialize-textarea" 
-                        data-length="100" required></textarea>
+                        minlength="5" maxlength="100" required></textarea>
                     <label for="description">Describe this meal in one sentence</label>
                 </div>
             </div>
@@ -35,13 +35,13 @@
                 <div class="input-field col s12 m6">
                     <i class="fas fa-image green-text text-darken-2 prefix"></i>
                     <input id="image" name="image" type="text" class="validate" required>
-                    <label for="image">Paste link to Image</label>
+                    <label for="image">Paste image address</label>
                 </div>
                 <!-- Link to Video -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-video green-text text-darken-2 prefix"></i>
                     <input id="video" name="video" type="text" class="validate">
-                    <label for="video">Paste link to Video</label>
+                    <label for="video">Have a video tutorial? Paste the link here!</label>
                 </div>
             </div>
             <div class="row">

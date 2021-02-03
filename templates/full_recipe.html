@@ -1,23 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <h2 class="center-align">{{ info.recipe_name }}
+    </h2>
+
     <div class="row full-recipe-header">
-        <div class="col s4 food-image">
+        <div class="col s12 m6 food-image">
             <img src="{{ info.image }}" alt="Profile image for {{ info.recipe_name }}">
         </div>
-        <div class="col s8">
-            <h2>{{ info.recipe_name }}
-            {% if info.is_vegetarian == "Yes" %}
-                <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
-                data-tooltip="Suitable for Vegetarians"></i>
-            {% endif %}
-            </h2>
-            <h6><strong>Cuisine: {{ info.cuisine_type }}</strong></h6>
+        <div class="col s12 m6">
+            <h6>
+                <strong>Cuisine: {{ info.cuisine_type }}</strong>
+                {% if info.is_vegetarian == "Yes" %}
+                    <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
+                        data-tooltip="Suitable for Vegetarians"></i>
+                {% endif %}
+            </h6>
             <p>Servings: {{ info.servings }}</p>
-            <p>Preparation Time: {{ info.prep_time }} minutes</p>
-            <p>Cooking Time: {{ info.cooking_time }} minutes</p>
+            <p>Prep: {{ info.prep_time }} minutes</p>
+            <p>Cook: {{ info.cooking_time }} minutes</p>
             <p>
-                List of Allergens:
+                Allergens:
                 {% for allergen in info.allergens %}
                     {% if allergen == info.allergens[-1] %}
                         {{ allergen }}
@@ -27,7 +30,7 @@
                 {% endfor %}
             </p>
             <a role="button" class="btn" href="{{ info.video }}" target="_blank">
-                Click here for a video demonstration
+                Video Tutorial
             </a>
         </div>
         <div class="col s12">

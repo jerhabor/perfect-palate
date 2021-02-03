@@ -27,6 +27,20 @@
     height: 100%;
 }
 
+.card .card-content {
+    padding: 10px 20px
+}
+
+.food-image {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.food-image img {
+    width: 100%;
+    height: auto;
+}
+
 .full-recipe-header {
     margin-top: 20px;
 }
