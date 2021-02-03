@@ -9,7 +9,7 @@
                 <!-- Name of the Recipe -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-book-open green-text text-darken-2 prefix"></i>
-                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" 
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="30" 
                         type="text" class="validate" required>
                     <label for="recipe_name">Name of Food</label>
                 </div>
@@ -26,8 +26,8 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
                     <textarea id="description" name="description" class="validate materialize-textarea" 
-                        data-length="300" required></textarea>
-                    <label for="description">Describe this food to fellow epicures</label>
+                        data-length="100" required></textarea>
+                    <label for="description">Describe this meal in one sentence</label>
                 </div>
             </div>
             <div class="row">
@@ -85,12 +85,12 @@
                     <ul class="ingredient_items">
                         <li>    
                             <div class="input-field col s6 m8">
-                                <input id="ingredient_name" name="ingredient_name" minlength="5" maxlength="50" type="text"
+                                <input id="ingredient_name" name="ingredient_name" minlength="1" maxlength="50" type="text"
                                     class="validate" required>
                                 <label for="ingredient_name">Ingredient Name <em>(e.g. Ripe Plantain)</em></label>
                             </div>
                             <div class="input-field col s5 m3">
-                                <input id="ingredient_amount" name="ingredient_amount" minlength="5" maxlength="50" type="text" class="validate" required>
+                                <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50" type="text" class="validate" required>
                                 <label for="ingredient_amount">Amount <em>(e.g. 3 tablespoons)</em></label>
                             </div>
                         </li>

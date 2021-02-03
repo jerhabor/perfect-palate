@@ -6,13 +6,25 @@
     line-height: 3;
 }
 
-/* .food-image {
-    height: 50vh;
-    overflow: hidden;
-} */
-
-.food-image img {
+.card {
     width: 100%;
+    height: 350px;
+}
+
+.row .card {
+    padding: 0px;
+}
+
+.card-image {
+    height: 70%;
+}
+
+.card-content {
+    height: 30%;
+}
+
+.card-image img {
+    height: 100%;
 }
 
 .full-recipe-header {

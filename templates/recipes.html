@@ -3,31 +3,36 @@
 
     <h3 class="green-text text-darken-2 center-align">Recipes</h3>
 
-    <ul class="collapsible">
+    <div class="row">
         {% for recipe in recipes %}
-        <li>
-            <div class="collapsible-header white-text green darken-3 text-shadow">
-                <i class="fas fa-caret-down"></i>
-                <strong>{{ recipe.recipe_name }}</strong>
-                {% if recipe.is_vegetarian == "Yes" %}
-                    <i class="fas fa-seedling green-text text-lighten-2 tooltipped"
-                    data-position="right" data-tooltip="Suitable for Vegetarians"></i>
-                {% endif %}
-            </div>
-            <div class="row collapsible-body">
-                <div class="col s9">
-                    <strong><p>Cuisine: {{ recipe.cuisine_type }}</p></strong>
+            <div class="card col s12 m6 l4">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">
+                        <div class="col s10"><p class="truncate">{{ recipe.recipe_name }} hello hello</p></div>
+                        <div class="col s2"><i class="fas fa-ellipsis-v right"></i></div>
+                    </span>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        <i class="fas fa-times right"></i></span>
+                        <h5>{{ recipe.recipe_name }} hello hello
+                        </h5>
+                    <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong>
+                        {% if recipe.is_vegetarian == "Yes" %}
+                            <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
+                                data-tooltip="Suitable for Vegetarians"></i>
+                        {% endif %}
+                    </p>
                     <p>{{ recipe.description }}</p>
-                    <p>Total Time: {{ recipe.prep_time + recipe.cooking_time }} minutes</p>
+                    <p><i class="fas fa-clock"></i> {{ recipe.prep_time + recipe.cooking_time }} minutes</p>
                     <p><em>Recipe by: {{ recipe.recipe_by }}</em></p>
-                    <a role="button" class="btn" href="/recipes/{{ recipe.recipe_name }}">Full Recipe</a>
-                </div>
-                <div class="col s3 food-image">
-                    <img src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
+                    <p><a href="/recipes/{{ recipe.recipe_name }}">Full Recipe</a></p>
                 </div>
             </div>
-        </li>
         {% endfor %}
-    </ul>
+    </div>
 
 {% endblock %}
