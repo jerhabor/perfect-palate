@@ -114,6 +114,18 @@ def new_recipe():
     if request.method == "POST":
         is_vegetarian = "Yes" if request.form.get(
             "is_vegetarian") == "Yes" else "No"
+
+        # Creating a dictionary for the method with 'key:value' pairs
+        # being 'step number:step description' respectively.
+        method = request.form.getlist("method")
+        method_obj = {}
+        for element in method:
+            # Starting the steps from 1; as by default, the starting
+            # index of a list is 0. For the step to be a key of the
+            # dictionary, it must be converted to a string.
+            method_step = method.index(element) + 1
+            method_obj[str(method_step)] = str(element)
+
         recipe = {
             "cuisine_type": request.form.get("cuisine_type"),
             "recipe_name": request.form.get("recipe_name"),
@@ -122,7 +134,7 @@ def new_recipe():
             "is_vegetarian": is_vegetarian,
             "prep_time": request.form.get("prep_time", type=int),
             "cooking_time": request.form.get("cooking_time", type=int),
-            "method": request.form.getlist("method"),
+            "method": method_obj,
             "image": request.form.get("image"),
             "video": request.form.get("video"),
             "recipe_by": session["user"]
