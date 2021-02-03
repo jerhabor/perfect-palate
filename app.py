@@ -115,6 +115,14 @@ def new_recipe():
         is_vegetarian = "Yes" if request.form.get(
             "is_vegetarian") == "Yes" else "No"
 
+        # Creating a dictionary for ingredients with 'key:value' pairs
+        # being 'ingredient_name:ingredient_amount' respectively.
+        ingredient_name = request.form.getlist("ingredient_name")
+        ingredient_amount = request.form.getlist("ingredient_amount")
+        ingredients = {}
+        for index in range(len(ingredient_name)):
+            ingredients[ingredient_name[index]] = ingredient_amount[index]
+
         # Creating a dictionary for the method with 'key:value' pairs
         # being 'step number:step description' respectively.
         method = request.form.getlist("method")
@@ -134,6 +142,7 @@ def new_recipe():
             "is_vegetarian": is_vegetarian,
             "prep_time": request.form.get("prep_time", type=int),
             "cooking_time": request.form.get("cooking_time", type=int),
+            "ingredients": ingredients,
             "method": method_obj,
             "image": request.form.get("image"),
             "video": request.form.get("video"),
