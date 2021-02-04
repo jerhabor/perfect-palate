@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <!-- Page Title -->
     <h3 class="green-text text-darken-2 center-align">Add a New Recipe</h3>
 
+    <!-- Add a New Recipe Form -->
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('new_recipe') }}">
             <div class="row">
