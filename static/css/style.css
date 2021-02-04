@@ -28,17 +28,13 @@ body {
 .recipe-list .col > .card {
     box-sizing: border-box;
     width: 100%;
-    height: 350px;
+    height: 300px;
     padding: 0px;
     margin-right: 10px;
 }
 
 .card-image {
-    height: 70%;
-}
-
-.card-content {
-    height: 30%;
+    height: 64%;
 }
 
 .card-image img {
@@ -48,7 +44,13 @@ body {
 
 .card .card-content {
     box-sizing: border-box;
-    padding: 10px 20px
+    height: 36%;
+    padding: 5px 10px
+}
+
+.card > .btn-small {
+    box-sizing: border-box;
+    margin-top: 10px;
 }
 
 /* 'full_recipe.html' page */
