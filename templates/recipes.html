@@ -3,42 +3,44 @@
 
     <h3 class="green-text text-darken-2 center-align">Recipes</h3>
 
-    <div class="row">
+    <div class="row recipe-list">
         {% for recipe in recipes %}
-            <div class="card col s12 m6 l4">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
-                </div>
-                <div class="card-content">
-                    <div class="center activator grey-text text-darken-4">
-                        <div class="card-title "></div>
-                        <h6>{{ recipe.recipe_name }} hello hello hello hello
-                            {% if recipe.is_vegetarian == "Yes" %}
-                                <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
-                                    data-tooltip="Suitable for Vegetarians"></i>
-                            {% endif %}
-                        </h6>
-                        <p><i class="fas fa-angle-up center"></i></p>
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
+                    </div>
+                    <div class="card-content">
+                        <div class="center activator grey-text text-darken-4">
+                            <div class="card-title "></div>
+                            <h6><strong>{{ recipe.recipe_name }}</strong>
+                                {% if recipe.is_vegetarian == "Yes" %}
+                                    <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
+                                        data-tooltip="Suitable for Vegetarians"></i>
+                                {% endif %}
+                            </h6>
+                            <p><i class="fas fa-angle-up center"></i></p>
+                        </div>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            <i class="fas fa-times right"></i></span>
+                            <h5>{{ recipe.recipe_name }}
+                                {% if recipe.is_vegetarian == "Yes" %}
+                                    <i class="fas fa-leaf green-text text-lighten-2 tooltipped" data-position="right"
+                                        data-tooltip="Suitable for Vegetarians"></i>
+                                {% endif %}
+                            </h5>
+                        <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong>
+                        </p>
+                        <p>{{ recipe.description }}</p>
+                        <p><i class="fas fa-clock"></i> {{ recipe.prep_time + recipe.cooking_time }} minutes</p>
+                        <p><em>Recipe by: {{ recipe.recipe_by }}</em></p>
+                        <p><a href="/recipes/{{ recipe.recipe_name }}">Full Recipe</a></p>
                     </div>
                 </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">
-                        <i class="fas fa-times right"></i></span>
-                        <h5>{{ recipe.recipe_name }}
-                            {% if recipe.is_vegetarian == "Yes" %}
-                                <i class="fas fa-leaf green-text text-lighten-2 tooltipped" data-position="right"
-                                    data-tooltip="Suitable for Vegetarians"></i>
-                            {% endif %}
-                        </h5>
-                    <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong>
-                    </p>
-                    <p>{{ recipe.description }}</p>
-                    <p><i class="fas fa-clock"></i> {{ recipe.prep_time + recipe.cooking_time }} minutes</p>
-                    <p><em>Recipe by: {{ recipe.recipe_by }}</em></p>
-                    <p><a href="/recipes/{{ recipe.recipe_name }}">Full Recipe</a></p>
-                </div>
             </div>
-        {% endfor %}
+        {% endfor %}   
     </div>
 
 {% endblock %}

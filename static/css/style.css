@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato&display=swap');
+
+/* General */
+
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
@@ -6,13 +10,27 @@
     line-height: 3;
 }
 
-.card {
-    width: 100%;
-    height: 350px;
+body {
+    font-family: 'Lato', sans-serif;
 }
 
-.row .card {
+.brand-logo {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* 'recipes.html' page */
+
+.recipe-list {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.recipe-list .col > .card {
+    box-sizing: border-box;
+    width: 100%;
+    height: 350px;
     padding: 0px;
+    margin-right: 10px;
 }
 
 .card-image {
@@ -25,11 +43,15 @@
 
 .card-image img {
     height: 100%;
+    width: auto;
 }
 
 .card .card-content {
+    box-sizing: border-box;
     padding: 10px 20px
 }
+
+/* 'full_recipe.html' page */
 
 .food-image {
     max-height: 300px;
@@ -44,6 +66,8 @@
 .full-recipe-header {
     margin-top: 20px;
 }
+
+/* 'new_recipe.html' page */
 
 div.method-steps {
   counter-reset: list-number;
@@ -66,3 +90,4 @@ div.method-steps div:before {
   color:#fff;
   text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
+
