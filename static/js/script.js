@@ -1,54 +1,20 @@
 $(document).ready(function() {
+
+    // Initiation for side navigation bar on mobile when
+    // user clicks the 'hamburger' icon
     $('.sidenav').sidenav({ edge: "right" });
-    $('.collapsible').collapsible();
+
+    // Initiation for tooltip which gives user a first-hand
+    // indication of whether a recipe is suitable for vegeterians
     $('.tooltipped').tooltip();
+
+    // Initiation for textarea element used in 'description'
+    // and 'steps' as user adds a new recipe
     $('input#input_text, textarea#textarea2').characterCounter();
+
+    // Initiation for the 'is_vegetarian' select/dropdown when
+    // user adds a new recipe
     $('select').formSelect();
-
-    // This function allows the user to click for more rows as they input their steps to preparing the recipe
-    $("#add_step").click(function() {
-        $(".method_steps").append(
-            `<li>
-                <textarea id="method" name="method" type="text" class="validate materialize-textarea" required></textarea>
-                <label for="method" class="active">Delete Step <a href='javascript:void(0);' class='remove_step'>&times;</a></label>
-            </li>`
-        );
-        $("#first_method").empty();
-        $("#first_method").text("Delete Step ") 
-        $("#first_method").append(`<a href='javascript:void(0);' class='remove_step'>&times;</a>`)
-    });
-
-    $("#add_ingredient").click(function() {
-        $(".ingredient_items").append(
-            `<li>
-                <div class="input-field col s6 m8">
-                    <input id="ingredient_name" name="ingredient_name" minlength="5" maxlength="50" type="text" class="validate" required>
-                    <label for="ingredient_name" class="active">Ingredient Name <em>(e.g. Ripe Plantain)</em></label>
-                </div>
-                <div class="input-field col s5 m3">
-                    <input id="ingredient_amount" name="ingredient_amount" minlength="5" maxlength="50" type="text" class="validate" required>
-                    <label for="ingredient_amount" class="active">Amount <em>(e.g. 3 tablespoons)</em></label>
-                </div>
-                <div class="input-field col s1 m1">
-                    <button class='remove_ingredient red'><i class="fa fa-times"></i></button>
-                </div>
-            </li>`
-        );
-    });
-
-    $(document).on("click", "button.remove_ingredient", function() {
-        $(this).parent().parent().remove();
-    });
-
-    $(document).on("click", "a.remove_step", function() {
-        if ($(".method_steps li").length == 1) {
-            $("#first_method").empty();
-            $("#first_method").text("What Should I do?");
-        } else {   
-            $(this).parent().parent().remove();
-        };
-    });
-
 
     // Validation of the 'is_Vegetarian' select (Code inspired by Tim Nelson, Code Institute)
     validateIsVegetarian();
@@ -78,4 +44,41 @@ $(document).ready(function() {
             }
         });
     }
+
+    // This function allows the user to click for more rows 
+    // as they input their steps to preparing the recipe
+    $("#add_step").click(function() {
+        $(".method-steps").append(
+        `<div class="input-field col s11">
+            <textarea id="method" name="method" type="text" 
+                class="validate materialize-textarea"></textarea>
+        </div>`
+        );
+    });
+
+    // This function allows the user to click for more rows 
+    // as they add required ingredients for the recipe
+    $("#add_ingredient").click(function() {
+        $(".ingredient_items").append(
+            `<li>
+                <div class="input-field col s6 m8">
+                    <input id="ingredient_name" name="ingredient_name" minlength="5" maxlength="50" type="text" class="validate">
+                    <label for="ingredient_name" class="active">Ingredient Name <em>(e.g. Ripe Plantain)</em></label>
+                </div>
+                <div class="input-field col s5 m3">
+                    <input id="ingredient_amount" name="ingredient_amount" minlength="5" maxlength="50" type="text" class="validate">
+                    <label for="ingredient_amount" class="active">Amount <em>(e.g. 3 tablespoons)</em></label>
+                </div>
+                <div class="input-field col s1 m1">
+                    <button class="remove_ingredient red"><i class="fa fa-times"></i></button>
+                </div>
+            </li>`
+        );
+    });
+
+    // This function allows the user to delete rows when editing 
+    // their steps/ingredients to preparing the recipe
+    $(document).on("click", function() {
+        $(this).parent().parent().remove();
+    });
 });

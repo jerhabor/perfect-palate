@@ -87,11 +87,11 @@
                             <div class="input-field col s6 m8">
                                 <input id="ingredient_name" name="ingredient_name" minlength="1" maxlength="50" type="text"
                                     class="validate" required>
-                                <label for="ingredient_name">Ingredient Name <em>(e.g. Ripe Plantain)</em></label>
+                                <label for="ingredient_name">Ingredient Name <em>(e.g. Plantain)</em></label>
                             </div>
                             <div class="input-field col s5 m3">
                                 <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50" type="text" class="validate" required>
-                                <label for="ingredient_amount">Amount <em>(e.g. 3 tablespoons)</em></label>
+                                <label for="ingredient_amount">Amount <em>(e.g. 3 tbsp)</em></label>
                             </div>
                         </li>
                     </ul>
@@ -103,14 +103,11 @@
             <!-- Recipe Method -->
             <h3 class="green-text text-darken-2 center-align">Method</h3>
             <div class="row">
-                <div class="col s12">
-                    <ol class="method_steps">
-                        <li>
-                            <textarea id="method" name="method" type="text" class="validate materialize-textarea"
-                                required></textarea>
-                            <label id="first_method" for="method">What should I do?</label>
-                        </li>
-                    </ol>
+                <div class="method-steps">
+                    <div class="input-field col s11">
+                        <input id="method" name="method" type="text" 
+                            class="validate" required>
+                    </div>
                 </div>
                 <div class="col s12 center-align">
                     <button id="add_step" class="btn green darken-2 text-shadow">Add Another Step</button>
