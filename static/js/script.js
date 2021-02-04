@@ -49,9 +49,14 @@ $(document).ready(function() {
     // as they input their steps to preparing the recipe
     $("#add_step").click(function() {
         $(".method-steps").append(
-        `<div class="input-field col s11">
-            <textarea id="method" name="method" type="text" 
-                class="validate materialize-textarea"></textarea>
+        `<div class="input-field col s12">
+            <span class="col s11">
+            <input id="method" name="method" type="text"
+                class="validate">
+            </span>
+            <span class="col s1">
+                <button class="remove_step red"><i class="fa fa-times"></i></button>
+            </span>
         </div>`
         );
     });
@@ -78,7 +83,11 @@ $(document).ready(function() {
 
     // This function allows the user to delete rows when editing 
     // their steps/ingredients to preparing the recipe
-    $(document).on("click", function() {
+    $(document).on("click", ".remove_ingredient", function() {
+        $(this).parent().parent().remove();
+    });
+
+    $(document).on("click", ".remove_step", function() {
         $(this).parent().parent().remove();
     });
 });
