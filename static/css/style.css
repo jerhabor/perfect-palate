@@ -48,9 +48,13 @@ body {
     padding: 5px 10px
 }
 
-.card > .btn-small {
+.btn-small {
     box-sizing: border-box;
-    margin-top: 10px;
+    margin: 5px;
+}
+
+.card-content-text {
+    height: 40px;
 }
 
 /* 'full_recipe.html' page */

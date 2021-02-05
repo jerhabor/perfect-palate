@@ -17,25 +17,30 @@
                     <!-- Card Title -->
                     <div class="card-content">
                         <div class="center activator grey-text text-darken-4">
-                            <h6><strong>{{ recipe.recipe_name }}</strong>
+                            <div class="card-content-text">
+                            <h6>
                                 {% if recipe.is_vegetarian == "Yes" %}
                                     <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
                                         data-tooltip="Suitable for Vegetarians"></i>
                                 {% endif %}
-                            </h6>
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small light-green">Edit</a>
+                                <strong>{{ recipe.recipe_name }}</strong>
+                            </h6></div>
+                            <div class="card-buttons">
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small cyan">Edit</a>
+                            <a href="/recipes/{{ recipe.recipe_name }}" class="waves-effect waves-light btn-small light-green">Full Recipe</a></div>
                         </div>
                     </div>
                     <!-- Card Reveal Information -->
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">
                             <i class="fas fa-times right"></i></span>
-                            <h5>{{ recipe.recipe_name }}
+                            <h6>
                                 {% if recipe.is_vegetarian == "Yes" %}
-                                    <i class="fas fa-leaf green-text text-lighten-2 tooltipped" data-position="right"
+                                    <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
                                         data-tooltip="Suitable for Vegetarians"></i>
                                 {% endif %}
-                            </h5>
+                                <strong>{{ recipe.recipe_name }}</strong>
+                            </h6>
                         <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong></p>
                         <p>{{ recipe.description }}</p>
                         <p><i class="fas fa-clock"></i> {{ recipe.prep_time + recipe.cooking_time }} minutes</p>
