@@ -68,11 +68,11 @@ $(document).ready(function() {
             `<li>
                 <div class="input-field col s6 m8">
                     <input id="ingredient_name" name="ingredient_name" minlength="5" maxlength="50" type="text" class="validate">
-                    <label for="ingredient_name" class="active">Ingredient Name <em>(e.g. Ripe Plantain)</em></label>
+                    <label for="ingredient_name" class="active">Ingredient Name</label>
                 </div>
                 <div class="input-field col s5 m3">
                     <input id="ingredient_amount" name="ingredient_amount" minlength="5" maxlength="50" type="text" class="validate">
-                    <label for="ingredient_amount" class="active">Amount <em>(e.g. 3 tablespoons)</em></label>
+                    <label for="ingredient_amount" class="active">Amount</label>
                 </div>
                 <div class="input-field col s1 m1">
                     <button class="remove red"><i class="fa fa-times"></i></button>
