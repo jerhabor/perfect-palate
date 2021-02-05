@@ -18,12 +18,17 @@ body {
 
 .brand-logo {
     font-family: 'Dancing Script', cursive;
+    font-weight: 700;
 }
 
 .page-title {
     margin-bottom: 40px;
     font-weight: 700;
     text-shadow: 2px 2px 2px #fff;
+}
+
+.card-panel {
+    box-sizing: border-box;
 }
 
 /* 'recipes.html' page */
