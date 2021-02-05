@@ -90,21 +90,21 @@
                 </div>
                 <!-- Recipe Ingredients -->
                 <h4 class="section-title green-text text-darken-2 center-align">
-                    &#183; Ingredients 
-                    <i class="fas fa-pepper-hot green-text text-darken-2 prefix"></i>
-                    &#183;
+                    &#183; Ingredients &#183;
                 </h4>
                 <div class="row">
                     <div class="col s12">
                         <ul class="ingredient_items">
                             {% for ingredient, amount in recipe.ingredients.items() %}
-                            <li>    
-                                <div class="input-field col s6 m8">
+                            <li>
+                                <div class="input-field col s12 m7">
+                                    <i class="fas fa-pepper-hot green-text text-darken-2 prefix"></i>
                                     <input id="ingredient_name" name="ingredient_name" minlength="1" maxlength="50" type="text"
                                         value="{{ ingredient }}" class="validate" required>
                                     <label for="ingredient_name">Ingredient Name </label>
                                 </div>
-                                <div class="input-field col s4 m3">
+                                <div class="input-field col s10 m3">
+                                    <i class="fas fa-utensil-spoon green-text text-darken-2 prefix"></i>
                                     <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50"             value="{{ amount }}" type="text" class="validate" required>
                                     <label for="ingredient_amount">Amount </label>
                                 </div>
@@ -117,15 +117,13 @@
                     </div>
                     <div class="col s12 center-align">
                         <button id="add_ingredient" type="button" class="btn green darken-2 text-shadow">
-                            Add Another Ingredient
+                            Add Another Row
                         </button>
                     </div>
                 </div>
                 <!-- Recipe Method -->
                 <h4 class="section-title green-text text-darken-2 center-align">
-                    &#183; Method 
-                    <i class="fas fa-list-alt green-text text-darken-2 prefix"></i>
-                    &#183;
+                    &#183; Method &#183;
                 </h4>
                 <div class="row">
                     <div class="method-steps">
@@ -149,15 +147,14 @@
                 </div>
                 <!-- List of Allergens -->
                 <h4 class="section-title green-text text-darken-2 center-align">
-                    &#183; Allergens 
-                    <i class="fas fa-allergies green-text text-darken-2 prefix"></i>
-                    &#183;
+                    &#183; Allergens &#183;
                 </h4>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input id="allergens" name="allergens" type="text" min="1" 
-                            value="{{ recipe.cooking_time }}" class="validate" required>
-                        <label for="allergens">List all allergens (separate using commas). If none, type "N/A".</label>
+                    <div class="input-field col s11">
+                        <i class="fas fa-allergies green-text text-darken-2 prefix"></i>
+                        <textarea id="allergens" name="allergens" type="text" min="1" 
+                            class="validate materialize-textarea" required></textarea>
+                        <label for="allergens">Separate with commas. Put "N/A" if none.</label>
                     </div>
                 </div>
             </div>
