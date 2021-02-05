@@ -2,7 +2,7 @@
 {% block content %}
 
     <!-- Page Title -->
-    <h3 class="green-text text-darken-2 center-align">Recipes</h3>
+    <h2 class="page-title green-text text-darken-2 center-align">Recipes</h2>
 
     <!-- List of Recipe Cards -->
     <div class="row recipe-list">
@@ -43,7 +43,7 @@
                             </h6>
                         <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong></p>
                         <p>{{ recipe.description }}</p>
-                        <p><i class="fas fa-clock"></i> {{ recipe.prep_time + recipe.cooking_time }} minutes</p>
+                        <p><i class="fas fa-clock"></i> {{ recipe.cooking_time }} minutes</p>
                         <p><em>Recipe by: {{ recipe.recipe_by }}</em></p>
                         <p><a href="/recipes/{{ recipe.recipe_name }}">Full Recipe</a></p>
                     </div>
