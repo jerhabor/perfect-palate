@@ -2,130 +2,154 @@
 {% block content %}
 
     <!-- Page Title -->
-    <h3 class="green-text text-darken-2 center-align">Add a New Recipe</h3>
+    <h2 class="page-title green-text text-darken-2 center-align">Add a New Recipe</h2>
 
     <!-- Add a New Recipe Form -->
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('new_recipe') }}">
-            <div class="row">
-                <!-- Name of the Recipe -->
-                <div class="input-field col s12 m6">
-                    <i class="fas fa-book-open green-text text-darken-2 prefix"></i>
-                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" 
-                        type="text" class="validate" required>
-                    <label for="recipe_name">Name of Food</label>
-                </div>
-                <!-- Type of Cuisine -->
-                <div class="input-field col s12 m6">
-                    <i class="fas fa-globe-africa green-text text-darken-2 prefix"></i>
-                    <input id="cuisine_type" name="cuisine_type" minlength="5" maxlength="30" 
-                        type="text" class="validate" required>
-                    <label for="cuisine_type">Type of Cuisine</label>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Description of meal -->
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
-                    <textarea id="description" name="description" class="validate materialize-textarea" 
-                        minlength="5" maxlength="100" required></textarea>
-                    <label for="description">Describe this meal in one sentence</label>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Link to Image -->
-                <div class="input-field col s12 m6">
-                    <i class="fas fa-image green-text text-darken-2 prefix"></i>
-                    <input id="image" name="image" type="text" class="validate" required>
-                    <label for="image">Paste image address</label>
-                </div>
-                <!-- Link to Video -->
-                <div class="input-field col s12 m6">
-                    <i class="fas fa-video green-text text-darken-2 prefix"></i>
-                    <input id="video" name="video" type="text" class="validate">
-                    <label for="video">Have a video tutorial? Paste the link here!</label>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Servings -->
-                <div class="input-field col s6 m3 offset-m1">
-                    <i class="fas fa-utensils green-text text-darken-2 prefix"></i>
-                    <input id="servings" name="servings" type="number" min="1" max="5" 
-                        class="validate" required>
-                    <label for="servings">Servings</label>
-                </div>
-                <!-- Is Vegetarian checkbox -->
-                <div class="input-field col s6 m3 offset-m4">
-                    <select id="is_vegetarian" name="is_vegetarian" class="validate" required>
-                        <option value="" disabled selected>Choose Option</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
-                    <label for="is_vegetarian">Suitable for Vegetarians?</label>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Preparation Time -->
-                <div class="input-field col s6 m3 offset-m1">
-                    <i class="fas fa-clock green-text text-darken-2 prefix"></i>
-                    <input id="prep_time" name="prep_time" type="number" min="1" 
-                        class="validate" required>
-                    <label for="prep_time">Preparation Time</label>
-                </div>
-                <!-- Cooking Time -->
-                <div class="input-field col s6 m3 offset-m4">
-                    <i class="fas fa-bacon green-text text-darken-2 prefix"></i>
-                    <input id="cooking_time" name="cooking_time" type="number" min="1" 
-                        class="validate" required>
-                    <label for="cooking_time">Cooking Time</label>
-                </div>
-            </div>
-            <!-- Recipe Ingredients -->
-            <h3 class="green-text text-darken-2 center-align">Ingredients</h3>
-            <div class="row">
-                <div class="col s12">
-                    <ul class="ingredient_items">
-                        <li>    
-                            <div class="input-field col s6 m8">
-                                <input id="ingredient_name" name="ingredient_name" minlength="1" maxlength="50" type="text"
-                                    class="validate" required>
-                                <label for="ingredient_name">Ingredient Name <em>(e.g. Plantain)</em></label>
-                            </div>
-                            <div class="input-field col s5 m3">
-                                <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50" type="text" class="validate" required>
-                                <label for="ingredient_amount">Amount <em>(e.g. 3 tbsp)</em></label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col s12 center-align">
-                    <button id="add_ingredient" type="button" class="btn green darken-2 text-shadow">
-                        Add Another Ingredient
-                    </button>
-                </div>
-            </div>
-            <!-- Recipe Method -->
-            <h3 class="green-text text-darken-2 center-align">Method</h3>
-            <div class="row">
-                <div class="method-steps">
-                    <div class="input-field col s12">
-                        <span class="col s11">
-                        <input id="method" name="method" type="text"
-                            class="validate">
-                        </span>
+            <!-- Recipe Name & Cuisine -->
+            <div class=" card-panel lime lighten-5">
+                <div class="row">
+                    <!-- Recipe Name -->
+                    <div class="input-field col s12 m6">
+                        <i class="fas fa-book-open green-text text-darken-2 prefix"></i>
+                        <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" 
+                            type="text" class="validate" required>
+                        <label for="recipe_name">Name of Food</label>
+                    </div>
+                    <!-- Type of Cuisine -->
+                    <div class="input-field col s12 m6">
+                        <i class="fas fa-globe-africa green-text text-darken-2 prefix"></i>
+                        <input id="cuisine_type" name="cuisine_type" minlength="5" maxlength="30" 
+                            type="text" class="validate" required>
+                        <label for="cuisine_type">Type of Cuisine</label>
                     </div>
                 </div>
-                <div class="col s12 center-align">
-                    <button id="add_step" type="button" class="btn green darken-2 text-shadow">
-                        Add Another Step
-                    </button>
+                <!-- Description of meal -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
+                        <textarea id="description" name="description" class="validate materialize-textarea" 
+                            minlength="5" maxlength="100" required>
+                        </textarea>
+                        <label for="description">Describe this meal in one sentence</label>
+                    </div>
+                </div>
+                <!-- Extra Key Recipe Information -->
+                <div class="row">
+                    <!-- Servings -->
+                    <div class="input-field col s12 m4">
+                        <i class="fas fa-utensils green-text text-darken-2 prefix"></i>
+                        <input id="servings" name="servings" type="number" min="1" max="5" class="validate" required>
+                        <label for="servings">Servings</label>
+                    </div>
+                    <!-- Cooking Time -->
+                    <div class="input-field col s12 m4">
+                        <i class="fas fa-clock green-text text-darken-2 prefix"></i>
+                        <input id="cooking_time" name="cooking_time" type="number" min="1" class="validate" required>
+                        <label for="cooking_time">Cooking time (mins)</label>
+                    </div>
+                    <!-- Is Vegetarian checkbox -->
+                    <div class="input-field col s12 m4">
+                        <i class="fas fa-seedling green-text text-darken-2 prefix"></i>
+                        <select id="is_vegetarian" name="is_vegetarian" class="validate" required>
+                            <option value="" disabled selected>Choose Option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                        <label for="is_vegetarian">Suitable for Vegetarians?</label>
+                    </div>
+                </div>
+                <!-- Visual of the recipe -->
+                <div class="row">
+                    <p class="center-align green-text text-darken-4">
+                        ** Show others what the meal should look like! Find an image and/or video online and share! **
+                    </p><br>
+                    <!-- Link to Image -->
+                    <div class="input-field col s12 m6">
+                        <i class="fas fa-image green-text text-darken-2 prefix"></i>
+                        <input id="image" name="image" type="text" class="validate" required>
+                        <label for="image">Paste image address here!</label>
+                    </div>
+                    <!-- Link to Video -->
+                    <div class="input-field col s12 m6">
+                        <i class="fas fa-video green-text text-darken-2 prefix"></i>
+                        <input id="video" name="video" type="text" class="validate">
+                        <label for="video">Paste video link here!</label>
+                    </div>
+                </div>
+                <!-- Recipe Ingredients -->
+                <h4 class="section-title green-text text-darken-2 center-align">
+                    &#183; Ingredients &#183;
+                </h4>
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="ingredient_items">
+                            <li>    
+                                <div class="input-field col s12 m7">
+                                    <i class="fas fa-pepper-hot green-text text-darken-2 prefix"></i>
+                                    <input id="ingredient_name" name="ingredient_name" minlength="1" maxlength="50" type="text"
+                                        class="validate" required>
+                                    <label for="ingredient_name">Ingredient Name </label>
+                                </div>
+                                <div class="input-field col s10 m3">
+                                    <i class="fas fa-utensil-spoon green-text text-darken-2 prefix"></i>
+                                    <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50"                 type="text" class="validate" required>
+                                    <label for="ingredient_amount">Amount </label>
+                                </div>
+                                <span class="input-field col s1">
+                                    <button class="remove red" type="button"><i class="fa fa-times"></i></button>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s12 center-align">
+                        <button id="add_ingredient" type="button" class="btn green darken-2 text-shadow">
+                            Add Another Row
+                        </button>
+                    </div>
+                </div>
+                <!-- Recipe Method -->
+                <h4 class="section-title green-text text-darken-2 center-align">
+                    &#183; Method &#183;
+                </h4>
+                <div class="row">
+                    <div class="method-steps">
+                        <div class="input-field col s12">
+                            <span class="input-field col s10 m9">
+                                <textarea id="method" name="method" type="text"
+                                    minlength="1" class="validate materialize-textarea"></textarea>
+                                <label for="method">What should I do?</label>
+                            </span>
+                            <span class="input-field col s1">
+                                <button class="remove red" type="button"><i class="fa fa-times"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col s12 center-align">
+                        <button id="add_step" type="button" class="btn green darken-2 text-shadow">
+                            Add Another Step
+                        </button>
+                    </div>
+                </div>
+                <!-- List of Allergens -->
+                <h4 class="section-title green-text text-darken-2 center-align">
+                    &#183; Allergens &#183;
+                </h4>
+                <div class="row">
+                    <div class="input-field col s11">
+                        <i class="fas fa-allergies green-text text-darken-2 prefix"></i>
+                        <textarea id="allergens" name="allergens" type="text" min="1" 
+                            class="validate materialize-textarea" required></textarea>
+                        <label for="allergens">Separate with commas. Put "N/A" if none.</label>
+                    </div>
                 </div>
             </div>
             <!-- Submit Button -->
             <div class="row">
                 <div class="col s12 center-align">
                     <button type="submit" class="btn-large green darken-2 text-shadow">
-                        Submit Recipe
+                        Submit Recipe <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>
             </div>
