@@ -140,10 +140,10 @@ def new_recipe():
             "description": request.form.get("description"),
             "servings": request.form.get("servings"),
             "is_vegetarian": is_vegetarian,
-            "prep_time": request.form.get("prep_time", type=int),
             "cooking_time": request.form.get("cooking_time", type=int),
             "ingredients": ingredients,
             "method": method_obj,
+            "allergens": request.form.get("allergens"),
             "image": request.form.get("image"),
             "video": request.form.get("video"),
             "recipe_by": session["user"]
@@ -157,6 +157,46 @@ def new_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if request.method == "POST":
+        is_vegetarian = "Yes" if request.form.get(
+            "is_vegetarian") == "Yes" else "No"
+
+        # Creating a dictionary for ingredients with 'key:value' pairs
+        # being 'ingredient_name:ingredient_amount' respectively.
+        ingredient_name = request.form.getlist("ingredient_name")
+        ingredient_amount = request.form.getlist("ingredient_amount")
+        ingredients = {}
+        for index in range(len(ingredient_name)):
+            ingredients[ingredient_name[index]] = ingredient_amount[index]
+
+        # Creating a dictionary for the method with 'key:value' pairs
+        # being 'step number:step description' respectively.
+        method = request.form.getlist("method")
+        method_obj = {}
+        for element in method:
+            # Starting the steps from 1; as by default, the starting
+            # index of a list is 0. For the step to be a key of the
+            # dictionary, it must be converted to a string.
+            method_step = method.index(element) + 1
+            method_obj[str(method_step)] = str(element)
+
+        submit = {
+            "cuisine_type": request.form.get("cuisine_type"),
+            "recipe_name": request.form.get("recipe_name"),
+            "description": request.form.get("description"),
+            "servings": request.form.get("servings"),
+            "is_vegetarian": is_vegetarian,
+            "cooking_time": request.form.get("cooking_time", type=int),
+            "ingredients": ingredients,
+            "method": method_obj,
+            "allergens": request.form.get("allergens"),
+            "image": request.form.get("image"),
+            "video": request.form.get("video"),
+            "recipe_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        flash("Recipe Successfully Updated")
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("edit_recipe.html", recipe=recipe)
 
