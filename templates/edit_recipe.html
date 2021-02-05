@@ -12,14 +12,14 @@
                 <div class="input-field col s12 m6">
                     <i class="fas fa-book-open green-text text-darken-2 prefix"></i>
                     <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" 
-                        type="text" class="validate" required>
+                        value="{{ recipe.recipe_name }}" type="text" class="validate" required>
                     <label for="recipe_name">Name of Food</label>
                 </div>
                 <!-- Type of Cuisine -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-globe-africa green-text text-darken-2 prefix"></i>
                     <input id="cuisine_type" name="cuisine_type" minlength="5" maxlength="30" 
-                        type="text" class="validate" required>
+                        value="{{ recipe.cuisine_type }}" type="text" class="validate" required>
                     <label for="cuisine_type">Type of Cuisine</label>
                 </div>
             </div>
@@ -28,7 +28,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
                     <textarea id="description" name="description" class="validate materialize-textarea" 
-                        minlength="5" maxlength="100" required></textarea>
+                        minlength="5" maxlength="100" required>
+                        {{- recipe.description -}}
+                    </textarea>
                     <label for="description">Describe this meal in one sentence</label>
                 </div>
             </div>
@@ -36,13 +38,15 @@
                 <!-- Link to Image -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-image green-text text-darken-2 prefix"></i>
-                    <input id="image" name="image" type="text" class="validate" required>
+                    <input id="image" name="image" type="text" class="validate" 
+                        value="{{ recipe.image }}" required>
                     <label for="image">Paste image address</label>
                 </div>
                 <!-- Link to Video -->
                 <div class="input-field col s12 m6">
                     <i class="fas fa-video green-text text-darken-2 prefix"></i>
-                    <input id="video" name="video" type="text" class="validate">
+                    <input id="video" name="video" type="text" value="{{ recipe.video }}" 
+                        class="validate">
                     <label for="video">Have a video tutorial? Paste the link here!</label>
                 </div>
             </div>
@@ -51,15 +55,20 @@
                 <div class="input-field col s6 m3 offset-m1">
                     <i class="fas fa-utensils green-text text-darken-2 prefix"></i>
                     <input id="servings" name="servings" type="number" min="1" max="5" 
-                        class="validate" required>
+                        value="{{ recipe.servings }}" class="validate" required>
                     <label for="servings">Servings</label>
                 </div>
                 <!-- Is Vegetarian checkbox -->
                 <div class="input-field col s6 m3 offset-m4">
                     <select id="is_vegetarian" name="is_vegetarian" class="validate" required>
-                        <option value="" disabled selected>Choose Option</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option value="" disabled>Choose Option</option>
+                        {% if recipe.is_vegetarian == "Yes" %}
+                            <option value="Yes" selected>Yes</option>
+                            <option value="No">No</option>
+                        {% else %}
+                            <option value="Yes">Yes</option>
+                            <option value="No" selected>No</option>
+                        {% endif %}
                     </select>
                     <label for="is_vegetarian">Suitable for Vegetarians?</label>
                 </div>
@@ -69,14 +78,14 @@
                 <div class="input-field col s6 m3 offset-m1">
                     <i class="fas fa-clock green-text text-darken-2 prefix"></i>
                     <input id="prep_time" name="prep_time" type="number" min="1" 
-                        class="validate" required>
+                        value="{{ recipe.prep_time }}" class="validate" required>
                     <label for="prep_time">Preparation Time</label>
                 </div>
                 <!-- Cooking Time -->
                 <div class="input-field col s6 m3 offset-m4">
                     <i class="fas fa-bacon green-text text-darken-2 prefix"></i>
                     <input id="cooking_time" name="cooking_time" type="number" min="1" 
-                        class="validate" required>
+                        value="{{ recipe.cooking_time }}" class="validate" required>
                     <label for="cooking_time">Cooking Time</label>
                 </div>
             </div>
@@ -85,36 +94,52 @@
             <div class="row">
                 <div class="col s12">
                     <ul class="ingredient_items">
+                        {% for ingredient, amount in recipe.ingredients.items() %}
                         <li>    
                             <div class="input-field col s6 m8">
                                 <input id="ingredient_name" name="ingredient_name" minlength="1" maxlength="50" type="text"
-                                    class="validate" required>
-                                <label for="ingredient_name">Ingredient Name <em>(e.g. Plantain)</em></label>
+                                    value="{{ ingredient }}" class="validate" required>
+                                <label for="ingredient_name">Ingredient Name </label>
                             </div>
                             <div class="input-field col s5 m3">
-                                <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50" type="text" class="validate" required>
+                                <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50"             value="{{ amount }}" type="text" class="validate" required>
                                 <label for="ingredient_amount">Amount <em>(e.g. 3 tbsp)</em></label>
                             </div>
+                            <div class="input-field col s1 m1">
+                                <button class="remove red" type="button"><i class="fa fa-times"></i></button>
+                            </div>
                         </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col s12 center-align">
-                    <button id="add_ingredient" class="btn green darken-2 text-shadow">Add Another Ingredient</button>
+                    <button id="add_ingredient" type="button" class="btn green darken-2 text-shadow">
+                        Add Another Ingredient
+                    </button>
                 </div>
             </div>
             <!-- Recipe Method -->
             <h3 class="green-text text-darken-2 center-align">Method</h3>
             <div class="row">
                 <div class="method-steps">
+                    {% for step, method in recipe.method.items() %}
                     <div class="input-field col s12">
                         <span class="col s11">
                         <input id="method" name="method" type="text"
-                            class="validate">
+                            value="{{ method }}" class="validate">
                         </span>
+                        {% if step != "1" %}
+                            <span class="col s1">
+                                <button class="remove red" type="button"><i class="fa fa-times"></i></button>
+                            </span>
+                        {% endif %}
                     </div>
+                    {% endfor %}
                 </div>
                 <div class="col s12 center-align">
-                    <button id="add_step" class="btn green darken-2 text-shadow">Add Another Step</button>
+                    <button id="add_step" type="button" class="btn green darken-2 text-shadow">
+                        Add Another Step
+                    </button>
                 </div>
             </div>
             <!-- Submit Button -->
