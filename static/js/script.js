@@ -50,12 +50,13 @@ $(document).ready(function() {
     $("#add_step").click(function() {
         $(".method-steps").append(
         `<div class="input-field col s12">
-            <span class="col s11">
-            <input id="method" name="method" type="text"
-                class="validate">
+            <span class="input-field col s10 m9">
+                <textarea id="method" name="method" type="text"
+                    minlength="1" class="validate materialize-textarea"></textarea>
+                <label for="method" class="active">What should I do?</label>
             </span>
-            <span class="col s1">
-                <button class="remove red"><i class="fa fa-times"></i></button>
+            <span class="input-field col s1">
+                <button class="remove red" type="button"><i class="fa fa-times"></i></button>
             </span>
         </div>`
         );
@@ -66,17 +67,20 @@ $(document).ready(function() {
     $("#add_ingredient").click(function() {
         $(".ingredient_items").append(
             `<li>
-                <div class="input-field col s6 m8">
-                    <input id="ingredient_name" name="ingredient_name" minlength="5" maxlength="50" type="text" class="validate">
-                    <label for="ingredient_name" class="active">Ingredient Name</label>
+                <div class="input-field col s12 m7">
+                    <i class="fas fa-pepper-hot green-text text-darken-2 prefix"></i>
+                    <input id="ingredient_name" name="ingredient_name" minlength="1" maxlength="50" type="text"
+                        class="validate active">
+                    <label for="ingredient_name" class="active">Ingredient Name </label>
                 </div>
-                <div class="input-field col s5 m3">
-                    <input id="ingredient_amount" name="ingredient_amount" minlength="5" maxlength="50" type="text" class="validate">
-                    <label for="ingredient_amount" class="active">Amount</label>
+                <div class="input-field col s9 m3">
+                    <i class="fas fa-utensil-spoon green-text text-darken-2 prefix"></i>
+                    <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50"                 type="text" class="validate active">
+                    <label for="ingredient_amount" class="active">Amount </label>
                 </div>
-                <div class="input-field col s1 m1">
-                    <button class="remove red"><i class="fa fa-times"></i></button>
-                </div>
+                <span class="input-field col s1">
+                    <button class="remove red" type="button"><i class="fa fa-times"></i></button>
+                </span>
             </li>`
         );
     });
