@@ -73,7 +73,7 @@ $(document).ready(function() {
                         class="validate active">
                     <label for="ingredient_name" class="active">Ingredient Name </label>
                 </div>
-                <div class="input-field col s9 m3">
+                <div class="input-field col s10 m3">
                     <i class="fas fa-utensil-spoon green-text text-darken-2 prefix"></i>
                     <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50"                 type="text" class="validate active">
                     <label for="ingredient_amount" class="active">Amount </label>
