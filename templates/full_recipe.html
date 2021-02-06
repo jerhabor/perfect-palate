@@ -1,52 +1,54 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <!-- Page Title -->
-    <h2 class="center-align">{{ info.recipe_name }}</h2>
-
-    <div class="row full-recipe-header">
-        <div class="col s12 m6 food-image">
-            <img src="{{ info.image }}" alt="Profile image for {{ info.recipe_name }}">
-        </div>
-        <div class="col s12 m6">
-            <h6>
-                <strong>Cuisine: {{ info.cuisine_type }}</strong>
-                {% if info.is_vegetarian == "Yes" %}
-                    <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
-                        data-tooltip="Suitable for Vegetarians"></i>
-                {% endif %}
-            </h6>
-            <p>Servings: {{ info.servings }}</p>
-            <p>Prep: {{ info.prep_time }} minutes</p>
-            <p>Cook: {{ info.cooking_time }} minutes</p>
-            <p>
-                Allergens:
-                {% for allergen in info.allergens %}
-                    {% if allergen == info.allergens[-1] %}
-                        {{ allergen }}
-                    {% else %}
-                        {{ allergen }},
+    <div class=" card-panel lime lighten-5">
+        <!-- Page Title -->
+        <h2 class="full-recipe-title center-align">{{ info.recipe_name }}</h2>
+        <!-- Full Recipe Information -->
+        <div class="row full-recipe-header">
+            <!-- Recipe Image -->
+            <div class="col s12 m6 food-image">
+                <img src="{{ info.image }}" alt="Profile image for {{ info.recipe_name }}">
+            </div>
+            <!-- Extra Recipe Information -->
+            <div class="col s12 m6">
+                <h6>
+                    <!-- Cuisine Type -->
+                    <strong>Cuisine: {{ info.cuisine_type }}</strong>
+                    <!-- Notification if vegetarian -->
+                    {% if info.is_vegetarian == "Yes" %}
+                        <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
+                            data-tooltip="Suitable for Vegetarians"></i>
                     {% endif %}
+                </h6>
+                <!-- Recipe Number of Servings -->
+                <p>Servings: {{ info.servings }}</p>
+                <!-- Recipe Cooking Time -->
+                <p><i class="fas fa-clock"></i> {{ info.cooking_time }} minutes</p>
+                <!-- List of Allergens -->
+                <p><i class="fas fa-exclamation-circle"></i> Allergens: {{ info.allergens }}</p>
+                <!-- Recipe Video -->
+                {% if info.video %}
+                    <a role="button" class="btn" href="{{ info.video }}" target="_blank">
+                        Video Tutorial
+                    </a>
+                {% endif %}
+            </div>
+            <!-- Recipe Ingredients -->
+            <div class="col s12">
+                <h4>&#183; Ingredients &#183;</h4>
+                {% for ingredient, amount in info.ingredients.items() %}
+                    {{ ingredient }}: {{ amount }}<br>
                 {% endfor %}
-            </p>
-            <a role="button" class="btn" href="{{ info.video }}" target="_blank">
-                Video Tutorial
-            </a>
+            </div>
+            <!-- Recipe Method -->
+            <div class="col s12">
+                <h4>&#183; Method &#183;</h4>
+                {% for step, method in info.method.items() %}
+                    {{ step }}. {{ method }}<br><br>
+                {% endfor %}
+            </div>
         </div>
-        <div class="col s12">
-            <h4>Ingredients:</h4>
-            {% for ingredient, amount in info.ingredients.items() %}
-                {{ ingredient }}: {{ amount }}<br>
-            {% endfor %}
-        </div>
-        <div class="col s12">
-            <h4>Method:</h4>
-            {% for step, method in info.method.items() %}
-                {{ step }}. {{ method }}<br><br>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="row">
     </div>
 
 {% endblock %}

@@ -77,6 +77,11 @@ body {
 
 /* 'full_recipe.html' page */
 
+.full-recipe-title {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
 .food-image {
     max-height: 300px;
     overflow: hidden;
