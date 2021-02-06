@@ -25,14 +25,10 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-@app.route("/recipes/<recipe_name>")
-def full_recipe(recipe_name):
-    info = {}
-    recipes = list(mongo.db.recipes.find())
-    for obj in recipes:
-        if obj["recipe_name"] == recipe_name:
-            info = obj
-    return render_template("full_recipe.html", info=info)
+@app.route("/recipes/<recipe_id>", methods=["GET", "POST"])
+def full_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("full_recipe.html", recipe=recipe)
 
 
 @app.route("/register", methods=["GET", "POST"])

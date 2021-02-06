@@ -3,33 +3,33 @@
 
     <div class=" card-panel lime lighten-5">
         <!-- Page Title -->
-        <h2 class="full-recipe-title center-align">{{ info.recipe_name }}</h2>
+        <h2 class="full-recipe-title center-align">{{ recipe.recipe_name }}</h2>
         <!-- Full Recipe Information -->
         <div class="row full-recipe-header">
             <!-- Recipe Image -->
             <div class="col s12 m6 food-image">
-                <img src="{{ info.image }}" alt="Profile image for {{ info.recipe_name }}">
+                <img src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
             </div>
             <!-- Extra Recipe Information -->
             <div class="col s12 m6">
                 <h6>
                     <!-- Cuisine Type -->
-                    <strong>Cuisine: {{ info.cuisine_type }}</strong>
+                    <strong>Cuisine: {{ recipe.cuisine_type }}</strong>
                     <!-- Notification if vegetarian -->
-                    {% if info.is_vegetarian == "Yes" %}
+                    {% if recipe.is_vegetarian == "Yes" %}
                         <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
                             data-tooltip="Suitable for Vegetarians"></i>
                     {% endif %}
                 </h6>
                 <!-- Recipe Number of Servings -->
-                <p>Servings: {{ info.servings }}</p>
+                <p>Servings: {{ recipe.servings }}</p>
                 <!-- Recipe Cooking Time -->
-                <p><i class="fas fa-clock"></i> {{ info.cooking_time }} minutes</p>
+                <p><i class="fas fa-clock"></i> {{ recipe.cooking_time }} minutes</p>
                 <!-- List of Allergens -->
-                <p><i class="fas fa-exclamation-circle"></i> Allergens: {{ info.allergens }}</p>
+                <p><i class="fas fa-exclamation-circle"></i> Allergens: {{ recipe.allergens }}</p>
                 <!-- Recipe Video -->
-                {% if info.video %}
-                    <a role="button" class="btn" href="{{ info.video }}" target="_blank">
+                {% if recipe.video %}
+                    <a role="button" class="btn" href="{{ recipe.video }}" target="_blank">
                         Video Tutorial
                     </a>
                 {% endif %}
@@ -37,14 +37,14 @@
             <!-- Recipe Ingredients -->
             <div class="col s12">
                 <h4>&#183; Ingredients &#183;</h4>
-                {% for ingredient, amount in info.ingredients.items() %}
+                {% for ingredient, amount in recipe.ingredients.items() %}
                     {{ ingredient }}: {{ amount }}<br>
                 {% endfor %}
             </div>
             <!-- Recipe Method -->
             <div class="col s12">
                 <h4>&#183; Method &#183;</h4>
-                {% for step, method in info.method.items() %}
+                {% for step, method in recipe.method.items() %}
                     {{ step }}. {{ method }}<br><br>
                 {% endfor %}
             </div>
