@@ -4,6 +4,26 @@
     <!-- Page Title -->
     <h2 class="page-title green-text text-darken-2 center-align">Recipes</h2>
 
+    <!-- Search Bar -->
+    <div class="row card-panel lime lighten-5">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix light-green-text text-darken-2"></i>
+                    <input type="text" name="query" id="query" minlength="1" class="validate" required>
+                    <label for="query">Search for Recipes</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('recipes') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="light-green darken-2 btn text-shadow">
+                        <i class="fas fa-search left"></i>Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% if recipes|length > 0 %}
     <!-- List of Recipe Cards -->
     <div class="row recipe-list">
         {% for recipe in recipes %}
@@ -51,5 +71,9 @@
             </div>
         {% endfor %}   
     </div>
+    {% else %}
+        <!-- Page Title -->
+        <h2 class="page-title red-text text-darken-2 center-align">No Results Found &#9785;</h2>
+    {% endif %}
 
 {% endblock %}

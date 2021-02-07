@@ -111,6 +111,13 @@ def profile(username):
     return render_template("profile.html", username=username)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipes)
+
+
 @app.route("/new_recipe", methods=["GET", "POST"])
 def new_recipe():
     if request.method == "POST":
