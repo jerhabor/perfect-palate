@@ -32,6 +32,10 @@ body {
     box-sizing: border-box;
 }
 
+.btn-large {
+    margin: 5px;
+}
+
 /* 'recipes.html' page */
 
 .recipe-list {

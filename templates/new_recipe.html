@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <!-- Page Title -->
-    <h2 class="page-title green-text text-darken-2 center-align">Add a New Recipe</h2>
+    <div class=" card-panel lime lighten-5">
+        <!-- Page Title -->
+        <h2 class="page-title green-text text-darken-2 center-align">Add a New Recipe</h2>
 
-    <!-- Add a New Recipe Form -->
-    <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('new_recipe') }}">
-            <!-- Recipe Name & Cuisine -->
-            <div class=" card-panel lime lighten-5">
+        <!-- Add a New Recipe Form -->
+        <div class="row">
+            <form class="col s12" method="POST" action="{{ url_for('new_recipe') }}">
+                <!-- Recipe Name & Cuisine -->
                 <div class="row">
                     <!-- Recipe Name -->
                     <div class="input-field col s12 m6">
@@ -144,16 +144,16 @@
                         <label for="allergens">Separate with commas. Put "N/A" if none.</label>
                     </div>
                 </div>
-            </div>
-            <!-- Submit Button -->
-            <div class="row">
-                <div class="col s12 center-align">
-                    <button type="submit" class="btn-large green darken-2 text-shadow">
-                        Submit Recipe <i class="fas fa-plus-square right"></i>
-                    </button>
+                <!-- Submit Button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit" class="btn-large cyan darken-1 text-shadow">
+                            Submit Recipe <i class="fas fa-plus-square right"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
 {% endblock %}
