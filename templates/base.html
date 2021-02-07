@@ -28,7 +28,7 @@
                     <ul class="right hide-on-med-and-down">
                         {% if session.user %}
                             <li><a href="{{ url_for('new_recipe') }}">New Recipe</a></li>
-                            <li><a href="#">Manage Recipes</a></li>
+                            <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                             <li><a href="{{ url_for('logout') }}">Logout</a></li>
                         {% else %}
                             <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -42,7 +42,7 @@
                 <li><h4 class="brand-logo center-align green-text text-darken-2">Perfect Palate</h4></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('new_recipe') }}">New Recipe</a></li>
-                    <li><a href="#">Manage Recipes</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
                     <li><a href="{{ url_for('login') }}">Login</a></li>
