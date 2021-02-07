@@ -111,9 +111,9 @@ def profile(username):
     return render_template("profile.html", username=username)
 
 
-@app.route("/search", methods=["GET", "POST"])
+@app.route("/search", methods=["GET"])
 def search():
-    query = request.form.get("query")
+    query = request.args.get("query", "")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
 
