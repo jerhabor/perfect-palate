@@ -23,13 +23,16 @@ body {
 }
 
 .page-title {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-weight: 700;
     text-shadow: 2px 2px 2px #fff;
+    letter-spacing: 2px;
 }
 
 .card-panel {
     box-sizing: border-box;
+    padding: 10px 24px;
+    margin-bottom: 0px;
 }
 
 .btn-large {
@@ -85,6 +88,7 @@ body {
 .full-recipe-title {
     margin-top: 10px;
     margin-bottom: 30px;
+    font-weight: 700;
 }
 
 .food-image {
@@ -137,4 +141,11 @@ div.method-steps div:before {
 hr {
     width:50%;
     margin:0 auto;
+}
+
+/* Register page */
+
+.click-to-login {
+    font-weight: 700;
+    margin: 0px;
 }
