@@ -90,4 +90,10 @@ $(document).ready(function() {
     $(document).on("click", ".remove", function() {
         $(this).parent().parent().remove();
     });
+
+    // Toggle button to display video iframe on the page 
+    // as per the user's request
+    $("#recipe-video").click(function() {
+        $(".video-frame").slideToggle("slow");
+    });
 });
