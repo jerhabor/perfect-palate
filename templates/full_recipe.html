@@ -3,35 +3,50 @@
 
     <div class="card-panel lime lighten-5">
         <!-- Page Title -->
-        <h2 class="full-recipe-title center-align">{{ recipe.recipe_name }}</h2>
+        <h2 class="full-recipe-title center-align">
+            <!-- Notification if vegetarian -->
+            {{ recipe.recipe_name }}
+            {% if recipe.is_vegetarian == "Yes" %}
+                <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="left"
+                    data-tooltip="Suitable for Vegetarians"></i>
+            {% endif %}
+        </h2>
         <!-- Full Recipe Information -->
         <div class="row full-recipe-header">
+            <!-- Key Recipe Information -->
+            <div class="col s12 m6 key-info">
+                <div class="key-recipe-cuisine center-align col s12">
+                    <h6 class="center-align">
+                        <!-- Cuisine Type -->
+                        <strong>Cuisine: {{ recipe.cuisine_type }}</strong>
+                    </h6>
+                </div>
+                <!-- Recipe Number of Servings -->
+                <div class="key-recipe-servings center-align col s6">
+                    <p><i class="fas fa-utensils fa-2x"> </i><br>{{ recipe.servings }} servings</p>
+                </div>
+                <!-- Recipe Cooking Time -->
+                <div class="key-recipe-time center-align col s6">
+                    <p><i class="fas fa-clock fa-2x"></i><br> {{ recipe.cooking_time }} minutes</p>
+                </div>
+                <!-- List of Allergens -->
+                <div class="key-recipe-allergens center-align col s12">
+                    <p><i class="fas fa-exclamation-circle fa-2x"></i><br> Allergens: {{ recipe.allergens }}</p>
+                </div>
+            </div>
             <!-- Recipe Image -->
             <div class="col s12 m6 food-image">
                 <img src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
             </div>
-            <!-- Extra Recipe Information -->
-            <div class="col s12 m6">
-                <h6>
-                    <!-- Cuisine Type -->
-                    <strong>Cuisine: {{ recipe.cuisine_type }}</strong>
-                    <!-- Notification if vegetarian -->
-                    {% if recipe.is_vegetarian == "Yes" %}
-                        <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
-                            data-tooltip="Suitable for Vegetarians"></i>
-                    {% endif %}
-                </h6>
-                <!-- Recipe Number of Servings -->
-                <p>Servings: {{ recipe.servings }}</p>
-                <!-- Recipe Cooking Time -->
-                <p><i class="fas fa-clock"></i> {{ recipe.cooking_time }} minutes</p>
-                <!-- List of Allergens -->
-                <p><i class="fas fa-exclamation-circle"></i> Allergens: {{ recipe.allergens }}</p>
+            <div class="col s12 center-align">
                 <!-- Recipe Video -->
                 {% if recipe.video %}
-                    <a role="button" class="btn" href="{{ recipe.video }}" target="_blank">
+                    <br><button id="recipe-video" type="button" class="btn green darken-2 text-shadow">
                         Video Tutorial
-                    </a>
+                    </button><br><br>
+                    <div class="col s12 video-frame">
+                        <iframe src="https://www.youtube.com/embed/{{ recipe.video.split('=')[-1] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 {% endif %}
             </div>
             <!-- Recipe Ingredients -->

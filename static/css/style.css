@@ -55,7 +55,7 @@ body {
 }
 
 .card-image {
-    height: 64%;
+    height: 60%;
 }
 
 .card-image img {
@@ -65,7 +65,7 @@ body {
 
 .card .card-content {
     box-sizing: border-box;
-    height: 36%;
+    height: 40%;
     padding: 5px 10px
 }
 
@@ -92,17 +92,51 @@ body {
 }
 
 .food-image {
-    max-height: 300px;
+    max-height: 400px;
     overflow: hidden;
 }
 
 .food-image img {
     width: 100%;
     height: auto;
+    border: 3px solid #000;
 }
 
 .full-recipe-header {
     margin-top: 20px;
+}
+
+.key-info {
+    box-sizing: border-box;
+    padding-top: 30%;
+}
+
+.key-recipe-servings {
+    border: 2px solid #000;
+}
+
+.key-recipe-time {
+    border: 2px solid #000;
+    border-left: none;
+}
+
+.key-recipe-allergens {
+    border: 2px solid #000;
+    border-top: none;
+}
+
+.key-recipe-cuisine {
+    border: 2px solid #000;
+    border-bottom: none;
+}
+
+.video-frame {
+    display: none;
+}
+
+.video-frame iframe {
+    width: 100%;
+    height: auto;
 }
 
 /* 'new_recipe.html' page */
