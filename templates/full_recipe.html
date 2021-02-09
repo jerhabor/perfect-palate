@@ -3,12 +3,12 @@
 
     <div class="card-panel lime lighten-5">
         <!-- Page Title -->
-        <h2 class="full-recipe-title center-align">
+        <h2 class="full-recipe-title green-text text-darken-2 center-align brand-logo">
             <!-- Notification if vegetarian -->
             {{ recipe.recipe_name }}
             {% if recipe.is_vegetarian == "Yes" %}
-                <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="left"
-                    data-tooltip="Suitable for Vegetarians"></i>
+                <span class="vegetarian-icon"><i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
+                    data-tooltip="Suitable for Vegetarians"></i></span>
             {% endif %}
         </h2>
         <!-- Full Recipe Information -->
@@ -35,35 +35,60 @@
                 </div>
                 <!-- List of Allergens -->
                 <div class="key-recipe-allergens center-align col s12">
-                    <p><i class="fas fa-exclamation-circle fa-2x"></i><br> Allergens: {{ recipe.allergens }}</p>
+                    <p>
+                        <i class="fas fa-exclamation-circle fa-2x"></i><br> 
+                        Allergens: 
+                        {% for allergen in recipe.allergens %} 
+                            {% if allergen == recipe.allergens[-1] and recipe.allergens|length > 1 %}
+                                and {{ allergen }}.
+                            {% elif allergen == recipe.allergens[-2] or recipe.allergens|length == 1 %}
+                                {{ allergen }}
+                            {% else %}
+                                {{ allergen }},
+                            {% endif %}
+                        {% endfor %}
+                    </p>
                 </div>
-                <!-- Recipe Video -->
-                <div class="col s12 center-align">
-                    {% if recipe.video %}
-                        <br><button id="recipe-video" type="button" class="btn green darken-2 text-shadow">
-                            Video Tutorial
-                        </button><br><br>
-                    {% endif %}
-                </div>
-            </div>
-            <!-- Toggled Video iframe -->
-            <div class="col s12 video-frame">
-                <iframe src="https://www.youtube.com/embed/{{ recipe.video.split('=')[-1] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <!-- Recipe Ingredients -->
             <div class="center-align col s12">
-                <h4>&#183; Ingredients &#183;</h4>
+                <div class="col s12 section-title">
+                    <hr class="style-eight">
+                </div>
+                <h4 class="brand-logo"> Ingredients </h4>
                 {% for ingredient, amount in recipe.ingredients.items() %}
                     {{ ingredient }}: {{ amount }}<br>
                 {% endfor %}
             </div>
             <!-- Recipe Method -->
-            <div class="col s12">
-                <h4 class="center-align">&#183; Method &#183;</h4>
-                {% for step, method in recipe.method.items() %}
-                    {{ step }}. {{ method }}<br><br>
-                {% endfor %}
+            <div class="col s12 center-align">
+                <div class="col s12 section-title">
+                    <hr class="style-eight">
+                </div>
+                    <h4 class="brand-logo"> Method </h4>
+                </div>
+                <div class="col s12 left-align">
+                    {% for step, method in recipe.method.items() %}
+                        <div class="step-number">Step {{ step }}</div> 
+                        <div class="step-method col s12">{{ method }}</div><br><br>
+                    {% endfor %}
+                </div>
             </div>
+            <!-- Recipe Video -->
+            {% if recipe.video %}
+                <div class="col s12 center-align">
+                    <div class="col s12 section-title">
+                        <hr class="style-eight">
+                    </div>
+                    <div>
+                        <h4 class="brand-logo"> Video Tutorial </h4>
+                    </div>
+                    <div class="col s12">
+                        <!-- Toggled Video iframe -->
+                        <iframe width="270" height="175" src="https://www.youtube.com/embed/{{ recipe.video.split('=')[-1] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 
