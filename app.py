@@ -143,6 +143,9 @@ def new_recipe():
             method_step = method.index(element) + 1
             method_obj[str(method_step)] = str(element)
 
+        allergens = request.form.get("allergens")
+        allergens_list = [x.strip() for x in allergens.split(",")]
+
         recipe = {
             "cuisine_type": request.form.get("cuisine_type"),
             "recipe_name": request.form.get("recipe_name"),
@@ -152,7 +155,7 @@ def new_recipe():
             "cooking_time": request.form.get("cooking_time", type=int),
             "ingredients": ingredients,
             "method": method_obj,
-            "allergens": request.form.get("allergens"),
+            "allergens": allergens_list,
             "image": request.form.get("image"),
             "video": request.form.get("video"),
             "recipe_by": session["user"]
@@ -189,6 +192,9 @@ def edit_recipe(recipe_id):
             method_step = method.index(element) + 1
             method_obj[str(method_step)] = str(element)
 
+        allergens = request.form.get("allergens")
+        allergens_list = [x.strip() for x in allergens.split(",")]
+
         submit = {
             "cuisine_type": request.form.get("cuisine_type"),
             "recipe_name": request.form.get("recipe_name"),
@@ -198,7 +204,7 @@ def edit_recipe(recipe_id):
             "cooking_time": request.form.get("cooking_time", type=int),
             "ingredients": ingredients,
             "method": method_obj,
-            "allergens": request.form.get("allergens"),
+            "allergens": allergens_list,
             "image": request.form.get("image"),
             "video": request.form.get("video"),
             "recipe_by": session["user"]
