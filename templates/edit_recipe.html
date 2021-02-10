@@ -162,12 +162,33 @@
                 <!-- Submit Button -->
                 <div class="row">
                     <div class="col s12 center-align">
-                        <a href="{{ url_for('recipes') }}" class="btn-large red text-shadow">
-                            Cancel<i class="fas fa-times-circle right"></i>
+                        <a href="{{ url_for('recipes') }}" class="btn-large green text-shadow">
+                            Go Back<i class="fas fa-undo right"></i>
                         </a>
                         <button type="submit" class="btn-large cyan text-shadow">
                             Edit Recipe <i class="fas fa-check-circle right"></i>
                         </button>
+                        <a id="delete-button" class="btn red text-shadow modal-trigger" href="#delete_recipe">
+                            Delete Recipe <i class="fas fa-trash right"></i>
+                        </a>
+                        <!-- "Delete" Modal Structure -->
+                        <div id="delete_recipe" class="modal center-align">
+                            <div class="modal-header">
+                                <h4>Delete Recipe</h4>
+                            </div>
+                            <div class="modal-content">
+                                <p>Please note that when deleted, it cannot be undone.</p>
+                                <p>Are you sure you would like to delete your recipe for: <strong class="recipe-to-delete">{{ recipe.recipe_name }}</strong>?</p>
+                            </div>
+                            <div class="modal-footer center-align">
+                                <button type="button" class="blue btn text-shadow modal-close">
+                                    No<i class="fas fa-times-circle right"></i>
+                                </button>
+                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close btn red text-shadow">
+                                    Yes<i class="fas fa-trash right"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
