@@ -1,22 +1,23 @@
 $(document).ready(function() {
 
-    // Initiation for side navigation bar on mobile when
-    // user clicks the 'hamburger' icon
+    /* Initialization for side navigation bar on mobile when
+    user clicks the 'hamburger' icon. */
     $('.sidenav').sidenav({ edge: "right" });
 
-    // Initiation for tooltip which gives user a first-hand
-    // indication of whether a recipe is suitable for vegeterians
+    /* Initialization for tooltip which gives user a first-hand
+    indication of whether a recipe is suitable for vegeterians. */
     $('.tooltipped').tooltip();
 
-    // Initiation for textarea element used in 'description'
-    // and 'steps' as user adds a new recipe
+    /* Initialization for textarea element used in 'description'
+    and 'steps' as user adds a new recipe. */
     $('input#input_text, textarea#textarea2').characterCounter();
 
-    // Initiation for the 'is_vegetarian' select/dropdown when
-    // user adds a new recipe
+    /* Initialization for the 'is_vegetarian' select/dropdown 
+    when user adds a new recipe. */
     $('select').formSelect();
 
-    // Validation of the 'is_Vegetarian' select (Code inspired by Tim Nelson, Code Institute)
+    /* Validation of the 'is_Vegetarian' select. 
+    (Code by Tim Nelson, Code Institute) */
     validateIsVegetarian();
     function validateIsVegetarian() {
         let validInput = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -45,8 +46,8 @@ $(document).ready(function() {
         });
     }
 
-    // This function allows the user to click for more rows 
-    // as they input their steps to preparing the recipe
+    /* This function allows the user to click for more rows 
+    as they input their steps to preparing the recipe. */
     $("#add_step").click(function() {
         $(".method-steps").append(
         `<div class="input-field col s12">
@@ -62,8 +63,8 @@ $(document).ready(function() {
         );
     });
 
-    // This function allows the user to click for more rows 
-    // as they add required ingredients for the recipe
+    /* This function allows the user to click for more rows 
+    as they add required ingredients for the recipe. */
     $("#add_ingredient").click(function() {
         $(".ingredient_items").append(
             `<li>
@@ -85,15 +86,20 @@ $(document).ready(function() {
         );
     });
 
-    // This function allows the user to delete rows when editing 
-    // their steps/ingredients to preparing the recipe
+    /* This function allows the user to delete rows when editing 
+    their steps/ingredients to preparing the recipe. */
     $(document).on("click", ".remove", function() {
         $(this).parent().parent().remove();
     });
 
-    // Toggle button to display video iframe on the page 
-    // as per the user's request
+    /* Toggle button to display video iframe on the page 
+    as per the user's request. */
     $("#recipe-video").click(function() {
         $(".video-frame").slideToggle("slow");
+    });
+
+    /* Initialization for the Materialize Modal on the 'Edit Recipe' page. */ 
+    $(document).ready(function(){
+        $('.modal').modal();
     });
 });
