@@ -35,7 +35,7 @@ body {
     margin-bottom: 0px;
 }
 
-.btn-large {
+.btn-large, .btn {
     margin: 5px;
 }
 
@@ -201,9 +201,66 @@ div.method-steps div:before {
     margin-bottom: 30px;
 }
 
-hr {
-    width:50%;
-    margin:0 auto;
+/* Edit Recipe Page */
+
+.recipe-to-delete {
+    font-weight: 700;
+}
+
+.modal .modal-header {
+    background-color: #388e3c;
+    box-sizing: border-box;
+}
+
+.modal .modal-header h4 {
+    padding: 10px 0px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.big-x {
+    position: relative;
+    color: #fff;
+}
+
+.modal .modal-content {
+    background-color: #f9fbe7;
+    box-sizing: border-box;
+}
+
+.modal-content p {
+    padding: 20px 10px;
+}
+
+.modal .modal-footer {
+    border-radius: 0 0 2px 2px;
+    background-color: #388e3c;
+    padding: 4px 6px;
+    height: 75px;
+    width: 100%;
+    text-align: center;
+}
+
+.modal .modal-footer .btn-large {
+    margin-right: 10px;
+}
+
+hr.delete-recipe {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double red;
+    color: red;
+    text-align: center;
+}
+hr.delete-recipe:after {
+    content: "Danger Zone";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #f9fbe7;
 }
 
 /* Register page */
@@ -219,5 +276,9 @@ hr {
     .container  {
         padding: 0px;
         overflow: hidden;
+    }
+
+    .hr {
+        width: 100%;
     }
 }
