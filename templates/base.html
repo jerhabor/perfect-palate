@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="{{url_for('static', filename='images/favicon.ico')}}" type="image/x-icon"/>
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" type="text/css">
         <!-- Materialize CSS -->
@@ -23,7 +24,7 @@
             <!-- Web Browser Navigation Bar -->
             <nav class="nav-extended green darken-2 text-shadow">
                 <div class="nav-wrapper">
-                    <a href="{{ url_for('recipes') }}" class="brand-logo">Perfect Palate</a>
+                    <a href="{{ url_for('recipes') }}" class="brand-logo web-logo">Perfect Palate</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
                         {% if session.user %}
@@ -38,8 +39,8 @@
                 </div>
             </nav>
             <!-- Mobile Side Navigation Bar -->
-            <ul class="sidenav" id="mobile-demo">
-                <li><h4 class="brand-logo center-align green-text text-darken-2">Perfect Palate</h4></li>
+            <ul class="sidenav center-align" id="mobile-demo">
+                <li><a href="{{ url_for('recipes') }}" class="brand-logo web-logo"><h4 class="green-text text-darken-2">Perfect Palate</h4></a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('new_recipe') }}">New Recipe</a></li>
                     <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
