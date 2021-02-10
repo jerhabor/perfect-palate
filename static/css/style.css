@@ -6,13 +6,17 @@
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
 .flash-message {
-    line-height: 3;
+    line-height: 4;
 }
 
 body {
     font-family: 'Lato', sans-serif;
-    background-image: url("../images/background.png");
+    background-image: url("../images/background.jpg");
     background-attachment: fixed;
     box-sizing: border-box;
 }
@@ -161,7 +165,7 @@ hr.style-eight:after {
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    background-color:#4caf50;
+    background-color:#388e3c;
     border-radius: 50%;
     color: #fff;
     float: left;
@@ -185,7 +189,7 @@ div.method-steps div:before {
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  background-color:#4caf50;
+  background-color:#388e3c;
   border-radius: 50%;
   color: #fff;
   float: left;
@@ -280,5 +284,17 @@ hr.delete-recipe:after {
 
     .hr {
         width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    nav .brand-logo.web-logo {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 280px) {
+    nav .brand-logo.web-logo {
+        font-size: 1.6rem;
     }
 }
