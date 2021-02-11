@@ -25,6 +25,36 @@
                         <label for="cuisine_type">Type of Cuisine</label>
                     </div>
                 </div>
+                <!-- Meal Time -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-clock green-text text-darken-2 prefix"></i>
+                        <select id="meal_time" name="meal_time" class="validate" multiple required>
+                            <option value="" disabled>Choose Option(s)</option>
+                            <!-- Unpacking the selected options from the database -->
+                            {% for meal in recipe.meal_time %}
+                            <option value="{{ meal }}" selected>{{ meal }}</option>
+                            {% endfor %}
+                            <!-- Adding the remaining unselected options -->
+                            {% if "Breakfast" not in recipe.meal_time %}
+                            <option value="Breakfast">Breakfast</option>
+                            {% endif %}
+                            {% if "Brunch" not in recipe.meal_time %}
+                            <option value="Brunch">Brunch</option>
+                            {% endif %}
+                            {% if "Lunch" not in recipe.meal_time %}
+                            <option value="Lunch">Lunch</option>
+                            {% endif %}
+                            {% if "Dinner" not in recipe.meal_time %}
+                            <option value="Dinner">Dinner</option>
+                            {% endif %}
+                            {% if "Dessert" not in recipe.meal_time %}
+                            <option value="Dessert">Dessert</option>
+                            {% endif %}
+                        </select>
+                        <label for="meal_time">When should I eat this meal?</label>
+                    </div>
+                </div>
                 <!-- Description of meal -->
                 <div class="row">
                     <div class="input-field col s12">

@@ -149,6 +149,7 @@ def new_recipe():
         recipe = {
             "cuisine_type": request.form.get("cuisine_type"),
             "recipe_name": request.form.get("recipe_name"),
+            "meal_time": request.form.getlist("meal_time"),
             "description": request.form.get("description"),
             "servings": request.form.get("servings"),
             "is_vegetarian": is_vegetarian,
@@ -198,6 +199,7 @@ def edit_recipe(recipe_id):
         submit = {
             "cuisine_type": request.form.get("cuisine_type"),
             "recipe_name": request.form.get("recipe_name"),
+            "meal_time": request.form.getlist("meal_time"),
             "description": request.form.get("description"),
             "servings": request.form.get("servings"),
             "is_vegetarian": is_vegetarian,
