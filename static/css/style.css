@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Lato:wght@400;700&display=swap');
 
 /* General */
 
@@ -107,10 +107,29 @@ hr.style-eight:after {
 
 /* 'full_recipe.html' page */
 
+.full-recipe {
+    border: 2px solid #388e3c;
+    background-color: #f9fbe7;
+}
+
+.full-recipe .card-panel {
+    margin-top: 0px;
+}
+
 .full-recipe-title {
-    margin-top: 10px;
     margin-bottom: 30px;
     font-weight: 700;
+    z-index: 100;
+}
+
+.cover-header {
+    max-height: 13rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover-header img {
+    width: 100%;
 }
 
 .vegetarian-icon {
@@ -118,7 +137,12 @@ hr.style-eight:after {
     vertical-align: top;
 }
 
-.food-image {
+.key-info img {
+    height: 40px;
+    width: auto;
+}
+
+/* .food-image {
     max-height: 400px;
     overflow: hidden;
 }
@@ -126,19 +150,23 @@ hr.style-eight:after {
 .food-image img {
     width: 100%;
     height: auto;
-    border: 3px solid #000;
-}
+} */
 
 .full-recipe-header {
     margin-top: 20px;
+    border: 1px solid #000;
 }
 
 .key-info {
     box-sizing: border-box;
-    padding-top: 30%;
+    padding: 0px;
 }
 
-.key-recipe-servings {
+.key-recipe-info {
+    border-bottom: 1px solid #000;
+}
+
+/* .key-recipe-servings {
     border: 2px solid #000;
 }
 
@@ -155,7 +183,7 @@ hr.style-eight:after {
 .key-recipe-cuisine {
     border: 2px solid #000;
     border-bottom: none;
-}
+} */
 
 .step-number {
     margin: 20px 10px 5px 0px;
