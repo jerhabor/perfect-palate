@@ -63,6 +63,11 @@ hr.style-eight:after {
 
 /* 'recipes.html' page */
 
+.filter-button div {
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
 .recipe-list {
     box-sizing: border-box;
     padding: 10px;
