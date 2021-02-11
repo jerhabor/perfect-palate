@@ -3,33 +3,55 @@
 
 
     <div class="row card-panel lime lighten-5">
-            <!-- Page Title -->
-            <h2 class="page-title green-text text-darken-2 center-align brand-logo">
-                Welcome 
-                {% if session.user %}
-                    {{ session.user }}!
-                {% else %}
-                    Guest!
-                {% endif %}
-            </h2>
-            <p class="center-align"><em>Feeling hungry? Explore our list of recipes below from fellow Epicures!</em></p>
+        <!-- Page Title -->
+        <h2 class="page-title green-text text-darken-2 center-align brand-logo">
+            Welcome 
+            {% if session.user %}
+                {{ session.user }}!
+            {% else %}
+                Guest!
+            {% endif %}
+        </h2>
+        <p class="center-align"><em>Feeling hungry? Explore our list of recipes below from fellow Epicures!</em></p>
 
-            <!-- Search Bar -->
-            <form action="{{ url_for('search') }}" method="GET" class="col s12">
-                <div class="row center-align">
-                    <div class="input-field col s12 m8">
-                        <i class="fas fa-search prefix light-green-text text-darken-2"></i>
-                        <input value="{{ request.args.get('query', '') }}" type="text" name="query" id="query" minlength="1" class="validate" required>
-                        <label for="query">Search for Recipes</label>
-                    </div>
-                    <div class="input-field col s12 m4">
-                        <a href="{{ url_for('recipes') }}" class="red btn text-shadow"><i class="fas fa-undo"></i></a>
-                        <button type="submit" class="green btn text-shadow">
-                            <i class="fas fa-search left"></i>Search
-                        </button>
-                    </div>
+        <!-- Search Bar -->
+        <form action="{{ url_for('search') }}" method="GET" class="col s12">
+            <div class="row center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix light-green-text text-darken-2"></i>
+                    <input value="{{ request.args.get('query', '') }}" type="text" name="query" id="query" minlength="1" class="validate" required>
+                    <label for="query">Search for Recipes</label>
                 </div>
-            </form>
+                <div class="input-field col s12 m4">
+                    <a href="{{ url_for('recipes') }}" class="red btn text-shadow"><i class="fas fa-undo"></i></a>
+                    <button type="submit" class="green btn text-shadow">
+                        <i class="fas fa-search left"></i>Search
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Filter Buttons -->
+        <div class="row">
+            <div class="col s6 m3 l2">
+                <a href="/search?query=breakfast" class="btn green text-shadow">Breakfast</a>
+            </div>
+            <div class="col s6 m3 l2">
+                <a href="/search?query=brunch" class="btn green text-shadow">Brunch</a>
+            </div>
+            <div class="col s6 m3 l2">
+                <a href="/search?query=lunch" class="btn green text-shadow">Lunch</a>
+            </div>
+            <div class="col s6 m3 l2">
+                <a href="/search?query=dinner" class="btn green text-shadow">Dinner</a>
+            </div>
+            <div class="col s6 m3 l2">
+                <a href="/search?query=dessert" class="btn green text-shadow">Dessert</a>
+            </div>
+            <div class="col s6 m3 l2">
+                <a href="/search?query=sub30" class="btn green text-shadow">Under 30</a>
+            </div>
+        </div>
 
         {% if recipes|length > 0 %}
         <!-- List of Recipe Cards -->
