@@ -24,16 +24,16 @@
             {% for meal in recipe.meal_time %}
                 {% if meal == "Breakfast" %}
                     <i class="fas fa-circle tooltipped breakfast-icon" data-position="bottom"
-                        data-tooltip="Breakfast"></i>
+                        data-tooltip="Breakfast"> Breakfast</i>
                 {% elif meal == "Lunch" %}
                     <i class="fas fa-circle tooltipped lunch-icon" data-position="bottom"
-                        data-tooltip="Lunch"></i>
+                        data-tooltip="Lunch"> Lunch</i>
                 {% elif meal == "Dinner" %}
                     <i class="fas fa-circle tooltipped dinner-icon" data-position="bottom"
-                        data-tooltip="Dinner"></i>
+                        data-tooltip="Dinner"> Dinner</i>
                 {% elif meal == "Dessert" %}
                     <i class="fas fa-circle tooltipped dessert-icon" data-position="bottom"
-                        data-tooltip="Dessert"></i>
+                        data-tooltip="Dessert"> Dessert</i>
                 {% endif %}
             {% endfor %}
         </div>
@@ -44,7 +44,8 @@
                 <!-- Cuisine Type -->
                 <div class="key-recipe-info center-align col s12 m4">
                     <p class="center-align">
-                        <i class="fas fa-globe-africa fa-2x"> </i><br>{{ recipe.cuisine_type }} Cuisine
+                        <i class="fas fa-globe-africa fa-2x"> </i><br>
+                        <a href="/search?query={{ recipe.cuisine_type }}">{{ recipe.cuisine_type }} Cuisine</a>
                     </p>
                 </div>
                 <!-- Recipe Number of Servings -->
@@ -53,7 +54,10 @@
                 </div>
                 <!-- Recipe Cooking Time -->
                 <div class="key-recipe-info center-align col s6 m4">
-                    <p><i class="fas fa-stopwatch fa-2x"></i><br> {{ recipe.cooking_time }} minutes</p>
+                    <p>
+                        <i class="fas fa-stopwatch fa-2x"></i><br> 
+                        <a href="/search?query={{ recipe.cooking_time }}">{{ recipe.cooking_time }} minutes</a>
+                    </p>
                 </div>
                 <!-- List of Allergens -->
                 <div class="center-align col s12">
@@ -79,7 +83,7 @@
                 <div class="col s12 section-title">
                     <hr class="style-eight">
                 </div>
-                <h4 class="brand-logo"> Ingredients </h4>
+                <h4 class="brand-logo sub-heading"> Ingredients </h4>
                 {% for ingredient, amount in recipe.ingredients.items() %}
                     {{ ingredient }}: {{ amount }}<br>
                 {% endfor %}
@@ -89,7 +93,7 @@
                 <div class="col s12 section-title">
                     <hr class="style-eight">
                 </div>
-                    <h4 class="brand-logo"> Method </h4>
+                    <h4 class="brand-logo sub-heading"> Method </h4>
                 </div>
                 <div class="col s12 left-align">
                     {% for step, method in recipe.method.items() %}
@@ -105,7 +109,7 @@
                         <hr class="style-eight">
                     </div>
                     <div>
-                        <h4 class="brand-logo"> Video Tutorial </h4>
+                        <h4 class="brand-logo sub-heading"> Video Tutorial </h4>
                     </div>
                     <div class="col s12">
                         <!-- Toggled Video iframe -->

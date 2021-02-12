@@ -53,8 +53,8 @@ hr.style-eight { /* Glyph, by Harry Roberts <https://css-tricks.com/examples/hrs
     overflow: visible; /* For IE */
     padding: 0;
     border: none;
-    border-top: medium double #333;
-    color: #333;
+    border-top: medium double #388e3c;
+    color: #388e3c;
     text-align: center;
 }
 hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/examples/hrs/> */
@@ -198,6 +198,18 @@ hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/exampl
 
 .key-recipe-info {
     border-bottom: 1px solid #000;
+}
+
+.key-recipe-info a {
+    color: #000;
+}
+
+.key-recipe-info a:hover {
+    text-decoration: underline;
+}
+
+.brand-logo.sub-heading {
+    color: #388e3c;
 }
 
 .step-number {   /* inspired by https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
