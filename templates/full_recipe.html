@@ -19,103 +19,101 @@
                 {% endif %}
             </h2>
         </div>
-    <!-- Full Recipe Information -->
-    <div class="row full-recipe-header">
-
-        <!-- Recipe Image
-        <div class="col s12 l7 food-image">
-            <img src="{{ recipe.image }}" alt="Profile image for {{ recipe.recipe_name }}">
-        </div> -->
-
-        <!-- Key Recipe Information -->
-        <div class="col s12 key-info">
-            <!-- Cuisine Type -->
-            <div class="key-recipe-info center-align col s12">
-                <h5 class="center-align">
-                    <strong>Cuisine: {{ recipe.cuisine_type }}</strong>
-                </h5>
-            </div>
-            <!-- Meal Time -->
-            <div class="center-align key-recipe-info col s12">
-                <h6>
-                    {% for meal in recipe.meal_time %} 
-                        {% if meal == recipe.meal_time[-1] and recipe.meal_time|length > 1 %}
-                            and {{ meal }}
-                        {% elif meal == recipe.meal_time[-2] or recipe.meal_time|length == 1 %}
-                            {{ meal }}
-                        {% else %}
-                            {{ meal }},
-                        {% endif %}
-                    {% endfor %}
-                </h6>
-            </div>
-            <!-- Recipe Number of Servings -->
-            <div class="key-recipe-info center-align col s6 l4">
-                <p><i class="fas fa-utensils fa-2x"> </i><br>{{ recipe.servings }} servings</p>
-            </div>
-            <!-- Recipe Cooking Time -->
-            <div class="key-recipe-info center-align col s6 l4">
-                <p><i class="fas fa-stopwatch fa-2x"></i><br> {{ recipe.cooking_time }} minutes</p>
-            </div>
-            <!-- List of Allergens -->
-            <div class="key-recipe-info center-align col s12 l4">
-                <p>
-                    <i class="fas fa-exclamation-circle fa-2x"></i><br> 
-                    Allergens: 
-                    {% for allergen in recipe.allergens %} 
-                        {% if allergen == recipe.allergens[-1] and recipe.allergens|length > 1 %}
-                            and {{ allergen }}
-                        {% elif allergen == recipe.allergens[-2] or recipe.allergens|length == 1 %}
-                            {{ allergen }}
-                        {% else %}
-                            {{ allergen }},
-                        {% endif %}
-                    {% endfor %}
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- Recipe Ingredients -->
-    <div class="row">
-        <div class="center-align col s12">
-            <div class="col s12 section-title">
-                <hr class="style-eight">
-            </div>
-            <h4 class="brand-logo"> Ingredients </h4>
-            {% for ingredient, amount in recipe.ingredients.items() %}
-                {{ ingredient }}: {{ amount }}<br>
+        <!-- Type of Meal Icons -->
+        <div class="meal-icons center">
+            {% for meal in recipe.meal_time %}
+                {% if meal == "Breakfast" %}
+                    <i class="fas fa-circle tooltipped breakfast-icon" data-position="bottom"
+                        data-tooltip="Breakfast"></i>
+                {% elif meal == "Lunch" %}
+                    <i class="fas fa-circle tooltipped lunch-icon" data-position="bottom"
+                        data-tooltip="Lunch"></i>
+                {% elif meal == "Dinner" %}
+                    <i class="fas fa-circle tooltipped dinner-icon" data-position="bottom"
+                        data-tooltip="Dinner"></i>
+                {% elif meal == "Dessert" %}
+                    <i class="fas fa-circle tooltipped dessert-icon" data-position="bottom"
+                        data-tooltip="Dessert"></i>
+                {% endif %}
             {% endfor %}
         </div>
-        <!-- Recipe Method -->
-        <div class="col s12 center-align">
-            <div class="col s12 section-title">
-                <hr class="style-eight">
-            </div>
-                <h4 class="brand-logo"> Method </h4>
-            </div>
-            <div class="col s12 left-align">
-                {% for step, method in recipe.method.items() %}
-                    <div class="step-number">Step {{ step }}</div> 
-                    <div class="step-method col s12">{{ method }}</div><br><br>
-                {% endfor %}
+        <!-- Full Recipe Information -->
+        <div class="row full-recipe-header">
+            <!-- Key Recipe Information -->
+            <div class="col s12 key-info">
+                <!-- Cuisine Type -->
+                <div class="key-recipe-info center-align col s12 m4">
+                    <p class="center-align">
+                        <i class="fas fa-globe-africa fa-2x"> </i><br>{{ recipe.cuisine_type }} Cuisine
+                    </p>
+                </div>
+                <!-- Recipe Number of Servings -->
+                <div class="key-recipe-info center-align col s6 m4">
+                    <p><i class="fas fa-utensils fa-2x"> </i><br>{{ recipe.servings }} servings</p>
+                </div>
+                <!-- Recipe Cooking Time -->
+                <div class="key-recipe-info center-align col s6 m4">
+                    <p><i class="fas fa-stopwatch fa-2x"></i><br> {{ recipe.cooking_time }} minutes</p>
+                </div>
+                <!-- List of Allergens -->
+                <div class="center-align col s12">
+                    <p>
+                        <i class="fas fa-exclamation-circle fa-2x"></i><br> 
+                        Allergens: 
+                        {% for allergen in recipe.allergens %} 
+                            {% if allergen == recipe.allergens[-1] and recipe.allergens|length > 1 %}
+                                and {{ allergen }}
+                            {% elif allergen == recipe.allergens[-2] or recipe.allergens|length == 1 %}
+                                {{ allergen }}
+                            {% else %}
+                                {{ allergen }},
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
             </div>
         </div>
-        <!-- Recipe Video -->
-        {% if recipe.video %}
+        <!-- Recipe Ingredients -->
+        <div class="row">
+            <div class="center-align col s12">
+                <div class="col s12 section-title">
+                    <hr class="style-eight">
+                </div>
+                <h4 class="brand-logo"> Ingredients </h4>
+                {% for ingredient, amount in recipe.ingredients.items() %}
+                    {{ ingredient }}: {{ amount }}<br>
+                {% endfor %}
+            </div>
+            <!-- Recipe Method -->
             <div class="col s12 center-align">
                 <div class="col s12 section-title">
                     <hr class="style-eight">
                 </div>
-                <div>
-                    <h4 class="brand-logo"> Video Tutorial </h4>
+                    <h4 class="brand-logo"> Method </h4>
                 </div>
-                <div class="col s12">
-                    <!-- Toggled Video iframe -->
-                    <iframe width="270" height="175" src="https://www.youtube.com/embed/{{ recipe.video.split('=')[-1] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="col s12 left-align">
+                    {% for step, method in recipe.method.items() %}
+                        <div class="step-number">Step {{ step }}</div> 
+                        <div class="step-method col s12">{{ method }}</div><br><br>
+                    {% endfor %}
                 </div>
             </div>
-        {% endif %}
+            <!-- Recipe Video -->
+            {% if recipe.video %}
+                <div class="col s12 center-align">
+                    <div class="col s12 section-title">
+                        <hr class="style-eight">
+                    </div>
+                    <div>
+                        <h4 class="brand-logo"> Video Tutorial </h4>
+                    </div>
+                    <div class="col s12">
+                        <!-- Toggled Video iframe -->
+                        <iframe width="270" height="175" src="https://www.youtube.com/embed/{{ recipe.video.split('=')[-1] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
     </div>
-</div>
 
 {% endblock %}

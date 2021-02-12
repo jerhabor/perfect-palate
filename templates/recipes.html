@@ -70,12 +70,16 @@
                                         <span class="activator grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
                                     </h6>
                                 </div>
+                                <!-- Edit and/or View Recipe Buttons -->
                                 <div class="card-buttons">
+                                    <!-- Edit Button -->
                                     {% if session.user|lower == recipe.recipe_by|lower %}
                                         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small blue-grey darken-1">Edit</a>
                                     {% endif %}
-                                    <a href="/recipes/{{ recipe._id }}" class="waves-effect waves-light btn-small purple darken-1">View</a>
+                                    <!-- View Recipe Button -->
+                                    <a href="/recipes/{{ recipe._id }}" class="waves-effect waves-light btn-small purple lighten-2">View</a>
                                 </div>
+                                <!-- Type of Meal Icons -->
                                 <div class="meal-icons center">
                                     {% for meal in recipe.meal_time %}
                                         {% if meal == "Breakfast" %}

@@ -85,6 +85,9 @@ hr.style-eight:after {
     color: #6d4c41;
 }
 
+.meal-icons i {
+    margin: 5px;
+}
 
 .filter-button a {
     box-sizing: border-box;
@@ -182,12 +185,15 @@ hr.style-eight:after {
 
 .full-recipe-header {
     margin-top: 20px;
-    border: 1px solid #000;
 }
 
 .key-info {
     box-sizing: border-box;
     padding: 0px;
+    border: 2px solid #388e3c;
+    border-radius: 20px;
+    background-color: #e8f5e9;
+    color: #000;
 }
 
 .key-recipe-info {
