@@ -19,12 +19,12 @@
             <div class="row center-align">
                 <div class="input-field col s12 m8">
                     <i class="fas fa-search prefix light-green-text text-darken-2"></i>
-                    <input value="{{ request.args.get('query', '') }}" type="text" name="query" id="query" minlength="1" class="validate" required>
-                    <label for="query">Search for Recipes</label>
+                    <input value="{{ request.args.get('query', '') }}" type="text" name="query" id="query" minlength="1" class="validate">
+                    <label for="query">E.g. 15 min meals or Irish food</label>
                 </div>
                 <div class="input-field col s12 m4">
-                    <a href="{{ url_for('recipes') }}" class="red btn text-shadow"><i class="fas fa-undo"></i></a>
-                    <button type="submit" class="green btn text-shadow">
+                    <a href="{{ url_for('recipes') }}" class="hoverable red btn text-shadow"><i class="fas fa-undo"></i></a>
+                    <button type="submit" class="hoverable green btn text-shadow">
                         <i class="fas fa-search left"></i>Search
                     </button>
                 </div>
@@ -32,18 +32,18 @@
         </form>
 
         <!-- Filter Buttons -->
-        <div class="row center-align filter-button">
-            <div class="col s6 m3 green">
-                <a href="/search?query=breakfast" class="btn-flat white-text text-shadow">Breakfast</a>
+        <div class="row center-align">
+            <div class="col s6 m3 filter-button">
+                <a href="/search?query=breakfast" class="btn-flat orange white-text text-shadow">Breakfast</a>
             </div>
-            <div class="col s6 m3 green">
-                <a href="/search?query=lunch" class="btn-flat white-text text-shadow">Lunch</a>
+            <div class="col s6 m3 filter-button">
+                <a href="/search?query=lunch" class="btn-flat orange white-text text-shadow">Lunch</a>
             </div>
-            <div class="col s6 m3 green">
-                <a href="/search?query=dessert" class="btn-flat white-text text-shadow">Dessert</a>
+            <div class="col s6 m3 filter-button">
+                <a href="/search?query=dinner" class="btn-flat orange white-text text-shadow">Dinner</a>
             </div>
-            <div class="col s6 m3 green">
-                <a href="/search?query=sub30" class="btn-flat white-text text-shadow">Under 30</a>
+            <div class="col s6 m3 filter-button">
+                <a href="/search?query=dessert" class="btn-flat orange white-text text-shadow">Dessert</a>
             </div>
         </div>
 
@@ -67,7 +67,7 @@
                                         <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="left"
                                             data-tooltip="Suitable for Vegetarians"></i>
                                     {% endif %}
-                                    <strong>{{ recipe.recipe_name }}</strong>
+                                    <span class="activator grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
                                 </h6></div>
                                 <div class="card-buttons">
                                 {% if session.user|lower == recipe.recipe_by|lower %}

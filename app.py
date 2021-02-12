@@ -113,7 +113,7 @@ def profile(username):
 
 @app.route("/search")
 def search():
-    query = request.args.get("query", "")
+    query = request.args.get("query", "-minutes -mins")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
 
@@ -153,7 +153,7 @@ def new_recipe():
             "description": request.form.get("description"),
             "servings": request.form.get("servings"),
             "is_vegetarian": is_vegetarian,
-            "cooking_time": request.form.get("cooking_time", type=int),
+            "cooking_time": request.form.get("cooking_time"),
             "ingredients": ingredients,
             "method": method_obj,
             "allergens": allergens_list,
@@ -203,7 +203,7 @@ def edit_recipe(recipe_id):
             "description": request.form.get("description"),
             "servings": request.form.get("servings"),
             "is_vegetarian": is_vegetarian,
-            "cooking_time": request.form.get("cooking_time", type=int),
+            "cooking_time": request.form.get("cooking_time"),
             "ingredients": ingredients,
             "method": method_obj,
             "allergens": allergens_list,
