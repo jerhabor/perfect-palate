@@ -99,7 +99,9 @@ $(document).ready(function() {
     });
 
     /* Initialization for the Materialize Modal on the 'Edit Recipe' page. */ 
-    $(document).ready(function(){
-        $('.modal').modal();
-    });
+    $('.modal').modal();
+
+    /* Initialization to allow user to see the full-sized cover 
+    image on the 'Full Recipe' page. */ 
+    $('.materialboxed').materialbox();
 });

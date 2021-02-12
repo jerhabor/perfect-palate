@@ -10,8 +10,9 @@
     text-transform: uppercase;
 }
 
-.flash-message {
-    line-height: 4;
+.flash-message h4 {
+    line-height: 2;
+    font-size: 1.5em;
 }
 
 body {
@@ -160,7 +161,7 @@ hr.style-eight:after {
 }
 
 .cover-header {
-    max-height: 13rem;
+    max-height: 20rem;
     position: relative;
     overflow: hidden;
 }
@@ -178,16 +179,6 @@ hr.style-eight:after {
     height: 40px;
     width: auto;
 }
-
-/* .food-image {
-    max-height: 400px;
-    overflow: hidden;
-}
-
-.food-image img {
-    width: 100%;
-    height: auto;
-} */
 
 .full-recipe-header {
     margin-top: 20px;
