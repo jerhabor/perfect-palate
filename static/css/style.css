@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Lato:wght@400;700&display=swap');
 
-/* General */
+/* ------------------------------------------------ GENERAL SPACING/SPECIAL TEXT/HORIZONTAL RULES */
 
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
@@ -49,7 +49,7 @@ body {
     margin: 5px;
 }
 
-hr.style-eight {
+hr.style-eight { /* Glyph, by Harry Roberts <https://css-tricks.com/examples/hrs/> */
     overflow: visible; /* For IE */
     padding: 0;
     border: none;
@@ -57,7 +57,7 @@ hr.style-eight {
     color: #333;
     text-align: center;
 }
-hr.style-eight:after {
+hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/examples/hrs/> */
     content: "§";
     display: inline-block;
     position: relative;
@@ -67,7 +67,7 @@ hr.style-eight:after {
     background: #f9fbe7;
 }
 
-/* 'recipes.html' page */
+/* ------------------------------------------------ LIST OF RECIPES PAGE (recipes.html) */
 
 .breakfast-icon {
     color: #0288d1;
@@ -145,7 +145,7 @@ hr.style-eight:after {
     padding-right: 20px;
 }
 
-/* 'full_recipe.html' page */
+/* ------------------------------------------------ FULL RECIPE PAGE (full_recipe.html) */
 
 .full-recipe {
     border: 2px solid #388e3c;
@@ -200,26 +200,7 @@ hr.style-eight:after {
     border-bottom: 1px solid #000;
 }
 
-/* .key-recipe-servings {
-    border: 2px solid #000;
-}
-
-.key-recipe-time {
-    border: 2px solid #000;
-    border-left: none;
-}
-
-.key-recipe-allergens {
-    border: 2px solid #000;
-    border-top: none;
-}
-
-.key-recipe-cuisine {
-    border: 2px solid #000;
-    border-bottom: none;
-} */
-
-.step-number {
+.step-number {   /* inspired by https://blog.logrocket.com/styling-numbered-lists-with-css-counters/ */
     margin: 20px 10px 5px 0px;
     width: 70px;
     height: 35px;
@@ -234,7 +215,7 @@ hr.style-eight:after {
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
-/* 'new_recipe.html' page */
+/* ------------------------------------------------ ADD NEW RECIPE PAGE (new_recipe.html) */
 
 div.method-steps {
   counter-reset: list-number;
@@ -267,7 +248,7 @@ div.method-steps div:before {
     margin-bottom: 30px;
 }
 
-/* Edit Recipe Page */
+/* ------------------------------------------------ EDIT RECIPE PAGE (edit_recipe.html) */
 
 .recipe-to-delete {
     font-weight: 700;
@@ -329,14 +310,14 @@ hr.delete-recipe:after {
     background: #f9fbe7;
 }
 
-/* Register page */
+/* ------------------------------------------------ REGISTER PAGE (register.html) */
 
 .click-to-login {
     font-weight: 700;
     margin: 0px;
 }
 
-/* Media Queries */
+/* ------------------------------------------------ MEDIA QUERIES */
 
 @media (max-width: 978px) {
     .container  {
@@ -358,5 +339,26 @@ hr.delete-recipe:after {
 @media (max-width: 280px) {
     nav .brand-logo.web-logo {
         font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 749px) {
+    iframe {
+        width: 90%;
+        height: 250px;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 992px) {
+    iframe {
+        width: 80%;
+        height: 300px;
+    }
+}
+
+@media (min-width: 993px) {
+    iframe {
+        width: 60%;
+        height: 340px;
     }
 }
