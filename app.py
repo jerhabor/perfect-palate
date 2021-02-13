@@ -108,7 +108,13 @@ def profile(username):
     # The session user's username is retrieved from MongoDB
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+    recipes = list(mongo.db.recipes.find(
+        {"recipe_by": session["user"]}))
+    recipe_by = mongo.db.recipes.find_one(
+        {"recipe_by": session["user"]})["recipe_by"]
+    return render_template(
+        "profile.html", username=username,
+        recipes=recipes, recipe_by=recipe_by)
 
 
 @app.route("/search")
