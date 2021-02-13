@@ -389,6 +389,16 @@ hr.delete-recipe:after {
     font-size: 1.5em;
 }
 
+/* ------------------------------------------------ SESSION USER PROFILE PAGE (profile.html) */
+
+.profile-header {
+    margin-bottom: 0px;
+}
+
+.profile-button {
+    margin: 10px 0px 20px;
+}
+
 /* ------------------------------------------------ COOKING TOOLS PAGE (cooking_tools.html) */
 
 .cooking-tools a {
@@ -420,6 +430,7 @@ hr.delete-recipe:after {
     color: #000;
     margin-bottom: 20px;
 }
+
 /* ------------------------------------------------ MEDIA QUERIES */
 
 @media (max-width: 978px) {
