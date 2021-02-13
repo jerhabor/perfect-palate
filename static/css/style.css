@@ -37,7 +37,7 @@ body {
 .card-panel {
     box-sizing: border-box;
     padding: 10px 24px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .card-border {
@@ -368,9 +368,20 @@ hr.delete-recipe:after {
     margin: 0px;
 }
 
-/* ------------------------------------------------ PROFILE PAGE (profile.html) */
+/* ------------------------------------------------ FOOTER ON ALL PAGES (base.html) */
 
+.page-footer {
+    background-color: #388e3c;
+}
 
+.page-footer .footer-copyright {
+    background-color: #2e7732;
+}
+
+.social-media-icons i {
+    margin-right: 10px;
+    font-size: 1.5em;
+}
 
 
 /* ------------------------------------------------ MEDIA QUERIES */
