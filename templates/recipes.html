@@ -17,12 +17,12 @@
         <!-- Search Bar -->
         <form action="{{ url_for('search') }}" method="GET" class="col s12">
             <div class="row center-align">
-                <div class="input-field col s12 m8">
+                <div class="input-field col s12 xl8">
                     <i class="fas fa-search prefix light-green-text text-darken-2"></i>
                     <input value="{{ request.args.get('query', '') }}" type="text" name="query" id="query" minlength="1" class="validate">
                     <label for="query">E.g. 15 min meals or Irish food</label>
                 </div>
-                <div class="input-field col s12 m4">
+                <div class="input-field col s12 xl4">
                     <a href="{{ url_for('recipes') }}" class="hoverable red btn text-shadow"><i class="fas fa-undo"></i></a>
                     <button type="submit" class="hoverable green btn text-shadow">
                         <i class="fas fa-search left"></i>Search

@@ -28,7 +28,8 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
                         {% if session.user %}
-                            <li><a href="{{ url_for('new_recipe') }}">New Recipe</a></li>
+                            <li><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
+                            <li><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
                             <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                             <li><a href="{{ url_for('logout') }}">Logout</a></li>
                         {% else %}
@@ -42,7 +43,8 @@
             <ul class="sidenav center-align" id="mobile-demo">
                 <li><a href="{{ url_for('recipes') }}" class="brand-logo web-logo"><h4 class="green-text text-darken-2">Perfect Palate</h4></a></li>
                 {% if session.user %}
-                    <li><a href="{{ url_for('new_recipe') }}">New Recipe</a></li>
+                    <li><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
+                    <li><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
                     <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
