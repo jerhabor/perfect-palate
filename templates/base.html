@@ -51,9 +51,8 @@
                 {% endif %}
             </ul>
         </header>
-
+        <!-- Flash Messages -->
         <section>
-            <!-- Flash Messages -->
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
@@ -64,22 +63,26 @@
                 {% endif %}
             {% endwith %}
         </section>
-
+        <!-- Template Page Contents -->
         <main class="container">
-            <!-- Page Contents -->
             {% block content %}
             {% endblock %}
         </main>
-
+        <!-- Page Footer -->
         <footer class="page-footer">
             <div class="container">
                 <div class="row">
+                    <!-- Cooking Tools Brand Promotion Link -->
                     <div class="col l6 s12">
                         <h5 class="white-text">Perfect Palate's Cookware</h5>
                         <p class="grey-text text-lighten-4">
                             <a href="{{ url_for('cooking_tools') }}" class="white-text">Click here to check out our list of recommended cooking tools</a>
                         </p>
+                        <p class="grey-text text-lighten-4">
+                            <a href="#top" class="white-text"><i class="fas fa-arrow-up"></i> Back to top</a>
+                        </p>
                     </div>
+                    <!-- Contact Us -->
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Contact Us</h5>
                         <p>Want us to promote your cooking tools?</p>
@@ -92,6 +95,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Footer Copyright and Socials -->
             <div class="footer-copyright">
                 <div class="container">
                     © 2021 Jess Erhabor
