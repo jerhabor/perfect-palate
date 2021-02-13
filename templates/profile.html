@@ -19,82 +19,80 @@
             </h5>
         </div>
         <!-- List of My Recipe Cards -->
-        {% if recipe_by == username %}
-            <div class="row recipe-list">
-                {% for recipe in recipes %}
-                    <div class="col s12 m6 l4">
-                        <!-- Individual Recipe Card -->
-                        <div class="card hoverable">
-                            <!-- Card Image -->
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ recipe.image }}" 
-                                    alt="Profile image for {{ recipe.recipe_name }}">
-                            </div>
-                            <!-- Card Title -->
-                            <div class="card-content">
-                                <div class="center activator grey-text text-darken-4">
-                                    <div class="left-align card-content-text">
-                                        <h6>
-                                            <span class="activator grey-text text-darken-4">{{ recipe.recipe_name }}
-                                            {% if recipe.is_vegetarian == "Yes" %}
-                                                <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
-                                                    data-tooltip="Suitable for Vegetarians"></i>
-                                            {% endif %}
-                                            </span>
-                                            <i class="fas fa-ellipsis-v right"></i>
-                                        </h6>
-                                    </div>
-                                    <!-- Edit and/or View Recipe Buttons -->
-                                    <div class="card-buttons">
-                                        <!-- Edit Button -->
-                                        {% if session.user|lower == recipe.recipe_by|lower %}
-                                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small blue-grey darken-1">Edit</a>
-                                        {% endif %}
-                                        <!-- View Recipe Button -->
-                                        <a href="/recipes/{{ recipe._id }}" class="waves-effect waves-light btn-small purple lighten-2">View</a>
-                                    </div>
-                                    <!-- Type of Meal Icons -->
-                                    <div class="meal-icons center">
-                                        {% for meal in recipe.meal_time %}
-                                            {% if meal == "Breakfast" %}
-                                                <i class="fas fa-circle tooltipped breakfast-icon" data-position="bottom"
-                                                    data-tooltip="Breakfast"></i>
-                                            {% elif meal == "Lunch" %}
-                                                <i class="fas fa-circle tooltipped lunch-icon" data-position="bottom"
-                                                    data-tooltip="Lunch"></i>
-                                            {% elif meal == "Dinner" %}
-                                                <i class="fas fa-circle tooltipped dinner-icon" data-position="bottom"
-                                                    data-tooltip="Dinner"></i>
-                                            {% elif meal == "Dessert" %}
-                                                <i class="fas fa-circle tooltipped dessert-icon" data-position="bottom"
-                                                    data-tooltip="Dessert"></i>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Reveal Information -->
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">
-                                    <i class="fas fa-times right"></i></span>
+        <div class="row recipe-list">
+            {% for recipe in recipes %}
+                <div class="col s12 m6 l4">
+                    <!-- Individual Recipe Card -->
+                    <div class="card hoverable">
+                        <!-- Card Image -->
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="{{ recipe.image }}" 
+                                alt="Profile image for {{ recipe.recipe_name }}">
+                        </div>
+                        <!-- Card Title -->
+                        <div class="card-content">
+                            <div class="center activator grey-text text-darken-4">
+                                <div class="left-align card-content-text">
                                     <h6>
+                                        <span class="activator grey-text text-darken-4">{{ recipe.recipe_name }}
                                         {% if recipe.is_vegetarian == "Yes" %}
-                                            <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="left"
+                                            <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
                                                 data-tooltip="Suitable for Vegetarians"></i>
                                         {% endif %}
-                                        {{ recipe.recipe_name }}
+                                        </span>
+                                        <i class="fas fa-ellipsis-v right"></i>
                                     </h6>
-                                <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong></p>
-                                <p><i class="fas fa-clock"></i> {{ recipe.cooking_time }} minutes</p>
-                                <p>{{ recipe.description }}</p>
-                                <p><em>Recipe by: {{ recipe.recipe_by }}</em></p>
-                                <p><a href="/recipes/{{ recipe._id }}">View Full Recipe</a></p>
+                                </div>
+                                <!-- Edit and/or View Recipe Buttons -->
+                                <div class="card-buttons">
+                                    <!-- Edit Button -->
+                                    {% if session.user|lower == recipe.recipe_by|lower %}
+                                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small blue-grey darken-1">Edit</a>
+                                    {% endif %}
+                                    <!-- View Recipe Button -->
+                                    <a href="/recipes/{{ recipe._id }}" class="waves-effect waves-light btn-small purple lighten-2">View</a>
+                                </div>
+                                <!-- Type of Meal Icons -->
+                                <div class="meal-icons center">
+                                    {% for meal in recipe.meal_time %}
+                                        {% if meal == "Breakfast" %}
+                                            <i class="fas fa-circle tooltipped breakfast-icon" data-position="bottom"
+                                                data-tooltip="Breakfast"></i>
+                                        {% elif meal == "Lunch" %}
+                                            <i class="fas fa-circle tooltipped lunch-icon" data-position="bottom"
+                                                data-tooltip="Lunch"></i>
+                                        {% elif meal == "Dinner" %}
+                                            <i class="fas fa-circle tooltipped dinner-icon" data-position="bottom"
+                                                data-tooltip="Dinner"></i>
+                                        {% elif meal == "Dessert" %}
+                                            <i class="fas fa-circle tooltipped dessert-icon" data-position="bottom"
+                                                data-tooltip="Dessert"></i>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
+                        <!-- Card Reveal Information -->
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">
+                                <i class="fas fa-times right"></i></span>
+                                <h6>
+                                    {% if recipe.is_vegetarian == "Yes" %}
+                                        <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="left"
+                                            data-tooltip="Suitable for Vegetarians"></i>
+                                    {% endif %}
+                                    {{ recipe.recipe_name }}
+                                </h6>
+                            <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong></p>
+                            <p><i class="fas fa-clock"></i> {{ recipe.cooking_time }} minutes</p>
+                            <p>{{ recipe.description }}</p>
+                            <p><em>Recipe by: {{ recipe.recipe_by }}</em></p>
+                            <p><a href="/recipes/{{ recipe._id }}">View Full Recipe</a></p>
+                        </div>
                     </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+                </div>
+            {% endfor %}
+        </div>
         <div class="row">
             <div class="col s12 section-title">
                 <hr class="style-eight">
