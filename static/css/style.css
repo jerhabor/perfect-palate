@@ -410,6 +410,16 @@ hr.delete-recipe:after {
 .cooking-tool-image img {
     width: 100% !important;
 }
+
+.tools-info {
+    box-sizing: border-box;
+    padding: 10px;
+    border: 2px solid #388e3c;
+    border-radius: 20px;
+    background-color: #e8f5e9;
+    color: #000;
+    margin-bottom: 20px;
+}
 /* ------------------------------------------------ MEDIA QUERIES */
 
 @media (max-width: 978px) {
