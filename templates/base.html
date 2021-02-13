@@ -27,6 +27,7 @@
                     <a href="{{ url_for('recipes') }}" class="brand-logo web-logo">Perfect Palate</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
+                        <li><a href="{{ url_for('cooking_tools') }}">Our Cookware</a></li>
                         {% if session.user %}
                             <li><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
                             <li><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
@@ -42,6 +43,7 @@
             <!-- Mobile Side Navigation Bar -->
             <ul class="sidenav center-align" id="mobile-demo">
                 <li><a href="{{ url_for('recipes') }}" class="brand-logo web-logo"><h4 class="green-text text-darken-2">Perfect Palate</h4></a></li>
+                <li><a href="{{ url_for('cooking_tools') }}">Our Cookware</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
                     <li><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
