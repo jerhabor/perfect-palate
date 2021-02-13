@@ -54,29 +54,43 @@
         <div class="row full-recipe-header">
             <!-- Key Recipe Information -->
             <div class="col s12 key-info">
-                <!-- Cuisine Type -->
+                <!-- Recipe Preparation Time -->
+                <div class="key-recipe-info center-align col s6 m4">
+                    <p>
+                        <i class="fas fa-3x">
+                        {% if recipe.prep_time %}
+                            {{ recipe.prep_time }}
+                        {% else %}
+                            0
+                        {% endif %}</i><br>
+                        Prep Time (mins)<br>
+                    </p>
+                </div>
+                <!-- Recipe Cooking Time -->
+                <div class="key-recipe-info center-align col s6 m4">
+                    <p>
+                        <a href="/search?query={{ recipe.cooking_time }}">
+                            <i class="fas fa-3x">{{ recipe.cooking_time }}</i><br>
+                            Cook Time (mins)
+                        </a><br>
+                    </p>
+                </div>
+                <!-- Recipe Number of Servings -->
                 <div class="key-recipe-info center-align col s12 m4">
+                    <p><i class="fas fa-3x">{{ recipe.servings }}</i><br>Number of Servings</p>
+                </div>
+                <!-- Cuisine Type -->
+                <div class="key-recipe-info cuisine center-align col s12 m4 offset-m2">
                     <p class="center-align">
                         <i class="fas fa-globe-africa fa-2x"> </i><br>
                         <a href="/search?query={{ recipe.cuisine_type }}">{{ recipe.cuisine_type }} Cuisine</a>
                     </p>
                 </div>
-                <!-- Recipe Number of Servings -->
-                <div class="key-recipe-info center-align col s6 m4">
-                    <p><i class="fas fa-utensils fa-2x"> </i><br>{{ recipe.servings }} servings</p>
-                </div>
-                <!-- Recipe Cooking Time -->
-                <div class="key-recipe-info center-align col s6 m4">
-                    <p>
-                        <i class="fas fa-stopwatch fa-2x"></i><br> 
-                        <a href="/search?query={{ recipe.cooking_time }}">{{ recipe.cooking_time }} minutes</a>
-                    </p>
-                </div>
                 <!-- List of Allergens -->
-                <div class="center-align col s12">
+                <div class="center-align col s12 m4">
                     <p>
                         <i class="fas fa-exclamation-circle fa-2x"></i><br> 
-                        Allergens: 
+                        Allergens:
                         {% for allergen in recipe.allergens %} 
                             {% if allergen == recipe.allergens[-1] and recipe.allergens|length > 1 %}
                                 and {{ allergen }}
