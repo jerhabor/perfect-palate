@@ -155,10 +155,12 @@ hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/exampl
     border: 2px solid #388e3c;
     background-color: #f9fbe7;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .full-recipe .card-panel {
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .full-recipe-title {
@@ -430,27 +432,6 @@ hr.delete-recipe:after {
 @media (max-width: 280px) {
     nav .brand-logo.web-logo {
         font-size: 1.6rem;
-    }
-}
-
-@media (min-width: 480px) and (max-width: 749px) {
-    iframe {
-        width: 90%;
-        height: 250px;
-    }
-}
-
-@media (min-width: 750px) and (max-width: 992px) {
-    iframe {
-        width: 80%;
-        height: 300px;
-    }
-}
-
-@media (min-width: 993px) {
-    iframe {
-        width: 60%;
-        height: 340px;
     }
 }
 
