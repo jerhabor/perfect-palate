@@ -322,6 +322,30 @@ hr.delete-recipe:after {
     background: #f9fbe7;
 }
 
+#allergens-modal {
+    width: 80vw;
+}
+
+#allergens-modal img {
+    width: 80vw;
+}
+
+@media (min-width: 489px) {
+    #allergens-modal {
+    max-width: 40rem;
+    max-height: 70%;
+}
+
+#allergens-modal img {
+    max-width: 60%;
+    height: auto;
+}
+}
+
+#allergens-modal .modal-content {
+    padding: 0px;
+}
+
 /* ------------------------------------------------ REGISTER PAGE (register.html) */
 
 .click-to-login {
