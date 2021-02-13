@@ -378,6 +378,10 @@ hr.delete-recipe:after {
     background-color: #2e7732;
 }
 
+.page-footer a:hover {
+    text-decoration: underline;
+}
+
 .social-media-icons i {
     margin-right: 10px;
     font-size: 1.5em;
