@@ -387,7 +387,27 @@ hr.delete-recipe:after {
     font-size: 1.5em;
 }
 
+/* ------------------------------------------------ COOKING TOOLS PAGE (cooking_tools.html) */
 
+.cooking-tools a {
+    color: rgba(0,0,0,0.87);
+}
+
+.cooking-tools a:hover {
+    text-decoration: underline;
+}
+
+.table-header {
+    font-weight: 700;
+}
+
+.cooking-tool-image {
+    width: 50px;
+}
+
+.cooking-tool-image img {
+    width: 100% !important;
+}
 /* ------------------------------------------------ MEDIA QUERIES */
 
 @media (max-width: 978px) {
