@@ -89,11 +89,15 @@ hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/exampl
     margin: 5px;
 }
 
+.meal-icons a:hover {
+    text-decoration: underline;
+}
+
 .filter-button a {
     box-sizing: border-box;
     border-radius: 10px;
     padding: 0px;
-    width: 90%;
+    width: 95%;
     margin-top: 5px;
     margin-bottom: 5px;
     transition: border 100ms ease-out;
@@ -163,6 +167,10 @@ hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/exampl
     z-index: 100;
 }
 
+.full-recipe-title a:hover {
+    text-decoration: underline;
+}
+
 .cover-header {
     max-height: 20rem;
     position: relative;
@@ -227,7 +235,7 @@ hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/exampl
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
-/* ------------------------------------------------ ADD NEW RECIPE PAGE (new_recipe.html) */
+/* ------------------------------------------------ ADD NEW / EDIT RECIPE PAGES (new_recipe.html/edit_recipe.html) */
 
 div.method-steps {
   counter-reset: list-number;
@@ -260,7 +268,21 @@ div.method-steps div:before {
     margin-bottom: 30px;
 }
 
-/* ------------------------------------------------ EDIT RECIPE PAGE (edit_recipe.html) */
+.teaser {
+    font-weight: 700;
+}
+
+.recipe-help-info {
+    box-sizing: border-box;
+    padding: 0px;
+    border: 2px solid #388e3c;
+    border-radius: 20px;
+    background-color: #e8f5e9;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+/* ------------------------------------------------ EDIT RECIPE PAGE ONLY (edit_recipe.html) */
 
 .recipe-to-delete {
     font-weight: 700;
@@ -330,16 +352,9 @@ hr.delete-recipe:after {
     width: 80vw;
 }
 
-@media (min-width: 489px) {
-    #allergens-modal {
-    max-width: 40rem;
-    max-height: 70%;
-}
-
 #allergens-modal img {
     max-width: 60%;
     height: auto;
-}
 }
 
 #allergens-modal .modal-content {
@@ -352,6 +367,11 @@ hr.delete-recipe:after {
     font-weight: 700;
     margin: 0px;
 }
+
+/* ------------------------------------------------ PROFILE PAGE (profile.html) */
+
+
+
 
 /* ------------------------------------------------ MEDIA QUERIES */
 
@@ -396,5 +416,12 @@ hr.delete-recipe:after {
     iframe {
         width: 60%;
         height: 340px;
+    }
+}
+
+@media (min-width: 489px) {
+    #allergens-modal {
+        max-width: 40rem;
+        max-height: 70%;
     }
 }
