@@ -25,13 +25,15 @@
                         <!-- Card Title -->
                         <div class="card-content">
                             <div class="center activator grey-text text-darken-4">
-                                <div class="card-content-text">
+                                <div class="left-align card-content-text">
                                     <h6>
+                                        <span class="activator grey-text text-darken-4">{{ recipe.recipe_name }}
                                         {% if recipe.is_vegetarian == "Yes" %}
-                                            <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="left"
+                                            <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
                                                 data-tooltip="Suitable for Vegetarians"></i>
                                         {% endif %}
-                                        <span class="activator grey-text text-darken-4">{{ recipe.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
+                                        </span>
+                                        <i class="fas fa-ellipsis-v right"></i>
                                     </h6>
                                 </div>
                                 <!-- Edit and/or View Recipe Buttons -->
@@ -69,7 +71,7 @@
                                 <i class="fas fa-times right"></i></span>
                                 <h6>
                                     {% if recipe.is_vegetarian == "Yes" %}
-                                        <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
+                                        <i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="left"
                                             data-tooltip="Suitable for Vegetarians"></i>
                                     {% endif %}
                                     {{ recipe.recipe_name }}
