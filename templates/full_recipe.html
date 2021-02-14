@@ -9,7 +9,49 @@
     <!-- Full Recipe -->
     <div class="card-panel lime lighten-5">
         <div class="full-recipe-title">
-            <a href="/recipes" class="black-text"><i class="fas fa-long-arrow-alt-left"></i><span> Back to Recipes</span></a>
+            <div class="row">
+                <!-- Sharing Options & Buttons -->
+                <div class="col s12">
+                    <span class="right">
+                        <a href="#modal1" class="waves-effect waves-light btn modal-trigger"><span class="hide-on-small-only">Share</span> <i class="fas fa-share-alt"></i></a>
+                    </span>
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal bottom-sheet">
+                        <div class="center-align modal-content">
+                            <div id="share-buttons">
+                                <!-- Share to Facebook -->
+                                <a href="http://www.facebook.com/sharer.php?u=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}" target="_blank">
+                                    <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+                                </a>
+                                <!-- Share to Twitter -->
+                                <a href="https://twitter.com/share?url=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}&amp;text={{ recipe.recipe_name }}&amp;hashtags=perfectpalate"
+                                    target="_blank">
+                                    <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+                                </a>
+                                <!-- Share to LinkedIn -->
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}" target="_blank">
+                                    <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+                                </a>
+                                <!-- Share by Email -->
+                                <a href="mailto:?Subject=Perfect%20Palate%20{{ recipe.recipe_name }}&Body=I%20would%20love%20to%20share%20this%20recipe%20with%20you!%20%20https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}">
+                                    <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+                                </a>
+                                <!-- Print -->
+                                <a href="javascript:;" onclick="window.print()">
+                                    <img src="https://simplesharebuttons.com/images/somacro/print.png" alt="Print" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="modal-footer share-modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Cancel</a>
+                        </div>
+                    </div>
+                    <!-- Back to All Recipes Link -->
+                    <span>
+                        <a href="/recipes" class="black-text"><i class="fas fa-long-arrow-alt-left"></i> Back to All Recipes</a>
+                    </span>
+                </div>
+            </div>
             <!-- Page Title -->
             <h2 class="green-text text-darken-2 center-align brand-logo">
                 <!-- Notification if vegetarian -->
@@ -62,22 +104,22 @@
                             {{ recipe.prep_time }}
                         {% else %}
                             0
-                        {% endif %}</i><br>
-                        Prep Time (mins)<br>
+                        {% endif %}</i><br>mins<br>
+                        (Preparation) 
                     </p>
                 </div>
                 <!-- Recipe Cooking Time -->
                 <div class="key-recipe-info center-align col s6 m4">
                     <p>
                         <a href="/search?query={{ recipe.cooking_time }}">
-                            <i class="fas fa-3x">{{ recipe.cooking_time }}</i><br>
-                            Cook Time (mins)
-                        </a><br>
+                            <i class="fas fa-3x">{{ recipe.cooking_time }}</i><br>mins<br>
+                            (Cooking) 
+                        </a>
                     </p>
                 </div>
                 <!-- Recipe Number of Servings -->
                 <div class="key-recipe-info center-align col s12 m4">
-                    <p><i class="fas fa-3x">{{ recipe.servings }}</i><br>Number of Servings</p>
+                    <p><i class="fas fa-3x">{{ recipe.servings }}</i><br>Servings</p><br class="hide-on-small-only">
                 </div>
                 <!-- Cuisine Type -->
                 <div class="key-recipe-info cuisine center-align col s12 m4 offset-m2">
