@@ -87,7 +87,7 @@
                                         {{ recipe.recipe_name }}
                                     </h6>
                                 <p><strong>Cuisine: {{ recipe.cuisine_type }}</strong></p>
-                                <p><i class="fas fa-clock"></i> {{ recipe.prep_time|int + recipe.cooking_time|int }} minutes</p>
+                                <p><i class="fas fa-clock"></i> {{ recipe.cooking_time }} mins (Prep: {{ recipe.prep_time }} mins)</p>
                                 <p>{{ recipe.description }}</p>
                                 <p><em>Recipe by: {{ recipe.recipe_by }}</em></p>
                                 <p><a href="/recipes/{{ recipe._id }}">View Full Recipe</a></p>
