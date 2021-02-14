@@ -440,10 +440,6 @@ hr.delete-recipe:after {
     font-weight: 700;
 }
 
-.cooking-tool-image {
-    width: 50px;
-}
-
 .cooking-tool-image img {
     width: 100%;
 }
