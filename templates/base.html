@@ -22,34 +22,72 @@
             <!-- Web Browser Navigation Bar -->
             <nav class="nav-extended green darken-2 text-shadow">
                 <div class="nav-wrapper">
-                    <a href="{{ url_for('recipes') }}" class="brand-logo web-logo"><img src="{{ url_for('static', filename='images/brand-logo.png') }}" class="responsive-img nav-icon" alt="Perfect Palate Logo"></a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                    <a href="{{ url_for('recipes') }}" class="brand-logo web-logo">
+                        <img src="{{ url_for('static', filename='images/brand-logo.png') }}" class="responsive-img nav-icon" alt="Perfect Palate Logo">
+                    </a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
+                        <i class="fas fa-bars"></i>
+                    </a>
                     <ul class="right hide-on-med-and-down">
-                        <li class="{{ 'active' if active_page == 'cooking_tools' else '' }}"><a href="{{ url_for('cooking_tools') }}">Our Cookware</a></li>
-                        <li class="{{ 'active' if active_page == 'recipes' else '' }}"><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
+                        <li class="{{ 'active' if active_page == 'cooking_tools' else '' }}">
+                            <a href="{{ url_for('cooking_tools') }}">Our Cookware</a>
+                        </li>
+                        <li class="{{ 'active' if active_page == 'recipes' else '' }}">
+                            <a href="{{ url_for('recipes') }}">View All Recipes</a>
+                        </li>
                         {% if session.user %}
-                            <li class="{{ 'active' if active_page == 'new_recipe' else '' }}"><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
-                            <li class="{{ 'active' if active_page == 'profile' else '' }}"><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
-                            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                            <li class="{{ 'active' if active_page == 'new_recipe' else '' }}">
+                                <a href="{{ url_for('new_recipe') }}">Add Recipe</a>
+                            </li>
+                            <li class="{{ 'active' if active_page == 'profile' else '' }}">
+                                <a href="{{ url_for('profile', username=session['user']) }}">My Profile</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('logout') }}">Logout</a>
+                            </li>
                         {% else %}
-                            <li class="{{ 'active' if active_page == 'login' else '' }}"><a href="{{ url_for('login') }}">Login</a></li>
-                            <li class="{{ 'active' if active_page == 'register' else '' }}"><a href="{{ url_for('register') }}">Register</a></li>
+                            <li class="{{ 'active' if active_page == 'login' else '' }}">
+                                <a href="{{ url_for('login') }}">Login</a>
+                            </li>
+                            <li class="{{ 'active' if active_page == 'register' else '' }}">
+                                <a href="{{ url_for('register') }}">Register</a>
+                            </li>
                         {% endif %}
                     </ul>
                 </div>
             </nav>
             <!-- Mobile Side Navigation Bar -->
             <ul class="sidenav center-align" id="mobile-demo">
-                <li><a href="{{ url_for('recipes') }}" class="brand-logo web-logo"><h4 class="green-text text-darken-2"><img src="{{ url_for('static', filename='images/brand-logo-mobile.png') }}" class="responsive-img nav-icon" alt="Perfect Palate Logo"></h4></a></li>
-                <li class="{{ 'active' if active_page == 'cooking_tools' else '' }}"><a href="{{ url_for('cooking_tools') }}">Our Cookware</a></li>
-                <li class="{{ 'active' if active_page == 'recipes' else '' }}"><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
+                <li>
+                    <a href="{{ url_for('recipes') }}" class="brand-logo web-logo">
+                        <h4 class="green-text text-darken-2">
+                            <img src="{{ url_for('static', filename='images/brand-logo-mobile.png') }}" class="responsive-img nav-icon" alt="Perfect Palate Logo">
+                        </h4>
+                    </a>
+                </li>
+                <li class="{{ 'active' if active_page == 'cooking_tools' else '' }}">
+                    <a href="{{ url_for('cooking_tools') }}">Our Cookware</a>
+                </li>
+                <li class="{{ 'active' if active_page == 'recipes' else '' }}">
+                    <a href="{{ url_for('recipes') }}">View All Recipes</a>
+                </li>
                 {% if session.user %}
-                    <li class="{{ 'active' if active_page == 'new_recipe' else '' }}"><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
-                    <li class="{{ 'active' if active_page == 'profile' else '' }}"><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    <li class="{{ 'active' if active_page == 'new_recipe' else '' }}">
+                        <a href="{{ url_for('new_recipe') }}">Add Recipe</a>
+                    </li>
+                    <li class="{{ 'active' if active_page == 'profile' else '' }}">
+                        <a href="{{ url_for('profile', username=session['user']) }}">My Profile</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </li>
                 {% else %}
-                    <li class="{{ 'active' if active_page == 'login' else '' }}"><a href="{{ url_for('login') }}">Login</a></li>
-                    <li class="{{ 'active' if active_page == 'register' else '' }}"><a href="{{ url_for('register') }}">Register</a></li>
+                    <li class="{{ 'active' if active_page == 'login' else '' }}">
+                        <a href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="{{ 'active' if active_page == 'register' else '' }}">
+                        <a href="{{ url_for('register') }}">Register</a>
+                    </li>
                 {% endif %}
             </ul>
         </header>
@@ -78,10 +116,15 @@
                     <div class="col l6 s12">
                         <h5 class="white-text">Perfect Palate's Cookware</h5>
                         <p class="grey-text text-lighten-4">
-                            <a href="{{ url_for('cooking_tools') }}" class="white-text">Click here to check out our list of recommended cooking tools.</a>
+                            <a href="{{ url_for('cooking_tools') }}" class="white-text">
+                                Click here to check out our list of recommended cooking tools.
+                            </a>
                         </p>
                         <p class="grey-text text-lighten-4">
-                            <a href="#top" class="white-text"><i class="fas fa-arrow-up"></i> Back to top</a>
+                            <a href="#top" class="white-text">
+                                <i class="fas fa-arrow-up"></i> 
+                                Back to top
+                            </a>
                         </p>
                     </div>
                     <!-- Contact Us -->
@@ -102,10 +145,18 @@
                 <div class="container">
                     © 2021 Jess Erhabor
                     <span class="social-media-icons right">
-                        <a href="https://www.facebook.com/" target="_blank" class="grey-text text-lighten-4"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank" class="grey-text text-lighten-4"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank" class="grey-text text-lighten-4"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.twitter.com/" target="_blank" class="grey-text text-lighten-4"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" class="grey-text text-lighten-4">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="grey-text text-lighten-4">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="grey-text text-lighten-4">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.twitter.com/" target="_blank" class="grey-text text-lighten-4">
+                            <i class="fab fa-twitter"></i>
+                        </a>
                     </span>
                 </div>
             </div>
