@@ -22,6 +22,10 @@ body {
     box-sizing: border-box;
 }
 
+.nav-item:focus {
+    background-color: #27662a;
+}
+
 .brand-logo {
     font-family: 'Oleo Script', cursive;
     font-weight: 700;
