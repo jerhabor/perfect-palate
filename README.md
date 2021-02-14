@@ -74,16 +74,18 @@ Mindmup - Used to brainstorm ideas in the conceptual phase of Perfect Palate's p
 
 ### 4.5. Test on Different Browsers
 
+The table below, summarizes the website's versatility and compability across the different type of browsers; which any user could use.
+
 Key: &#x2714; = Website functions as intended
 
-|      Browser (version)      |   Our Cookware   |     View All Recipes + Full Recipe    | Add/Edit Recipe |  My Profile  |  Login  |  Register  |  
-|:-----------------:|:-------:|:--------:|:---------:|:--------:|:--------:|:--------:|:-----------------------------------------------------:|
-|       Chrome (80)      | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|      Firefox (74)     | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|       Safari (13)      | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-| Internet Explorer (11) | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|        Edge (79)      | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|       Opera (67)       | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
+|    Browser (Version)   | Our Cookware | View All Recipes + Full Recipe | Add/Edit Recipe | My Profile |   Login  | Register |
+|:----------------------:|:------------:|:------------------------------:|:---------------:|:----------:|:--------:|:--------:|
+|       Chrome (80)      |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|      Firefox (74)      |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|       Safari (13)      |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+| Internet Explorer (11) |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|        Edge (79)       |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|       Opera (67)       |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
 
 ### 4.6. Test on Different Devices
 
