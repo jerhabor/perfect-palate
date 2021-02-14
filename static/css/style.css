@@ -152,6 +152,10 @@ hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/exampl
 
 /* ------------------------------------------------ FULL RECIPE PAGE (full_recipe.html) */
 
+.modal .modal-footer.share-modal-footer {
+    height: 50px !important;
+}
+
 .full-recipe {
     border: 2px solid #388e3c;
     background-color: #f9fbe7;
@@ -172,6 +176,10 @@ hr.style-eight:after { /* Glyph, by Harry Roberts <https://css-tricks.com/exampl
 
 .full-recipe-title a:hover {
     text-decoration: underline;
+}
+
+.full-recipe-title h2 {
+    margin: 10px 0px;
 }
 
 .cover-header {
@@ -371,7 +379,17 @@ hr.delete-recipe:after {
     margin: 0px;
 }
 
-/* ------------------------------------------------ FOOTER ON ALL PAGES (base.html) */
+/* ------------------------------------------------ HEADER & FOOTER ON ALL PAGES (base.html) */
+
+.nav-wrapper .nav-icon {
+    height: 1.5em;
+    width: auto;
+    vertical-align: middle;
+}
+
+.sidenav .brand-logo {
+    margin-bottom: 10px;
+}
 
 .page-footer {
     background-color: #388e3c;
@@ -401,6 +419,10 @@ hr.delete-recipe:after {
 }
 
 /* ------------------------------------------------ COOKING TOOLS PAGE (cooking_tools.html) */
+
+.greenpan:hover {
+    text-decoration: underline;
+}
 
 .cooking-tools a {
     color: rgba(0,0,0,0.87);
