@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
     <div class="card-border card-panel lime lighten-5">
         <!-- Page Title -->
         <h2 class="page-title green-text text-darken-2 center-align brand-logo">Edit Recipe</h2>
-
         <!-- Add a New Recipe Form -->
         <div class="row">
             <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
@@ -256,5 +254,4 @@
             </form>
         </div>
     </div>
-
 {% endblock %}

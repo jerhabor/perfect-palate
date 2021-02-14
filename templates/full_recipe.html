@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
 <div class="full-recipe">
     <!-- Recipe Image -->
     <div class="cover-header">
@@ -15,7 +14,7 @@
                     <span class="right">
                         <a href="#modal1" class="waves-effect waves-light btn modal-trigger"><span class="hide-on-small-only">Share</span> <i class="fas fa-share-alt"></i></a>
                     </span>
-                    <!-- Modal Structure -->
+                    <!-- Modal Structure for Share Button -->
                     <div id="modal1" class="modal bottom-sheet">
                         <div class="center-align modal-content">
                             <div id="share-buttons">
@@ -157,6 +156,8 @@
                     {{ ingredient }}: {{ amount }}<br>
                 {% endfor %}
             </div>
+        </div>
+        <div class="row">
             <!-- Recipe Method -->
             <div class="col s12 center-align">
                 <div class="col s12 section-title">
@@ -182,11 +183,10 @@
                     </div>
                     <div class="video-container">
                         <!-- Toggled Video iframe -->
-                        <iframe width="100%" height="175" src="https://www.youtube.com/embed/{{ recipe.video.split('=')[-1] }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe height="175" src="https://www.youtube.com/embed/{{ recipe.video.split('=')[-1] }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             {% endif %}
         </div>
     </div>
-
 {% endblock %}
