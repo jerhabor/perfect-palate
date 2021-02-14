@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
     <div class="card-border row card-panel lime lighten-5">
         <!-- Page Title -->
         <h2 class="page-title green-text text-darken-2 center-align brand-logo">
@@ -12,7 +11,6 @@
             {% endif %}
         </h2>
         <p class="center-align"><em>Feeling hungry? Explore our list of recipes below from fellow Epicures!</em></p>
-
         <!-- Search Bar -->
         <form action="{{ url_for('search') }}" method="GET" class="col s12">
             <div class="row center-align">
@@ -29,7 +27,6 @@
                 </div>
             </div>
         </form>
-
         <!-- Filter Buttons -->
         <div class="row center-align">
             <div class="col s6 m3 filter-button">
@@ -45,7 +42,6 @@
                 <a href="/search?query=dessert" class="btn-flat brown darken-1 white-text text-shadow">Dessert</a>
             </div>
         </div>
-
         {% if recipes|length > 0 %}
         <!-- List of Recipe Cards -->
         <div class="row recipe-list">
@@ -126,5 +122,4 @@
             <h2 class="page-title red-text text-darken-2 center-align">No Results Found &#9785;</h2>
         {% endif %}
     </div>
-
 {% endblock %}

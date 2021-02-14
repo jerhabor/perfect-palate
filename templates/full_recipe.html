@@ -1,168 +1,168 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="full-recipe">
-    <!-- Recipe Image -->
-    <div class="cover-header">
-        <img src="{{ recipe.image }}" data-caption="{{ recipe.recipe_name }}" width="600" class="materialboxed" alt="Profile image for {{ recipe.recipe_name }}">
-    </div>
-    <!-- Full Recipe -->
-    <div class="card-panel lime lighten-5">
-        <div class="full-recipe-title">
-            <div class="row">
-                <!-- Sharing Options & Buttons -->
-                <div class="col s12">
-                    <span class="right">
-                        <a href="#modal1" class="waves-effect waves-light btn modal-trigger"><span class="hide-on-small-only">Share</span> <i class="fas fa-share-alt"></i></a>
-                    </span>
-                    <!-- Modal Structure for Share Button -->
-                    <div id="modal1" class="modal bottom-sheet">
-                        <div class="center-align modal-content">
-                            <div id="share-buttons">
-                                <!-- Share to Facebook -->
-                                <a href="http://www.facebook.com/sharer.php?u=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}" target="_blank">
-                                    <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-                                </a>
-                                <!-- Share to Twitter -->
-                                <a href="https://twitter.com/share?url=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}&amp;text={{ recipe.recipe_name }}&amp;hashtags=perfectpalate"
-                                    target="_blank">
-                                    <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
-                                </a>
-                                <!-- Share to LinkedIn -->
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}" target="_blank">
-                                    <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
-                                </a>
-                                <!-- Share by Email -->
-                                <a href="mailto:?Subject=Perfect%20Palate%20{{ recipe.recipe_name }}&Body=I%20would%20love%20to%20share%20this%20recipe%20with%20you!%20%20https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}">
-                                    <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
-                                </a>
-                                <!-- Print -->
-                                <a href="javascript:;" onclick="window.print()">
-                                    <img src="https://simplesharebuttons.com/images/somacro/print.png" alt="Print" />
-                                </a>
+    <div class="full-recipe">
+        <!-- Recipe Image -->
+        <div class="cover-header">
+            <img src="{{ recipe.image }}" data-caption="{{ recipe.recipe_name }}" width="600" class="materialboxed" alt="Profile image for {{ recipe.recipe_name }}">
+        </div>
+        <!-- Full Recipe -->
+        <div class="card-panel lime lighten-5">
+            <div class="full-recipe-title">
+                <div class="row">
+                    <!-- Sharing Options & Buttons -->
+                    <div class="col s12">
+                        <span class="right">
+                            <a href="#modal1" class="waves-effect waves-light btn modal-trigger"><span class="hide-on-small-only">Share</span> <i class="fas fa-share-alt"></i></a>
+                        </span>
+                        <!-- Modal Structure for Share Button -->
+                        <div id="modal1" class="modal bottom-sheet">
+                            <div class="center-align modal-content">
+                                <div id="share-buttons">
+                                    <!-- Share to Facebook -->
+                                    <a href="http://www.facebook.com/sharer.php?u=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}" target="_blank">
+                                        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+                                    </a>
+                                    <!-- Share to Twitter -->
+                                    <a href="https://twitter.com/share?url=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}&amp;text={{ recipe.recipe_name }}&amp;hashtags=perfectpalate"
+                                        target="_blank">
+                                        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+                                    </a>
+                                    <!-- Share to LinkedIn -->
+                                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}" target="_blank">
+                                        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+                                    </a>
+                                    <!-- Share by Email -->
+                                    <a href="mailto:?Subject=Perfect%20Palate%20{{ recipe.recipe_name }}&Body=I%20would%20love%20to%20share%20this%20recipe%20with%20you!%20%20https://perfect-palate.herokuapp.com/recipes/{{ recipe._id }}">
+                                        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+                                    </a>
+                                    <!-- Print -->
+                                    <a href="javascript:;" onclick="window.print()">
+                                        <img src="https://simplesharebuttons.com/images/somacro/print.png" alt="Print" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-footer share-modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Cancel</a>
                             </div>
                         </div>
-                        <div class="modal-footer share-modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Cancel</a>
-                        </div>
+                        <!-- Back to All Recipes Link -->
+                        <span>
+                            <a href="/recipes" class="black-text"><i class="fas fa-long-arrow-alt-left"></i> Back to All Recipes</a>
+                        </span>
                     </div>
-                    <!-- Back to All Recipes Link -->
+                </div>
+                <!-- Page Title -->
+                <h2 class="green-text text-darken-2 center-align brand-logo">
+                    <!-- Notification if vegetarian -->
+                    {{ recipe.recipe_name }}
+                    {% if recipe.is_vegetarian == "Yes" %}
+                        <span class="vegetarian-icon"><i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
+                            data-tooltip="Suitable for Vegetarians"></i></span>
+                    {% endif %}
+                </h2>
+            </div>
+            <!-- Type of Meal Icons -->
+            <div class="meal-icons center">
+                {% for meal in recipe.meal_time %}
+                    {% if meal == "Breakfast" %}
                     <span>
-                        <a href="/recipes" class="black-text"><i class="fas fa-long-arrow-alt-left"></i> Back to All Recipes</a>
-                    </span>
-                </div>
-            </div>
-            <!-- Page Title -->
-            <h2 class="green-text text-darken-2 center-align brand-logo">
-                <!-- Notification if vegetarian -->
-                {{ recipe.recipe_name }}
-                {% if recipe.is_vegetarian == "Yes" %}
-                    <span class="vegetarian-icon"><i class="fas fa-seedling green-text text-lighten-2 tooltipped" data-position="right"
-                        data-tooltip="Suitable for Vegetarians"></i></span>
-                {% endif %}
-            </h2>
-        </div>
-        <!-- Type of Meal Icons -->
-        <div class="meal-icons center">
-            {% for meal in recipe.meal_time %}
-                {% if meal == "Breakfast" %}
-                <span>
-                    <a href="/search?query=breakfast" class="light-blue-text darken-2">
-                        <i class="fas fa-circle breakfast-icon"></i> Breakfast
-                    </a>
-                </span>
-                {% elif meal == "Lunch" %}
-                <span>
-                    <a href="/search?query=lunch" class="light-green-text darken-1">
-                        <i class="fas fa-circle lunch-icon"></i> Lunch
-                    </a>
-                </span>
-                {% elif meal == "Dinner" %}
-                <span>
-                    <a href="/search?query=dinner" class="orange-text darken-2">
-                        <i class="fas fa-circle dinner-icon"></i> Dinner
-                    </a>
-                </span>
-                {% elif meal == "Dessert" %}
-                <span>
-                    <a href="/search?query=dessert" class="brown-text darken-1">
-                        <i class="fas fa-circle dessert-icon"></i> Dessert
-                    </a>
-                </span>
-                {% endif %}
-            {% endfor %}
-        </div>
-        <!-- Full Recipe Information -->
-        <div class="row full-recipe-header">
-            <!-- Key Recipe Information -->
-            <div class="col s12 key-info">
-                <!-- Recipe Preparation Time -->
-                <div class="key-recipe-info center-align col s6 m4">
-                    <p>
-                        <i class="fas fa-3x">
-                        {% if recipe.prep_time %}
-                            {{ recipe.prep_time }}
-                        {% else %}
-                            0
-                        {% endif %}</i><br>mins<br>
-                        (Preparation) 
-                    </p>
-                </div>
-                <!-- Recipe Cooking Time -->
-                <div class="key-recipe-info center-align col s6 m4">
-                    <p>
-                        <a href="/search?query={{ recipe.cooking_time }}">
-                            <i class="fas fa-3x">{{ recipe.cooking_time }}</i><br>mins<br>
-                            (Cooking) 
+                        <a href="/search?query=breakfast" class="light-blue-text darken-2">
+                            <i class="fas fa-circle breakfast-icon"></i> Breakfast
                         </a>
-                    </p>
-                </div>
-                <!-- Recipe Number of Servings -->
-                <div class="key-recipe-info center-align col s12 m4">
-                    <p><i class="fas fa-3x">{{ recipe.servings }}</i><br>Servings</p><br class="hide-on-small-only">
-                </div>
-                <!-- Cuisine Type -->
-                <div class="key-recipe-info cuisine center-align col s12 m4 offset-m2">
-                    <p class="center-align">
-                        <i class="fas fa-globe-africa fa-2x"> </i><br>
-                        <a href="/search?query={{ recipe.cuisine_type }}">{{ recipe.cuisine_type }} Cuisine</a>
-                    </p>
-                </div>
-                <!-- List of Allergens -->
-                <div class="center-align col s12 m4">
-                    <p>
-                        <i class="fas fa-exclamation-circle fa-2x"></i><br> 
-                        Allergens:
-                        {% for allergen in recipe.allergens %} 
-                            {% if allergen == recipe.allergens[-1] and recipe.allergens|length > 1 %}
-                                and {{ allergen }}
-                            {% elif allergen == recipe.allergens[-2] or recipe.allergens|length == 1 %}
-                                {{ allergen }}
-                            {% else %}
-                                {{ allergen }},
-                            {% endif %}
-                        {% endfor %}
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- Recipe Ingredients -->
-        <div class="row">
-            <div class="center-align col s12">
-                <div class="col s12 section-title">
-                    <hr class="style-eight">
-                </div>
-                <h4 class="brand-logo sub-heading"> Ingredients </h4>
-                {% for ingredient, amount in recipe.ingredients.items() %}
-                    {{ ingredient }}: {{ amount }}<br>
+                    </span>
+                    {% elif meal == "Lunch" %}
+                    <span>
+                        <a href="/search?query=lunch" class="light-green-text darken-1">
+                            <i class="fas fa-circle lunch-icon"></i> Lunch
+                        </a>
+                    </span>
+                    {% elif meal == "Dinner" %}
+                    <span>
+                        <a href="/search?query=dinner" class="orange-text darken-2">
+                            <i class="fas fa-circle dinner-icon"></i> Dinner
+                        </a>
+                    </span>
+                    {% elif meal == "Dessert" %}
+                    <span>
+                        <a href="/search?query=dessert" class="brown-text darken-1">
+                            <i class="fas fa-circle dessert-icon"></i> Dessert
+                        </a>
+                    </span>
+                    {% endif %}
                 {% endfor %}
             </div>
-        </div>
-        <div class="row">
-            <!-- Recipe Method -->
-            <div class="col s12 center-align">
-                <div class="col s12 section-title">
-                    <hr class="style-eight">
+            <!-- Full Recipe Information -->
+            <div class="row full-recipe-header">
+                <!-- Key Recipe Information -->
+                <div class="col s12 key-info">
+                    <!-- Recipe Preparation Time -->
+                    <div class="key-recipe-info center-align col s6 m4">
+                        <p>
+                            <i class="fas fa-3x">
+                            {% if recipe.prep_time %}
+                                {{ recipe.prep_time }}
+                            {% else %}
+                                0
+                            {% endif %}</i><br>mins<br>
+                            (Preparation) 
+                        </p>
+                    </div>
+                    <!-- Recipe Cooking Time -->
+                    <div class="key-recipe-info center-align col s6 m4">
+                        <p>
+                            <a href="/search?query={{ recipe.cooking_time }}">
+                                <i class="fas fa-3x">{{ recipe.cooking_time }}</i><br>mins<br>
+                                (Cooking) 
+                            </a>
+                        </p>
+                    </div>
+                    <!-- Recipe Number of Servings -->
+                    <div class="key-recipe-info center-align col s12 m4">
+                        <p><i class="fas fa-3x">{{ recipe.servings }}</i><br>Servings</p><br class="hide-on-small-only">
+                    </div>
+                    <!-- Cuisine Type -->
+                    <div class="key-recipe-info cuisine center-align col s12 m4 offset-m2">
+                        <p class="center-align">
+                            <i class="fas fa-globe-africa fa-2x"> </i><br>
+                            <a href="/search?query={{ recipe.cuisine_type }}">{{ recipe.cuisine_type }} Cuisine</a>
+                        </p>
+                    </div>
+                    <!-- List of Allergens -->
+                    <div class="center-align col s12 m4">
+                        <p>
+                            <i class="fas fa-exclamation-circle fa-2x"></i><br> 
+                            Allergens:
+                            {% for allergen in recipe.allergens %} 
+                                {% if allergen == recipe.allergens[-1] and recipe.allergens|length > 1 %}
+                                    and {{ allergen }}
+                                {% elif allergen == recipe.allergens[-2] or recipe.allergens|length == 1 %}
+                                    {{ allergen }}
+                                {% else %}
+                                    {{ allergen }},
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
                 </div>
+            </div>
+            <!-- Recipe Ingredients -->
+            <div class="row">
+                <div class="center-align col s12">
+                    <div class="col s12 section-title">
+                        <hr class="style-eight">
+                    </div>
+                    <h4 class="brand-logo sub-heading"> Ingredients </h4>
+                    {% for ingredient, amount in recipe.ingredients.items() %}
+                        {{ ingredient }}: {{ amount }}<br>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <!-- Recipe Method -->
+                <div class="col s12 center-align">
+                    <div class="col s12 section-title">
+                        <hr class="style-eight">
+                    </div>
                     <h4 class="brand-logo sub-heading"> Method </h4>
                 </div>
                 <div class="col s12 left-align">
