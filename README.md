@@ -76,7 +76,7 @@ Mindmup - Used to brainstorm ideas in the conceptual phase of Perfect Palate's p
 
 Key: &#x2714; = Website functions as intended
 
-|      Browser (version)      |   Our Cookware   |     View All Recipes + Full Recipe    | Add/Edit Recipe |  My Profile  |  Login  |  Register  
+|      Browser (version)      |   Our Cookware   |     View All Recipes + Full Recipe    | Add/Edit Recipe |  My Profile  |  Login  |  Register  |  
 |:-----------------:|:-------:|:--------:|:---------:|:--------:|:--------:|:--------:|:-----------------------------------------------------:|
 |       Chrome (80)      | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
 |      Firefox (74)     | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
