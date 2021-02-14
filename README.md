@@ -89,22 +89,24 @@ Key: &#x2714; = Website functions as intended
 
 ### 4.6. Test on Different Devices
 
+With the help of BrowserStack, Google Chrome devTools and personal devices, the website was able to tested. The list of devices used, are below with their viewport sizes. This ensures good responsive design across all devices.
+
 Key: &#x2714; = Displays as intended
 
-|          Device         | Viewport (Width x Height) |   Home   |  Tutors  | Subjects |  Contact |
-|:-----------------------:|:-------------------------:|:--------:|:--------:|:--------:|:--------:|
-|         Moto G4         |         360 x 640         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|        Galaxy S5        |         360 x 640         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|        Galaxy S7        |         360 x 640         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|         Pixel 2         |         411 x 731         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|        Pixel 2 XL       |         411 x 823         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|       iPhone 5/SE       |         320 x 568         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|       iPhone 6/7/8      |         375 x 667         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|    iPhone 6/7/8  Plus   |         414 x 736         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|         iPhone X        |         375 x 812         | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|           iPad          |         768 x 1024        | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-|         iPad Pro        |        1024 x 1366        | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
-| Sony Bravia  Television |   55-inch diagonal (4K)   | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
+|         Device         | Viewport (Width x Height) | Our Cookware | View All Recipes + Full Recipe | Add/Edit Recipe | My Profile |   Login  | Register |
+|:----------------------:|:-------------------------:|:------------:|:------------------------------:|:---------------:|:----------:|:--------:|:--------:|
+|         Moto G4        |         360 x 640         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|        Galaxy S5       |         360 x 640         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|        Galaxy S9       |         360 x 740         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|         Pixel 2        |         411 x 731         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|       Pixel 2 XL       |         411 x 823         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|       iPhone 5/SE      |         320 x 568         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|      iPhone 6/7/8      |         375 x 667         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|   iPhone 6/7/8  Plus   |         414 x 736         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|        iPhone X        |         375 x 812         |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|          iPad          |         768 x 1024        |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+|        iPad Pro        |        1024 x 1366        |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
+| Sony Bravia Television |   55-inch diagonal (4K)   |   &#x2714;   |            &#x2714;            |     &#x2714;    |  &#x2714;  | &#x2714; | &#x2714; |
 
 ### 4.7. Bugs and Problems
 
