@@ -444,6 +444,10 @@ hr.delete-recipe:after {
     width: 100%;
 }
 
+.cooking-tool-image img.materialboxed:active {
+    width: auto;
+}
+
 .tools-info {
     box-sizing: border-box;
     padding: 10px;
