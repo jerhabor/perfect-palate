@@ -26,8 +26,8 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
                         <li class="{{ 'active' if active_page == 'cooking_tools' else '' }}"><a href="{{ url_for('cooking_tools') }}">Our Cookware</a></li>
+                        <li class="{{ 'active' if active_page == 'recipes' else '' }}"><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
                         {% if session.user %}
-                            <li class="{{ 'active' if active_page == 'recipes' else '' }}"><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
                             <li class="{{ 'active' if active_page == 'new_recipe' else '' }}"><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
                             <li class="{{ 'active' if active_page == 'profile' else '' }}"><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                             <li><a href="{{ url_for('logout') }}">Logout</a></li>
@@ -41,15 +41,15 @@
             <!-- Mobile Side Navigation Bar -->
             <ul class="sidenav center-align" id="mobile-demo">
                 <li><a href="{{ url_for('recipes') }}" class="brand-logo web-logo"><h4 class="green-text text-darken-2"><img src="{{ url_for('static', filename='images/brand-logo-mobile.png') }}" class="responsive-img nav-icon" alt="Perfect Palate Logo"></h4></a></li>
-                <li><a href="{{ url_for('cooking_tools') }}">Our Cookware</a></li>
+                <li class="{{ 'active' if active_page == 'cooking_tools' else '' }}"><a href="{{ url_for('cooking_tools') }}">Our Cookware</a></li>
+                <li class="{{ 'active' if active_page == 'recipes' else '' }}"><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
                 {% if session.user %}
-                    <li><a href="{{ url_for('recipes') }}">View All Recipes</a></li>
-                    <li><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
+                    <li class="{{ 'active' if active_page == 'new_recipe' else '' }}"><a href="{{ url_for('new_recipe') }}">Add Recipe</a></li>
+                    <li class="{{ 'active' if active_page == 'profile' else '' }}"><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li class="{{ 'active' if active_page == 'login' else '' }}"><a href="{{ url_for('login') }}">Login</a></li>
+                    <li class="{{ 'active' if active_page == 'register' else '' }}"><a href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
             </ul>
         </header>
