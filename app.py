@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -18,6 +18,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+'''
+`All Recipes` Template Rendering
+'''
+
+
 @app.route("/")
 @app.route("/recipes")
 def recipes():
@@ -25,10 +30,20 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+'''
+`Full Recipe` Template Rendering
+'''
+
+
 @app.route("/recipes/<recipe_id>", methods=["GET", "POST"])
 def full_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("full_recipe.html", recipe=recipe)
+
+
+'''
+Register User Functionality & Template Rendering
+'''
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -65,6 +80,11 @@ def register():
     return render_template("register.html")
 
 
+'''
+User Login Functionality & Template Rendering
+'''
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -75,9 +95,10 @@ def login():
         if existing_user:
             # Checking if the hashed password matches the user's input:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    return redirect(url_for(
+                existing_user["password"],
+                    request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                return redirect(url_for(
                         "profile", username=session["user"]))
             else:
                 # If the invalid password is incorrect then alert user.
@@ -95,12 +116,22 @@ def login():
     return render_template("login.html")
 
 
+'''
+User Logout Functionality
+'''
+
+
 @app.route("/logout")
 def logout():
     # Remove user from the browser session cookies:
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+'''
+User Profile Template Rendering
+'''
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -115,11 +146,21 @@ def profile(username):
         recipes=recipes)
 
 
+'''
+Search Functionality
+'''
+
+
 @app.route("/search")
 def search():
     query = request.args.get("query", "-minutes -mins")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
+
+
+'''
+`Add New Recipe` Functionality & Template Rendering
+'''
 
 
 @app.route("/new_recipe", methods=["GET", "POST"])
@@ -173,6 +214,11 @@ def new_recipe():
     return render_template("new_recipe.html")
 
 
+'''
+`Edit Recipe` Functionality & Template Rendering
+'''
+
+
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -224,11 +270,21 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", recipe=recipe)
 
 
+'''
+`Delete Recipe` Functionality
+'''
+
+
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Deleted")
     return redirect(url_for("recipes"))
+
+
+'''
+`Cooking Tools` Template Rendering
+'''
 
 
 @app.route("/cooking_tools")
@@ -239,7 +295,4 @@ def cooking_tools():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
-
-
-# Update to debug = False before submission !
+            debug=False)
