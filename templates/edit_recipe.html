@@ -165,8 +165,8 @@
                         {% for step, method in recipe.method.items() %}
                         <div class="input-field col s12">
                             <span class="input-field col s10 m9">
-                            <textarea id="method" name="method" type="text"
-                                class="validate materialize-textarea" required>{{ method }}</textarea>
+                            <textarea id="method" name="method" class="validate materialize-textarea" 
+                            required>{{ method }}</textarea>
                             </span>
                             <span class="input-field col s1">
                                 <button class="remove red" type="button"><i class="fa fa-times"></i></button>
@@ -205,7 +205,7 @@
                     <!-- Allergens User Input -->
                     <div class="input-field col s11">
                         <i class="fas fa-allergies green-text text-darken-2 prefix"></i>
-                        <textarea id="allergens" name="allergens" type="text" min="1" 
+                        <textarea id="allergens" name="allergens" 
                             class="validate materialize-textarea" required>
                         {{- ",".join(recipe.allergens) -}}
                         </textarea>
