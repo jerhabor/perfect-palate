@@ -441,7 +441,7 @@ hr.delete-recipe:after {
 }
 
 .cooking-tool-image img {
-    width: 100% !important;
+    width: 100%;
 }
 
 .tools-info {
