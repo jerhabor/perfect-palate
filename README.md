@@ -6,7 +6,7 @@ Welcome to Perfect Palate - an online cookbook designed to host a collection of 
 
 As part of the branding, Perfect Palate has partnered with GreenPan Cookware to promote top quality cooking tools to further enhance your cooking experience.
 
-The website is deployed to Heroku and can be access here: [Perfect Palate](https://perfect-palate.herokuapp.com/).
+The website is deployed to Heroku and can be accessed here: [Perfect Palate](https://perfect-palate.herokuapp.com/).
 
 ----------
 Contents
