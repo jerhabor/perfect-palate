@@ -27,6 +27,7 @@ mongo = PyMongo(app)
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
+    recipes.sort(key=lambda k: k['recipe_name'])
     return render_template("recipes.html", recipes=recipes)
 
 
