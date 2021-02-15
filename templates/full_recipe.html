@@ -61,42 +61,36 @@
                             data-tooltip="Suitable for Vegetarians"></i></span>
                     {% endif %}
                 </h2>
-                <!-- Edit Button -->
-                <div class="col s12 center-align">
-                    {% if session.user|lower == recipe.recipe_by|lower %}
-                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small blue-grey darken-1"><i class="fas fa-edit prefix"></i>Edit Recipe</a>
-                    {% endif %}
+                <!-- Type of Meal Icons -->
+                <div class="meal-icons center">
+                    {% for meal in recipe.meal_time %}
+                        {% if meal == "Breakfast" %}
+                        <span>
+                            <a href="/search?query=breakfast" class="light-blue-text darken-2">
+                                <i class="fas fa-circle breakfast-icon"></i> Breakfast
+                            </a>
+                        </span>
+                        {% elif meal == "Lunch" %}
+                        <span>
+                            <a href="/search?query=lunch" class="light-green-text darken-1">
+                                <i class="fas fa-circle lunch-icon"></i> Lunch
+                            </a>
+                        </span>
+                        {% elif meal == "Dinner" %}
+                        <span>
+                            <a href="/search?query=dinner" class="orange-text darken-2">
+                                <i class="fas fa-circle dinner-icon"></i> Dinner
+                            </a>
+                        </span>
+                        {% elif meal == "Dessert" %}
+                        <span>
+                            <a href="/search?query=dessert" class="brown-text darken-1">
+                                <i class="fas fa-circle dessert-icon"></i> Dessert
+                            </a>
+                        </span>
+                        {% endif %}
+                    {% endfor %}
                 </div>
-            </div>
-            <!-- Type of Meal Icons -->
-            <div class="meal-icons center">
-                {% for meal in recipe.meal_time %}
-                    {% if meal == "Breakfast" %}
-                    <span>
-                        <a href="/search?query=breakfast" class="light-blue-text darken-2">
-                            <i class="fas fa-circle breakfast-icon"></i> Breakfast
-                        </a>
-                    </span>
-                    {% elif meal == "Lunch" %}
-                    <span>
-                        <a href="/search?query=lunch" class="light-green-text darken-1">
-                            <i class="fas fa-circle lunch-icon"></i> Lunch
-                        </a>
-                    </span>
-                    {% elif meal == "Dinner" %}
-                    <span>
-                        <a href="/search?query=dinner" class="orange-text darken-2">
-                            <i class="fas fa-circle dinner-icon"></i> Dinner
-                        </a>
-                    </span>
-                    {% elif meal == "Dessert" %}
-                    <span>
-                        <a href="/search?query=dessert" class="brown-text darken-1">
-                            <i class="fas fa-circle dessert-icon"></i> Dessert
-                        </a>
-                    </span>
-                    {% endif %}
-                {% endfor %}
             </div>
             <!-- Full Recipe Information -->
             <div class="row full-recipe-header">
@@ -154,6 +148,12 @@
             </div>
             <!-- Recipe Ingredients -->
             <div class="row">
+                <!-- Edit Button -->
+                <div class="col s12 center-align">
+                    {% if session.user|lower == recipe.recipe_by|lower %}
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small blue-grey darken-1"><i class="fas fa-edit prefix"></i>Edit Recipe</a>
+                    {% endif %}
+                </div>
                 <div class="center-align col s12">
                     <div class="col s12 section-title">
                         <hr class="style-eight">
