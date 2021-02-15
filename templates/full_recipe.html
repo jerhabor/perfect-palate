@@ -61,6 +61,12 @@
                             data-tooltip="Suitable for Vegetarians"></i></span>
                     {% endif %}
                 </h2>
+                <!-- Edit Button -->
+                <div class="col s12 center-align">
+                    {% if session.user|lower == recipe.recipe_by|lower %}
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small blue-grey darken-1"><i class="fas fa-edit prefix"></i>Edit Recipe</a>
+                    {% endif %}
+                </div>
             </div>
             <!-- Type of Meal Icons -->
             <div class="meal-icons center">
