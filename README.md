@@ -84,11 +84,8 @@ This manual testing was performed using the Google Chrome web browser.
 
 4.1.1. Features Before Registering
 
-- On first arrival of the Perfect Palate website, the user will be greeted and referred to as "Guest" on the _View All Recipes_ page:<br>
+- On first arrival of the Perfect Palate website, the user will be greeted and referred to as "Guest" on the _View All Recipes_ page. At this point, the user will only be able to find and read recipes via the view buttons:<br>
 <img src="static/manual-testing/guest-recipes-page.PNG" alt="guest recipes page" width="50%" height="auto"/>
-
-- At this point, the user will only be able to find and read recipes via the view buttons:<br>
-<img src="static/manual-testing/guest-recipes-page-2.PNG" alt="guest recipes page scrolled down" width="50%" height="auto"/>
 
 - Use the search bar to search for keywords, by typing words and then pressing the search button. In this test, "irish porridge jesse" is searched. All recipes containing the keywords "irish", "porridge" and "jesse" in the index as described in section 2.1 will be displayed:<br>
 <img src="static/manual-testing/initial-search.PNG" alt="search functionality testing" width="50%" height="auto"/><br>
@@ -123,25 +120,52 @@ This manual testing was performed using the Google Chrome web browser.
 - Click _Add New Recipe_ on the navigation bar:<br>
 <img src="static/manual-testing/add-recipe-page.PNG" alt="Add Recipe page" width="50%" height="auto"/>
 
-- Fill in all fields. (The YouTube link is not compulsory and can be left blank)
+- Fill in all fields. (The YouTube link is not compulsory and can be left blank). "Tester" will create a new recipe called "Pecan Pie": <br>
+<img src="static/manual-testing/adding-pecan-pie.PNG" alt="Recipe successfully added" width="50%" height="auto"/>
+
+- Once submitted, user will received a flash message as follows:<br>
+<img src="static/manual-testing/add-recipe-successful.PNG" alt="Recipe successfully added" width="50%" height="auto"/>
 
 4.1.5. Read (CRUD Functionalities)
 
 - To view all recipes on the website, click _View All Recipes_ on the navigation bar. The menu items have now changed to display options relevant to a registered user namely: _Logout_, _My Profile_ and _Add Recipe_. The page displayed is now as follows:<br>
 <img src="static/manual-testing/tester-recipes-page.PNG" alt="View All Recipes page for registered user" width="50%" height="auto"/>
 
-- To view other users' individual recipes, click on the view button of the desired recipe card. For this test, "tester" has chosen to view the recipe for "Fried Plantain":<br>
+- "Tester" can view their newly created recipe is now populated on the _View All Recipes_ page as well as on their _Profile_ page.<br>
+<img src="static/manual-testing/tester-recipes-page2.PNG" alt="View All Recipes page for registered user" width="50%" height="auto"/><br>
+<img src="static/manual-testing/tester-new-profile.PNG" alt="Updated Profile page for registered user" width="50%" height="auto"/>
+
+- To view any of the individual recipes, click on the view button of the desired recipe card. For this test, "tester" has chosen to view the recipe for "Fried Plantain":<br>
 <img src="static/manual-testing/full-recipe.PNG" alt="Full Recipe page" width="50%" height="auto"/>
+
+- If user chooses to view their own recipe, there will be an "edit" button available just before the ingredients section. <br>
+<img src="static/manual-testing/pecan-pie-full-recipe.PNG" alt="Own recipe's full page" width="50%" height="auto"/>
 
 4.1.6. Update (CRUD Functionalities)
 
+- Click the "edit" button which can be found on the recipe cards both on the user's creation on their _Profile_ page or on the _View All Recipes_ page or on the full recipe page of the session user's recipe.<br>
+<img src="static/manual-testing/edit-recipe.PNG" alt="Testing for session user to edit recipe" width="50%" height="auto"/>
+
 4.1.7. Delete (CRUD Functionalities)
 
+- If the user decides that they want to delete their recipe, this will be a two-step process for extra authentication. This is to consider the events that they may have clicked the button by mistake or if they are aware of the consequences. If user decides to click "Yes", then the recipe will be permanently removed from the database and subsequently Perfect Palate.<br>
+<img src="static/manual-testing/delete-modal.PNG" alt="Delete Recipe modal" width="50%" height="auto"/><br>
+<img src="static/manual-testing/recipe-successfully-deleted.PNG" alt="Recipe successfully deleted flash message" width="50%" height="auto"/>
+
 ### 4.2. Automated Testing
+Pytest was used to run some of Perfect Palate's test functions such as:
+1. Identifying the username in lower case in the event that another user tries to create an account with the same spelling but different cases. E.g. "jesSe" vs "Jesse".
+2. Ability to convert cooking_time from string into an integer which can be used in any further necessary calculations (e.g. total time).
+3. Being able to correctly format the method object that will be stored in the database for easy unpacking of the key-value items of step and method respectively.
 
 ### 4.3. Achievement of User Stories
 
 ### 4.4. Code Validation
+
+All code is valid and the syntax has been verified using the following list of validators:
+|               HTML               | CSS                                                | JS / JQuery                    | Python                                                        |
+|:--------------------------------:|----------------------------------------------------|--------------------------------|---------------------------------------------------------------|
+| [W3C](https://validator.w3.org/) | [Jigsaw W3C](https://jigsaw.w3.org/css-validator/) | [JS Hint](https://jshint.com/) | [Extends Class](https://extendsclass.com/python-tester.html) |
 
 ### 4.5. Test on Different Browsers
 
