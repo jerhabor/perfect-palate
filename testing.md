@@ -1,7 +1,28 @@
 # Testing
 
 [Main README](/README.md)
+
 Deployed site: [Perfect Palate](https://perfect-palate.herokuapp.com/)
+
+Contents
+---------
+  * [1. Manual Testing of Features](#1-manual-testing-of-features)
+    + [1.1. Features Before Registering](#11-features-before-registering)
+    + [1.2. Register account](#12-register-account)
+    + [1.3. Login](#13-login)
+    + [1.4. Create (CRUD Functionalities)](#14-create--crud-functionalities-)
+    + [1.5. Read (CRUD Functionalities)](#15-read--crud-functionalities-)
+    + [1.6. Update (CRUD Functionalities)](#16-update--crud-functionalities-)
+    + [1.7. Delete (CRUD Functionalities)](#17-delete--crud-functionalities-)
+  * [2. Automated Testing](#2-automated-testing)
+  * [3. Achievement of User Stories](#3-achievement-of-user-stories)
+  * [4. Code Validation](#4-code-validation)
+  * [5. Test on Different Browsers](#5-test-on-different-browsers)
+  * [6. Test on Different Devices](#6-test-on-different-devices)
+  * [7. Bugs and Problems](#7-bugs-and-problems)
+    + [7.1 Solved bugs and problems](#71-solved-bugs-and-problems)
+    + [7.2 Unsolved bugs and problems](#72-unsolved-bugs-and-problems)
+----------
 
 ## 1. Manual Testing of Features
 
@@ -22,7 +43,7 @@ Use the search bar to search for keywords, by typing words and then pressing the
 
 **Click on the "Fried Plantain" card image:**
 Confirm reveal of summary of the recipe:<br>
-<img src="static/manual-testing/card-reveal.PNG" alt="testing of recipe card preview or reveal" width="50%" height="auto"/>
+<img src="static/manual-testing/card-reveal.PNG" alt="testing of recipe card preview or reveal" width="25%" height="auto"/>
 
 ### 1.2. Register account
 
@@ -39,12 +60,12 @@ Confirm reveal of summary of the recipe:<br>
     <img src="static/manual-testing/email-exists-flash.PNG" alt="email exists flash message" width="50%" height="auto"/>
 
 - User will only be able to create account using any of the characters displayed on the label:<br>
-<img src="static/manual-testing/match-correct-format.PNG" alt="username does not match specified format" width="50%" height="auto"/>
+    <img src="static/manual-testing/match-correct-format.PNG" alt="username does not match specified format" width="50%" height="auto"/>
 
 ### 1.3. Login
 
 - If user inputs either an incorrect username or password, the following flash message will be shown:<br>
-<img src="static/manual-testing/incorrect-username-password-flash.PNG" alt="incorrect username and/or password flash message" width="50%" height="auto"/>
+    <img src="static/manual-testing/incorrect-username-password-flash.PNG" alt="incorrect username and/or password flash message" width="50%" height="auto"/>
 
 - Similarly with registration, if successfully logged in, user will be redirected to their profile page.
 
@@ -92,9 +113,40 @@ Pytest was used to run some of Perfect Palate's test functions such as:
 2. Ability to convert cooking_time from string into an integer which can be used in any further necessary calculations (e.g. total time).
 3. Being able to correctly format the method object that will be stored in the database for easy unpacking of the key-value items of step and method respectively.
 
-The *test_app.py* file is located in the [test folder](https://github.com/jerhabor/perfect-palate/tree/master/test).
+The `test_app.py` file is located in the [test folder](https://github.com/jerhabor/perfect-palate/tree/master/test).
 
 ## 3. Achievement of User Stories
+
+User Story 1:
+
+>"As a Vegetarian, I would like to be able to see which meals are suitable for me or not."
+
+>"Yes, I can clearly see which meals are vegetarian by the thoughtful seedling symbol with a tooltip to further reinforce it!"
+
+
+User Story 2:
+
+>"As a food-lover and promoter, I would like to be able to share recipes on my socials!"
+
+> "The share function on the Full Recipe page is amazing!"
+
+User Story 3:
+
+>"As a food newbie, I would like to learn how to cook something decent."
+
+> "Beautifully laid out site with mouthwatering choice of images!"
+
+User Story 4:
+
+>"As a health-conscious male, I would like to be informed of the contents and any possible allergies"
+
+>"Allergies listed accordingly. Very good."
+
+User Story 5:
+
+>"As an epicure, I would like to be able to submit lots of my recipes without constraint, but keep track of how many I have added."
+
+>"Love the counter on My Profile page!"
 
 ## 4. Code Validation
 
@@ -149,7 +201,9 @@ Key: &#x2714; = Displays as intended
 
 ### 7.1 Solved bugs and problems
 
+- Navigation items were intially unable to have the `.active` class targeted - even after adding `!important`. I was able to target the element by using the `::focus` CSS selector and applying a slightly darker shade of the green.
 
+- The images on the _Our Cookware_ page did not initially render well on mobile view. I then realised that Materialize uses a "push-pull" class to reorder content across the grid structure.
 
 ### 7.2 Unsolved bugs and problems
 

@@ -2,13 +2,67 @@
 
 # Perfect Palate
 
-Welcome to Perfect Palate - an online cookbook designed to host a collection of recipe ideas from across the globe.
+Welcome to Perfect Palate - an online cookbook designed to host a collection of recipe ideas from across the globe. The website is primarily aimed at those that are open and willing to experiment other cultures in the comfort of their kitchen! With the pandemic lingering, what better way to spend your time than by challenging, educating and upskilling yourself in learning more recipes.
+
+As part of the branding, Perfect Palate has partnered with GreenPan Cookware to promote top quality cooking tools to further enhance your cooking experience.
+
+----------
+Contents
+-
+- [Perfect Palate](#perfect-palate)
+  * [1. User Experience - UX](#1-user-experience---ux)
+    + [1.1. User Stories](#11-user-stories)
+    + [1.2. Structure and Skeleton Phases](#12-structure-and-skeleton-phases)
+  * [2. Features](#2-features)
+    + [2.1. General Features](#21-general-features)
+    + [2.2. CRUD Functionalities](#22-crud-functionalities)
+    + [2.3. Special Features](#23-special-features)
+    + [2.4. Features Left to Implement](#24-features-left-to-implement)
+  * [3. Database Structure](#3-database-structure)
+    + [3.1. Recipes Collection](#31-recipes-collection)
+    + [3.2. Users Collection](#32-users-collection)
+  * [4. Technologies Used](#4-technologies-used)
+  * [5. Testing](#5-testing)
+  * [6. Deployment](#6-deployment)
+    + [6.1. Running Project Locally](#61-running-project-locally)
+    + [6.2. Deployment to Heroku](#62-deployment-to-heroku)
+    + [6.3. Differences between Development & Deployed Codes](#63-differences-between-development---deployed-codes)
+  * [7. Credit](#7-credit)
+    + [7.1. Content](#71-content)
+    + [7.2. Acknowledgements](#72-acknowledgements)
+    + [7.3. Disclaimer](#73-disclaimer)
+
+------
 
 ## 1. User Experience - UX
 
 ### 1.1. User Stories
 
+User Story 1:
+
+>"As a Vegetarian, I would like to be able to see which meals are suitable for me or not."
+
+User Story 2:
+
+>"As a food-lover and promoter, I would like to be able to share recipes on my socials!"
+
+User Story 3:
+
+>"As a food newbie, I would like to learn how to cook something decent."
+
+User Story 4:
+
+>"As a health-conscious male, I would like to be informed of the contents and any possible allergies"
+
+User Story 5:
+
+>"As an epicure, I would like to be able to submit lots of my recipes without constraint, but keep track of how many I have added."
+
 ### 1.2. Structure and Skeleton Phases
+
+These user requirements were traded off and aligned with the site owner goals of Perfect Palate to establish a clear project scope. After consultations with my mentor, I then drafted up wireframes for the website in both desktop and mobile versions.
+
+I have compiled my wireframes in a single PDF in the [Project Development folder](https://github.com/jerhabor/perfect-palate/tree/master/static/wireframes).
 
 ## 2. Features
 
@@ -59,29 +113,112 @@ This page is dedicated to achieving the create functionality. Here, the user is 
 **2.2.2. Read**
 
 _**Search bar:**_
-- The search index includes the recipe_name, recipe_by, cuisine_type, meal_time, cooking_time and description. Users can search for recipes submitted by a certain user by simply typing their name; the function will filter accordingly. 
+- The search index includes the recipe_name, recipe_by, cuisine_type, meal_time, cooking_time and description. Users can search for recipes submitted by a certain user by simply typing their name; the function will filter accordingly.
+- The function uses the `GET` method so that it displays the search variable, `query` and keyword in the address bar. This allows for quick change to search by changing or adding keywords to url. This is however more advanced.
 - It is important to note that Perfect Palate uses the default behaviour of a searching index, which is "OR" rather than "AND". 
-- For example, searching for "irish porridge jesse" will filter all recipes that include any of those keywords in their recipe object. See 
+- For example, searching for "irish porridge jesse" will filter all recipes that include any of those keywords in their recipe object.
+- There are four buttons underneath the search bar namely the meal times: Breakfast, Lunch, Dinner and Dessert. These are all wired to the search bar.
+
+_**Recipe Cards:**_
+- The `.card-reveal` and `.activator` classes from Materialize allow users to click on the card and view a summary of the recipe before accessing the ingredients and method steps.
+- View buttons are available to both users and non-users. 
+- At the bottom of the cards there are dots which hold the same colours as the filter buttons below the search bar. Each card will have at least one dot colour as an indication of when the meal should be eaten. Tooltips are provided for labels of these dots.
+
+_**Full Recipe Page:**_
+- The cover header is magnifiable and can be viewed in full screen modal thanks to the `.materialboxed` class. This provides less pressure to fully fit adequately sized photos on the page without compromising its quality.
+- If session user views their own recipe, an edit button will be available on this page just before Ingredients.
+- I used numbers in style of font awesome icons as this is what users would prefer to see when reading the full recipe - information that is straight to the point.
 
 **2.2.3. Update**
 
+_**Edit Button:**_
+- Each user can only see the edit button on cards of the recipes that they have created. 
+- The button is also found on the _Full Recipe_ page and recipe cards on the _My Profile_ page.
+- All buttons are wired to render the `edit_recipe` template explained below.
+
+_**Edit Recipe Page:**_
+- Flask and Jinja have enabled the page to pull, unpack and display data stored on the recipe by targeting the `recipe._id` in the `app.py` function.
+- Upon submission, the user is redirected to the same page in the event that they wish to make more edits.
+
 **2.2.4. Delete**
+
+- The delete button is located at the bottom of the `edit_recipe` template in a danger zone. This is supposed to be a deterrent and encourage keeping recipes on the site.
 
 ### 2.3. Special Features
 
+**'Our Cookware' Page:**
+The main aim of this page was to promote the Perfect Palate + GreenPan cooking tools brand as per project specification.
+
 ### 2.4. Features Left to Implement
-- Like Button
 
-- S3 Bucket
+- **Favourite/Like Button** - The user who liked a card will find it displayed on their profile underneath their list of created recipes.
 
-- Carousel/Pagination for cards
+- **S3 Bucket** - Ability to upload images directly from device instead of using a host (e.g. IMGBB) or copying and pasting image addresses.
 
-- More Filters
+- **Carousel/Pagination for cards** - As the number of recipes created increase to minimize scrolling activity, pagination or use of a carousel would be an effective way to minimize that.
 
-- Forgot Password
+- **More Filters** - At the moment, the only filters are the search bar and the four meal time filter buttons. In the next version release, I would like to include filter for vegetarian options as well as sliders for preparation and cooking times.
+
+- **Forgot Password** - I added the email address input field to the _Register_ template with the intention of creating a "Forgot Password" function - however this will also be available in the next release.
 
 ## 3. Database Structure
 
+### 3.1. Recipes Collection
+
+Below is a table showing the choice of data. Please note the asterisks which are explained after the table:
+
+|     Data Key    | Data Type |
+|:---------------:|:---------:|
+|   cuisine_type  |   string  |
+|   recipe_name   |   string  |
+|    meal_time*   |   array   |
+|   description   |   string  |
+|     servings    |   string  |
+| is_vegetarian** |   string  |
+|    prep_time    |   string  |
+|   cooking_time  |   string  |
+|   ingredients   |   object  |
+|      method     |   object  |
+|    allergens    |   array   |
+|      image      |   string  |
+|      video      |   string  |
+|    recipe_by    |   string  |
+
+*The meal_time is composed of Breakfast, Lunch, Dinner and Dessert - out of which the user will be able to select. Some meals are suitable for more than one option e.g. rice could be eaten for Lunch and Dinner.
+
+**It was much easier to store the is_vegetarian data as a string rather than a boolean due to the nature of the input. As a select form, the values of the select options were just equated to the value stored in the database rather than having to find a way to convert from string to boolean.
+
+Exemplary storage of data for _Fried Plantain_:
+
+```
+{
+    _id: 601003511615884e24186cf8
+    cuisine_type: "Nigerian"
+    recipe_name: "Fried Plantain"
+    meal_time: Array
+    description: "A very delicious global dish cooked wherever plantains grow."
+    servings: "4"
+    is_vegetarian: "Yes"
+    prep_time: "2"
+    cooking_time: "15"
+    ingredients: Object
+    method: Object
+    allergens: Array
+    image: "https://static01.nyt.com/images/2019/10/13/dining/kwr-maduros/kwr-madu..."
+    video: "https://www.youtube.com/watch?v=sQJ9ioyNhEA"
+    recipe_by: "jesse"
+}
+```
+
+### 3.2. Users Collection
+
+| Data Key | Data Type |
+|:--------:|:---------:|
+| username |   string  |
+| password |   string  |
+|  email*  |   string  |
+
+*Email stored in preparation for the future implementation of the "Forgot Password" functionality.
 
 ## 4. Technologies Used
 
@@ -114,17 +251,22 @@ The deployed link is: [https://perfect-palate.herokuapp.com/](https://perfect-pa
 
 ### 6.1. Running Project Locally
 
-Ensure that you have access to an Integrated Development Environment (IDE) e.g. Atom or GitPod.
+1. Ensure that you have access to an Integrated Development Environment (IDE) e.g. Atom or GitPod.
 
-1. You will need to ensure that this IDE has Git, PIP and Python 3 installed first. 
+2. You will need to ensure that this IDE has Git, PIP and Python 3 installed first. 
 
-2. You will need to create an account on [MongoDB](https://www.mongodb.com/3) if you do not already have one.
+3. Clone the Perfect Palate GitHub repository by typing the following command on your CLI:
+```
+$ git clone https://github.com/jerhabor/perfect-palate.git
+```
 
-3. Create an _env.py_ file which will store your *SECRET_KEY* variable and your *MONGO_URI* which is linked to your own database in MongoDB. The database name is *online_cookbook* with two collections namely _recipes_ and _users_.
+4. You will need to create an account on [MongoDB](https://www.mongodb.com/3) if you do not already have one.
 
-4. Ensure that .gitignore is added to your IDE so that your env.py containing the data is never tracked/exposed.
+5. Create an _env.py_ file which will store your *SECRET_KEY* variable and your *MONGO_URI* which is linked to your own database in MongoDB. The database name is *online_cookbook* with two collections namely _recipes_ and _users_.
 
-5. You can now run the app on the terminal using the command:
+6. Ensure that .gitignore is added to your IDE so that your env.py containing the data is never tracked/exposed.
+
+7. You can now run the app on the terminal using the command:
     ```
     python3 app.py
     ```
@@ -186,7 +328,8 @@ Software Developer: Jess Erhabor
 [Tim Nelson, Code Institute](https://github.com/TravelTimN) - for the styling of the validation class on the select option forms.
 
 **7.1.2. Media Credit**
-Most of the images used for the recipe cards were sourced online e.g. google. It is worth noting that these were just used for educational purposes only.
+
+Generally, the images used for the recipe cards were sourced online e.g. google. It is worth noting that these were just used for educational purposes only.
 
 ### 7.2. Acknowledgements
 - My mentor [Caleb Mbakwe](https://github.com/caleboau2012) - for his guidance from conception to deployment and testing.
