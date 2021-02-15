@@ -471,7 +471,7 @@ hr.delete-recipe:after {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 319px) { /* For Samsung Galaxy Fold */
     nav .brand-logo.web-logo {
         font-size: 1.8rem;
     }
@@ -501,5 +501,15 @@ hr.delete-recipe:after {
 @media (min-width: 601px) {
     .key-recipe-info.cuisine {
         border: none;
+    }
+}
+
+@media (max-width: 320px) { /* For Samsung Galaxy Fold & iPhone 5/SE */
+    .recipe-help-info {
+        padding: 10px;
+    }
+
+    .action-button {
+        font-size: 0.9em;
     }
 }
