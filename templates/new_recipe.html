@@ -3,7 +3,7 @@
 {% block content %}
     <div class="card-border card-panel lime lighten-5">
         <!-- Page Title -->
-        <h2 class="page-title green-text text-darken-2 center-align brand-logo">Add a New Recipe</h2>
+        <h2 class="page-title green-text text-darken-2 center-align brand-logo">Add a New Recipe*</h2>
         <!-- Add a New Recipe Form -->
         <div class="row">
             <form class="col s12" method="POST" action="{{ url_for('new_recipe') }}">
@@ -14,14 +14,14 @@
                         <i class="fas fa-book-open green-text text-darken-2 prefix"></i>
                         <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" 
                             type="text" class="validate" required>
-                        <label for="recipe_name">Name of Food</label>
+                        <label for="recipe_name">Name of Food*</label>
                     </div>
                     <!-- Type of Cuisine -->
                     <div class="input-field col s12 m6">
                         <i class="fas fa-globe-africa green-text text-darken-2 prefix"></i>
                         <input id="cuisine_type" name="cuisine_type" minlength="5" maxlength="30" 
                             type="text" class="validate" required>
-                        <label for="cuisine_type">Type of Cuisine</label>
+                        <label for="cuisine_type">Type of Cuisine*</label>
                     </div>
                 </div>
                 <!-- Description of meal -->
@@ -30,7 +30,7 @@
                         <i class="fas fa-pencil-alt green-text text-darken-2 prefix"></i>
                         <textarea id="description" name="description" class="validate materialize-textarea" 
                             minlength="5" maxlength="100" required></textarea>
-                        <label for="description">Briefly describe this meal</label>
+                        <label for="description">Briefly describe this meal*</label>
                     </div>
                 </div>
                 <!-- Extra Key Recipe Information -->
@@ -45,7 +45,7 @@
                             <option value="Dinner">Dinner</option>
                             <option value="Dessert">Dessert</option>
                         </select>
-                        <label for="meal_time">When should I eat this meal?</label>
+                        <label for="meal_time">When should I eat this meal?*</label>
                     </div>
                     <!-- Is Vegetarian checkbox -->
                     <div class="input-field col s12 m4">
@@ -55,25 +55,25 @@
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
-                        <label for="is_vegetarian">Suitable for Vegetarians?</label>
+                        <label for="is_vegetarian">Suitable for Vegetarians?*</label>
                     </div>
                     <!-- Servings -->
                     <div class="input-field col s12 m4">
                         <i class="fas fa-utensils green-text text-darken-2 prefix"></i>
                         <input id="servings" name="servings" type="number" min="1" class="validate" required>
-                        <label for="servings">Servings</label>
+                        <label for="servings">Servings*</label>
                     </div>
                     <!-- Preparation Time -->
                     <div class="input-field col s12 m4">
                         <i class="fas fa-clock green-text text-darken-2 prefix"></i>
                         <input id="prep_time" name="prep_time" type="number" min="0" class="validate" required>
-                        <label for="prep_time">Preparation time (mins)</label>
+                        <label for="prep_time">Preparation time (mins)*</label>
                     </div>
                     <!-- Cooking Time -->
                     <div class="input-field col s12 m4">
                         <i class="fas fa-stopwatch green-text text-darken-2 prefix"></i>
                         <input id="cooking_time" name="cooking_time" type="number" min="0" class="validate" required>
-                        <label for="cooking_time">Cooking time (mins)</label>
+                        <label for="cooking_time">Cooking time (mins)*</label>
                     </div>
                 </div>
                 <!-- Visual of the recipe meal -->
@@ -99,7 +99,7 @@
                     <div class="input-field col s12 m6">
                         <i class="fas fa-image green-text text-darken-2 prefix"></i>
                         <input id="image" name="image" type="text" class="validate" required>
-                        <label for="image">Paste image address here!</label>
+                        <label for="image">Paste image address here!*</label>
                     </div>
                     <!-- Link to Video -->
                     <div class="input-field col s12 m6">
@@ -119,12 +119,12 @@
                                     <i class="fas fa-pepper-hot green-text text-darken-2 prefix"></i>
                                     <input id="ingredient_name" name="ingredient_name" minlength="1" maxlength="50" type="text"
                                         class="validate" required>
-                                    <label for="ingredient_name">Ingredient Name </label>
+                                    <label for="ingredient_name">Ingredient Name* </label>
                                 </div>
                                 <div class="input-field col s10 m3">
                                     <i class="fas fa-utensil-spoon green-text text-darken-2 prefix"></i>
                                     <input id="ingredient_amount" name="ingredient_amount" minlength="1" maxlength="50"                 type="text" class="validate" required>
-                                    <label for="ingredient_amount">Amount </label>
+                                    <label for="ingredient_amount">Amount* </label>
                                 </div>
                                 <span class="input-field col s1">
                                     <button class="remove red" type="button"><i class="fa fa-times"></i></button>
@@ -147,7 +147,7 @@
                             <span class="input-field col s10 m9">
                                 <textarea id="method" name="method" 
                                     minlength="1" class="validate materialize-textarea" required></textarea>
-                                <label for="method">What should I do?</label>
+                                <label for="method">What should I do?*</label>
                             </span>
                             <span class="input-field col s1">
                                 <button class="remove red" type="button"><i class="fa fa-times"></i></button>
@@ -196,7 +196,7 @@
                         <i class="fas fa-allergies green-text text-darken-2 prefix"></i>
                         <textarea id="allergens" name="allergens" 
                             class="validate materialize-textarea" required></textarea>
-                        <label for="allergens">Separate with commas</label>
+                        <label for="allergens">Separate with commas*</label>
                     </div>
                 </div>
                 <!-- Submit Button -->
