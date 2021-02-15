@@ -14,16 +14,17 @@
 
 ### 2.2. CRUD Functionalities
 
-2.2.1. Create
+**2.2.1. Create**
 
-2.2.2. Read
+**2.2.2. Read**
+
 search bar: The search index includes the recipe_name, recipe_by, cuisine_type, meal_time, cooking_time and description. Users can search for recipes submitted by a certain user by simply typing their name; the function will filter accordingly. It is important to note that Perfect Palate uses the default behaviour of a searching index, which is "OR" rather than "AND". 
 
 For example, searching for "irish porridge jesse" will filter all recipes that include any of those keywords in their recipe object. See 
 
-2.2.3. Update
+**2.2.3. Update**
 
-2.2.4. Delete
+**2.2.4. Delete**
 
 ### 2.3. Special Features
 
@@ -82,7 +83,7 @@ The Perfect Palate website was designed to give users the ability to find recipe
 
 This manual testing was performed using the Google Chrome web browser.
 
-4.1.1. Features Before Registering
+**4.1.1. Features Before Registering**
 
 - On first arrival of the Perfect Palate website, the user will be greeted and referred to as "Guest" on the _View All Recipes_ page. At this point, the user will only be able to find and read recipes via the view buttons:<br>
 <img src="static/manual-testing/guest-recipes-page.PNG" alt="guest recipes page" width="50%" height="auto"/>
@@ -94,7 +95,8 @@ This manual testing was performed using the Google Chrome web browser.
 - Click on the "Fried Plantain" card image to reveal a summary of the recipe:<br>
 <img src="static/manual-testing/card-reveal.PNG" alt="testing of recipe card preview or reveal" width="50%" height="auto"/>
 
-4.1.2. Register account
+**4.1.2. Register account**
+
 - Click _Register_ at the top right of the navigation bar, then the following page will load:<br>
 <img src="static/manual-testing/register-user.PNG" alt="testing user registration" width="50%" height="auto"/>
 
@@ -108,25 +110,25 @@ This manual testing was performed using the Google Chrome web browser.
 - User will only be able to create account using any of the characters displayed on the label:<br>
 <img src="static/manual-testing/match-correct-format.PNG" alt="username does not match specified format" width="50%" height="auto"/>
 
-4.1.3. Login
+**4.1.3. Login**
 
 - If user inputs either an incorrect username or password, the following flash message will be shown:<br>
 <img src="static/manual-testing/incorrect-username-password-flash.PNG" alt="incorrect username and/or password flash message" width="50%" height="auto"/>
 
 - Similarly with registration, if successfully logged in, user will be redirected to their profile page.
 
-4.1.4. Create (CRUD Functionalities)
+**4.1.4. Create (CRUD Functionalities)**
 
 - Click _Add New Recipe_ on the navigation bar:<br>
 <img src="static/manual-testing/add-recipe-page.PNG" alt="Add Recipe page" width="50%" height="auto"/>
 
 - Fill in all fields. (The YouTube link is not compulsory and can be left blank). "Tester" will create a new recipe called "Pecan Pie": <br>
-<img src="static/manual-testing/adding-pecan-pie.PNG" alt="Recipe successfully added" width="50%" height="auto"/>
+<img src="static/manual-testing/adding-pecan-pie.PNG" alt="Adding Pecan Pie recipe" width="50%" height="auto"/>
 
 - Once submitted, user will received a flash message as follows:<br>
 <img src="static/manual-testing/add-recipe-successful.PNG" alt="Recipe successfully added" width="50%" height="auto"/>
 
-4.1.5. Read (CRUD Functionalities)
+**4.1.5. Read (CRUD Functionalities)**
 
 - To view all recipes on the website, click _View All Recipes_ on the navigation bar. The menu items have now changed to display options relevant to a registered user namely: _Logout_, _My Profile_ and _Add Recipe_. The page displayed is now as follows:<br>
 <img src="static/manual-testing/tester-recipes-page.PNG" alt="View All Recipes page for registered user" width="50%" height="auto"/>
@@ -141,22 +143,25 @@ This manual testing was performed using the Google Chrome web browser.
 - If user chooses to view their own recipe, there will be an "edit" button available just before the ingredients section. <br>
 <img src="static/manual-testing/pecan-pie-full-recipe.PNG" alt="Own recipe's full page" width="50%" height="auto"/>
 
-4.1.6. Update (CRUD Functionalities)
+**4.1.6. Update (CRUD Functionalities)**
 
-- Click the "edit" button which can be found on the recipe cards both on the user's creation on their _Profile_ page or on the _View All Recipes_ page or on the full recipe page of the session user's recipe.<br>
+Click the "edit" button which can be found on the recipe cards both on the user's creation on their _Profile_ page or on the _View All Recipes_ page or on the full recipe page of the session user's recipe.<br>
 <img src="static/manual-testing/edit-recipe.PNG" alt="Testing for session user to edit recipe" width="50%" height="auto"/>
 
-4.1.7. Delete (CRUD Functionalities)
+**4.1.7. Delete (CRUD Functionalities)**
 
 - If the user decides that they want to delete their recipe, this will be a two-step process for extra authentication. This is to consider the events that they may have clicked the button by mistake or if they are aware of the consequences. If user decides to click "Yes", then the recipe will be permanently removed from the database and subsequently Perfect Palate.<br>
 <img src="static/manual-testing/delete-modal.PNG" alt="Delete Recipe modal" width="50%" height="auto"/><br>
 <img src="static/manual-testing/recipe-successfully-deleted.PNG" alt="Recipe successfully deleted flash message" width="50%" height="auto"/>
 
 ### 4.2. Automated Testing
+
 Pytest was used to run some of Perfect Palate's test functions such as:
 1. Identifying the username in lower case in the event that another user tries to create an account with the same spelling but different cases. E.g. "jesSe" vs "Jesse".
 2. Ability to convert cooking_time from string into an integer which can be used in any further necessary calculations (e.g. total time).
 3. Being able to correctly format the method object that will be stored in the database for easy unpacking of the key-value items of step and method respectively.
+
+The test_app.py file is located in the [test folder](https://github.com/jerhabor/perfect-palate/tree/master/test)
 
 ### 4.3. Achievement of User Stories
 
@@ -166,6 +171,12 @@ All code is valid and the syntax has been verified using the following list of v
 |               HTML               | CSS                                                | JS / JQuery                    | Python                                                        |
 |:--------------------------------:|----------------------------------------------------|--------------------------------|---------------------------------------------------------------|
 | [W3C](https://validator.w3.org/) | [Jigsaw W3C](https://jigsaw.w3.org/css-validator/) | [JS Hint](https://jshint.com/) | [Extends Class](https://extendsclass.com/python-tester.html) |
+
+**Screenshot for CSS validation:**<br>
+<img src="static/validation/validated_css.PNG" alt="CSS Validated with no errors" width="50%" height="auto"/>
+
+**Screenshot for Python validation:**<br>
+<img src="static/validation/validated_python.PNG" alt="Python app code validated with no errors" width="50%" height="auto"/><br>
 
 ### 4.5. Test on Different Browsers
 
